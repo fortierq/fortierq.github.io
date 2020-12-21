@@ -1,0 +1,21 @@
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    <!-- {% if site.data.ui-text[site.locale].follow_label %}
+      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
+    {% endif %} -->
+    <center>
+    {% if site.footer.links %}
+      {% for link in site.footer.links %}
+        {% if link.url %}
+          <li>
+            <a href="{{ link.url }}" rel="nofollow noopener noreferrer">
+              <i class="{{ link.icon }}"></i>
+            <!-- <i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> -->
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    </center>
+  </ul>
+</div>

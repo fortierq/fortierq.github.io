@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../jekyll-now"
+		},
+		{
+			"path": "../minimal-mistakes"
+		}
+	],
+	"settings": {}
+}
