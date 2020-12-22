@@ -1,18 +1,19 @@
 ---
-title: "Teaching"
 toc: true
+toc_label: "Teaching"
 toc_sticky: true
 permalink: /teaching/
 date: now
+author_profile: false
 courses:
   - name: Option informatique en MP*
     url: /assets/teaching/MP/
     chapters:
         - name: Structures de données
           lectures: 
-            - name: "Cours 1: pile, file, arbre binaire de recherche, dictionnaire" 
+            - name: "pile, file, arbre binaire de recherche, dictionnaire" 
               url: structures.pdf
-            - name: "Cours 2: file de priorité et tas"
+            - name: "file de priorité et tas"
               url: structures2.pdf
           exos:
             - name: TD1
@@ -23,14 +24,13 @@ courses:
               url: DM_structures.pdf
             - name: DS
               url: DS_structures.pdf
-
         - name: Graphes
           lectures: 
-            - name: "Cours 1: définitions"
+            - name: "définitions"
               url: graphes1.pdf
-            - name: "Cours 2: représentation et parcours"
+            - name: "représentation et parcours"
               url: graphes2.pdf
-            - name: "Cours 3: plus courts chemins"
+            - name: "plus courts chemins"
               url: graphes3.pdf
           exos:
             - name: TD1
@@ -41,14 +41,13 @@ courses:
               url: td_graphes3_cor.pdf
             - name: DS
               url: ds_graphe.pdf
-
         - name: Langages et automates
           lectures: 
-            - name: "Cours 1: langage rationnel"
+            - name: "langage rationnel"
               url: langage.pdf
-            - name: "Cours 2: automate régulier"
+            - name: "automate régulier"
               url: automate.pdf
-            - name: "Cours 3: équivalence"
+            - name: "équivalence"
               url: equiv.pdf
           exos:
             - name: TD1
@@ -57,10 +56,9 @@ courses:
               url: td_automate.pdf
             - name: TD3
               url: td_equiv_cor.pdf
-
         - name: Logique
           lectures: 
-            - name: "Cours: formule, table de vérité, satisfiabilité"
+            - name: "formule, table de vérité, satisfiabilité"
               url: logique.pdf
           exos:
             - name: TD
@@ -69,17 +67,71 @@ courses:
               url: DS_logique.pdf
             - name: DM
               url: DM_logique.pdf
-            
-  - name: Informatique commune en PSI
+
+  - name: Informatique commune en PCSI
+    url: /assets/teaching/PCSI/
+    lectures: 
+      - name: "introduction à l'algorithmique" 
+        url: cours1.pdf
+      - name: "conditions et boucle for" 
+        url: cours_if_boucles.pdf
+      - name: "boucle while" 
+        url: while.pdf
+      - name: "fonctions" 
+        url: functions-pres.pdf
+      - name: "listes" 
+        url: listes-pres.pdf
+      - name: "preuves de programme" 
+        url: preuve.pdf
+      - name: "complexité" 
+        url: complexite.pdf
+      - name: "recherche par dichotomie dans une liste triée" 
+        url: algolistes-pres.pdf
+      - name: "architecture des ordinateurs" 
+        url: architecture.pdf
+      - name: "représentation des entiers" 
+        url: representation_entiers.pdf
+      - name: "représentation des flottants" 
+        url: representation_flottants.pdf
+      - name: "tableaux NumPy" 
+        url: array.pdf
+      - name: "dessins avec matplotlib" 
+        url: graphisme.pdf
+      - name: "méthode de dichotomie et de Newton pour résoudre f(x)=0" 
+        url: newton.pdf
+      - name: "intégration numérique" 
+        url: integration.pdf
+      - name: "Méthode d'Euler pour une équation différentielle d'ordre 1" 
+        url: euler.pdf
+      - name: "Méthode d'Euler pour un système d'équations différentielles" 
+        url: euler2.pdf
+      - name: "Manipulation des fichiers" 
+        url: fichiers.pdf
+      - name: "Méthode du pivot de Gauss" 
+        url: gauss1.pdf
+      - name: "bases sur les bases de données (SQL)" 
+        url: SGBD1.pdf
+      - name: "opérations sur plusieurs tables (SQL)"
+        url: base_donnees2.pdf
+      - name: "fonctions d’agrégation (SQL)" 
+        url: base_donnees3.pdf
+      - name: "SELECT imbriqués (SQL)" 
+        url: base_donnees4.pdf
 ---
 
 {% for course in page.courses %}
 ## {{ course.name }}
+{% if course.chapters %}
 {% for chapter in course.chapters %}
-### {{ chapter.name }}  
+- ### {{ chapter.name }}  
 {% for lecture in chapter.lectures %} 
-- [{{ lecture.name }}]({{ course.url | append: lecture.url }})
+  - [Cours {{ forloop.index }}: {{ lecture.name }}]({{ course.url | append: lecture.url }})
 {% endfor %}  
-- Exercices: {% for exo in chapter.exos %} [{{ exo.name }}]({{ course.url | append: exo.url }}) {% endfor %}
+  - Exercices: {% for exo in chapter.exos %} [{{ exo.name }}]({{ course.url | append: exo.url }}) {% endfor %}
 {% endfor %}
+{% else %}
+{% for lecture in course.lectures %} 
+  - [Cours {{ forloop.index }}: {{ lecture.name }}]({{ course.url | append: lecture.url }})
+{% endfor %}  
+{% endif %}
 {% endfor %}

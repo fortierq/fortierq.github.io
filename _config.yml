@@ -96,7 +96,7 @@ analytics:
 author:
   name             : "Quentin Fortier"
   avatar           : "/assets/img/qf.png"
-  bio              : "PhD in Computer Science."
+  bio              : "PhD in Computer Science"
   location         : "Paris"
   email            : "quentin.fortier@ens-lyon.org"
   links:
@@ -108,7 +108,7 @@ author:
       url: "https://github.com/fortierq"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/fortierq/"
+      url: "https://linkedin.com/in/fortierq"
 
 # Site Footer
 footer:
