@@ -5,7 +5,7 @@ toc_sticky: true
 permalink: /teaching/
 date: now
 courses:
-  - name: Option informatique en MP*
+  - name: Option informatique en MP/MP*
     url: /assets/teaching/MP/
     chapters:
         - name: Structures de données
