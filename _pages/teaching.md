@@ -1,10 +1,9 @@
 ---
 toc: true
-toc_label: "Teaching"
+toc_label: "Enseignement"
 toc_sticky: true
 permalink: /teaching/
 date: now
-author_profile: false
 courses:
   - name: Option informatique en MP*
     url: /assets/teaching/MP/
@@ -69,7 +68,7 @@ courses:
               url: DM_logique.pdf
 
   - name: Informatique commune en PCSI
-    url: /assets/teaching/PCSI/
+    url: /assets/Enseignement/PCSI/
     lectures: 
       - name: "introduction à l'algorithmique" 
         url: cours1.pdf

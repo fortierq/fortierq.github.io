@@ -16,12 +16,12 @@ remote_theme: "mmistakes/minimal-mistakes@4.21.0"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
+locale                   : "fr-FR"
 title                    : "Quentin Fortier"
 title_separator          : "-"
-subtitle                 : "Algorithms, data science, optimization"
+subtitle                 : "Algorithmes, data science, optimisation"
 name                     : "Quentin Fortier"
-description              : "Personal website containing course material and projects about computer science and mathematics."
+description              : "Site personnel"
 url                      : "https://fortierq.github.io"
 baseurl                  : ""
 repository               : "fortierq/fortierq"
@@ -96,7 +96,7 @@ analytics:
 author:
   name             : "Quentin Fortier"
   avatar           : "/assets/img/qf.png"
-  bio              : "PhD in Computer Science"
+  bio              : "Docteur en informatique"
   location         : "Paris"
   email            : "quentin.fortier@ens-lyon.org"
   links:

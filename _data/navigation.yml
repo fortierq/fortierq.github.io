@@ -1,8 +1,13 @@
 # main links
 main:
-  - title: "Teaching"
+  - title: "Enseignement"
     url: /teaching/
+  - title: "Projets"
+    url: /projects/
+  - title: "Recherche"
+    url: /research/
   - title: "CV"
-    url: CV.pdf
+    url: /assets/CV.pdf
+    # description: 
   # - title: "Sitemap"
   #   url: /sitemap/
