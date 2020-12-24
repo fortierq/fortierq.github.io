@@ -47,7 +47,8 @@ The notion of connectivity is fundamental in graph theory. We study a recent dev
 [**Manuscrit**](https://tel.archives-ouvertes.fr/tel-01838231){: .btn .btn--primary}  [**Soutenance**](/assets/soutenance.pdf){: .btn .btn--primary}  
 {: style="text-align: center;"}
 
-## Publications
+## Articles et contributions
+
 - Rapporteur pour *Journal of Graph Theory*
 {% for pub in page.publications %}
 - [{{ pub.name }}]({{ pub.url }})  

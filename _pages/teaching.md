@@ -67,7 +67,19 @@ courses:
             - name: DM
               url: DM_logique.pdf
 
-  - name: Informatique commune en PSI (incomplet)
+  - name: Option informatique en MPSI
+    url: /assets/teaching/MPSI/
+    items:
+      - name: "Cours bonus : promenade algorithmique" 
+        url: promenade.pdf
+      - name: "Exercice: transformée de Fourier rapide" 
+        url: fft.pdf
+      - name: "Exercices: diviser pour régner" 
+        url: tris.pdf
+      - name: "Exercice: rendu de monnaie" 
+        url: rendu_monnaie.pdf
+
+  - name: Informatique commune en PSI
     url: /assets/teaching/PSI/
     items:
       - name: "Récursivité" 
@@ -159,6 +171,7 @@ courses:
 {% else %}
 {% for e in course.items %} 
   - [{{ e.name }}]({{ course.url | append: e.url }})
+  {% if e.cor %} [{{ e.cor }}]({{ course.url | append: e.cor_url }}) {% endif %}
 {% endfor %}  
 {% endif %}
 {% endfor %}
