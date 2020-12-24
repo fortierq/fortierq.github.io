@@ -67,8 +67,32 @@ courses:
             - name: DM
               url: DM_logique.pdf
 
+  - name: Informatique commune en PSI (incomplet)
+    url: /assets/teaching/PSI/
+    items:
+      - name: "Récursivité" 
+        url: recursivite.pdf
+      - name: "Algorithmes de tri" 
+        url: tris.pdf
+      - name: "TP : démonstration d’un théorème avec l’ordinateur" 
+        url: TP_153.pdf
+      - name: "TP : fractales" 
+        url: tp_fractale.pdf
+      - name: "TP : modèle d’Ising" 
+        url: tp_ising.pdf
+      - name: "TP : simulation de particules" 
+        url: tp_particules.pdf
+      - name: "TP : simulation de planètes" 
+        url: tp_planetes.pdf
+      - name: "TP : probabilités 1" 
+        url: tp_probas.pdf
+      - name: "TP : probabilités 2" 
+        url: tp_probas2.pdf
+      - name: "TP : algorithme de Gram-Schmidt" 
+        url: TP_produit_scalaire.pdf
+
   - name: Informatique commune en PCSI
-    url: /assets/Enseignement/PCSI/
+    url: /assets/teaching/PCSI/
     lectures: 
       - name: "introduction à l'algorithmique" 
         url: cours1.pdf
@@ -128,9 +152,13 @@ courses:
 {% endfor %}  
   - Exercices: {% for exo in chapter.exos %} [{{ exo.name }}]({{ course.url | append: exo.url }}) {% endfor %}
 {% endfor %}
-{% else %}
+{% elsif course.lectures %}
 {% for lecture in course.lectures %} 
   - [Cours {{ forloop.index }}: {{ lecture.name }}]({{ course.url | append: lecture.url }})
+{% endfor %}  
+{% else %}
+{% for e in course.items %} 
+  - [{{ e.name }}]({{ course.url | append: e.url }})
 {% endfor %}  
 {% endif %}
 {% endfor %}
