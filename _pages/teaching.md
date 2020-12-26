@@ -2,6 +2,7 @@
 toc: true
 toc_label: "Enseignement"
 toc_sticky: true
+title: "Enseignement"
 permalink: /teaching/
 date: now
 courses:

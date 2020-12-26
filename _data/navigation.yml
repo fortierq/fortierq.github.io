@@ -1,13 +1,12 @@
 # main links
 main:
+  - title: "Blog"
+    url: /blog/
   - title: "Enseignement"
     url: /teaching/
   - title: "Projets"
-    url: /projects/
+    url: https://github.com/fortierq
   - title: "Recherche"
     url: /research/
   - title: "CV"
     url: /assets/CV.pdf
-    # description: 
-  # - title: "Sitemap"
-  #   url: /sitemap/

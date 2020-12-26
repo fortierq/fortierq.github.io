@@ -41,13 +41,13 @@ talks:
 **Aspects of connectivity with matroid constraints in graphs**
 {: style="text-align: center;"}
 
-The notion of connectivity is fundamental in graph theory. We study a recent development in this field, with the addition of matroid constraints. We extend Menger's and Edmonds' packing theorems in this new theory. By finding a counterexample with more than 300 vertices, we disprove a recent conjecture from András Frank.
+**Abstract**: The notion of connectivity is fundamental in graph theory. We study a recent development in this field, with the addition of matroid constraints. We extend Menger's and Edmonds' packing theorems in this new theory. By finding a counterexample with more than 300 vertices, we disprove a recent conjecture from András Frank.
 {: .notice--primary}
 
 [**Manuscrit**](https://tel.archives-ouvertes.fr/tel-01838231){: .btn .btn--primary}  [**Soutenance**](/assets/soutenance.pdf){: .btn .btn--primary}  
-{: style="text-align: center;"}
+{: style="text-align: center"}
 
-## Articles et contributions
+## Articles de recherche
 
 - Rapporteur pour *Journal of Graph Theory*
 {% for pub in page.publications %}
