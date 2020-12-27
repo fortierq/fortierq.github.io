@@ -153,7 +153,11 @@ courses:
         url: base_donnees3.pdf
       - name: "SELECT imbriqués (SQL)" 
         url: base_donnees4.pdf
+  # - name: "Recherche opérationnelle en L3 Miage"
+  # - name: "Algorithmique et théorie des graphes en licence d'informatique"
 ---
+
+Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 
 {% for course in page.courses %}
 ## {{ course.name }}
