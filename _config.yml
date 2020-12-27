@@ -26,7 +26,7 @@ url                      : "https://fortierq.github.io"
 baseurl                  : ""
 repository               : fortierq/fortierq.github.io
 teaser                   : 
-logo                     : "/assets/img/petersen.png"
+logo                     : "/assets/images/petersen.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -75,7 +75,7 @@ facebook:
   app_id                 :
   publisher              :
 linkedin                 : "fortierq"
-og_image                 : /assets/img/py.png
+og_image                 : /assets/images/qf.png
 # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
@@ -96,7 +96,7 @@ analytics:
 # Site Author
 author:
   name             : "Quentin Fortier"
-  avatar           : "/assets/img/qf.png"
+  avatar           : "/assets/images/qf.png"
   bio              : "Docteur en informatique"
   location         : "Paris"
   email            : "quentin.fortier@ens-lyon.org"
