@@ -4,7 +4,11 @@
 
 @charset "utf-8";
 
-$max-width: 95%; // added semicolon
+$max-width: 90%; // added semicolon
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }  
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
