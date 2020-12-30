@@ -10,5 +10,14 @@ $max-width: 90%; // added semicolon
     margin-right: auto;
   }  
 
+.table {
+    border-collapse: collapse;
+
+  > table, td, th {
+    border: 1px solid black;
+    }
+}
+
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
