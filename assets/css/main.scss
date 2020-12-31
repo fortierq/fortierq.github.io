@@ -5,6 +5,7 @@
 @charset "utf-8";
 
 $max-width: 90%; // added semicolon
+
 .center {
     margin-left: auto;
     margin-right: auto;
@@ -18,6 +19,37 @@ $max-width: 90%; // added semicolon
     }
 }
 
+img {
+  box-shadow: 0 0 10px rgba(#000, 0.25);
+}
+
+.fab:hover {
+  opacity: 0.5;
+}
+
+.archive__item:hover {
+  box-shadow: 0 0 10px rgba(#000, 0.25);
+}
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+.site-logo img {
+  box-shadow: 0 0 0px rgba(#000, 0.25);
+}
+
+.feature__item {
+  a {
+  text-decoration: none; 
+  color: $text-color;
+  }
+  a:hover {
+    text-decoration: none; 
+    color: $text-color;
+    }
+}
+
+.archive__item-title, .archive__item-excerpt {
+  text-decoration: none; 
+  color: $text-color;
+}
