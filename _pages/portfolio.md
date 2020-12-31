@@ -15,4 +15,5 @@ feature_row:
     url: https://www.editions-ellipses.fr/accueil/119-sciences-numeriques-et-technologie-seconde-nouveaux-programmes-9782340033658.html
 ---
 
+<br>
 {% include feature_row %}
