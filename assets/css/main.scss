@@ -40,17 +40,9 @@ img {
 
 .feature__item {
   text-align: center;
-  a {
-  text-decoration: none; 
-  color: $text-color;
+  .archive__item {
+    border: 1px solid lightgray;
   }
-  a:hover {
-    text-decoration: none; 
-    color: $text-color;
-    }
-    .archive__item {
-      border: 1px solid lightgray;
-    }
 }
 
 .archive__item-title, .archive__item-excerpt {

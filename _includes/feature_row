@@ -3,12 +3,10 @@
 {% else %}
   {% assign feature_row = page.feature_row %}
 {% endif %}
-
-
 <div class="feature__wrapper">
   {% for f in feature_row %}
     <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
-    <a href="{{ f.url | relative_url }}" {% if f.title %}title="{{ f.title }}"{% endif %}>
+    <a href="{{ f.url | relative_url }}" {% if f.title %}title="{{ f.title }}"{% endif %} style="text-decoration : none">
       <div class="archive__item">
         {% if f.image_path %}
           <div class="archive__item-teaser">
@@ -34,5 +32,4 @@
     </a>
     </div>
   {% endfor %}
-
 </div>
