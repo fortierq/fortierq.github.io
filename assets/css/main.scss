@@ -48,11 +48,11 @@ img {
     text-decoration: none; 
     color: $text-color;
     }
+    .archive__item {
+      border: 1px solid lightgray;
+    }
 }
 
-.archive__item {
-  border: 1px solid lightgray;
-}
 .archive__item-title, .archive__item-excerpt {
   text-decoration: none; 
   color: $text-color;
