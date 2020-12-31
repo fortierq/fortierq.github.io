@@ -4,8 +4,8 @@ main:
     url: /blog/
   - title: "Enseignement"
     url: /teaching/
-  - title: "Projets"
-    url: https://github.com/fortierq
+  - title: "Portfolio"
+    url: /portfolio/
   - title: "Recherche"
     url: /research/
   - title: "CV"
