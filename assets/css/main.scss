@@ -8,7 +8,7 @@ $max-width: 90%;
 $back: rgb(250, 250, 250);
 
 .half-line {
-  line-height: 50%;
+  line-height: 40%;
 }
 
 .center {
@@ -32,9 +32,9 @@ img {
   opacity: 0.5;
 }
 
-.feature_sz{
-  height: 11.5cm;
-}
+// .feature_sz{
+//   height: 11.5cm;
+// }
 
 .archive__item{
   &:hover {
@@ -67,9 +67,10 @@ img {
 }
 
 .archive__item-teaser {
+  height: 6cm;
   img {
-    width: auto;
-    height: 5.5cm;
+    height: 100%;
+    object-fit: contain;
     box-shadow: 0 0 0px rgba(#000, 0.25);
   }
 }
