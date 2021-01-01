@@ -10,10 +10,25 @@ excerpt: "Docteur en informatique"
 
 <center>
   <img src="/assets/images/qf.png" style="max-width: 180px; border-radius: 50%;" alt="Quentin Fortier"> 
-  <br><br>
+  <br>
 
   <p> 
     Sur ce site, vous trouverez mes cours, projets, travaux de recherche et mon blog <br>
     Centres d'intérêts: algorithmique, combinatoire, machine learning, programmation...
   </p>
 </center>
+
+<br>
+
+<h3 class="archive__subtitle">Dernier article</h3>
+{% if paginator %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% assign post = posts[0] %}
+    {% include archive-single.html type=entries_layout %}
+</div>
