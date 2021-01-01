@@ -5,6 +5,11 @@
 @charset "utf-8";
 
 $max-width: 90%; // added semicolon
+$back: rgb(250, 250, 250);
+
+.half-line {
+  line-height: 50%;
+}
 
 .center {
     margin-left: auto;
@@ -44,7 +49,7 @@ img {
     border: 1px solid lightgray;
   }
   &:hover { 
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(245, 245, 245);
   }
 }
 
