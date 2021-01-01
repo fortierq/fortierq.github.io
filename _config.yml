@@ -97,7 +97,7 @@ analytics:
 author:
   name             : "Quentin Fortier"
   avatar           : "/assets/images/qf.png"
-  bio              : "Docteur en informatique"
+  bio              : "Docteur en informatique. Agrégé de mathématiques option informatique."
   location         : "Paris"
   email            : "quentin.fortier@ens-lyon.org"
   links:
@@ -259,6 +259,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+      sticky: true
   # _posts
   - scope:
       path: ""
@@ -270,3 +271,4 @@ defaults:
       comments: true
       share: true
       related: true
+      sticky: true
