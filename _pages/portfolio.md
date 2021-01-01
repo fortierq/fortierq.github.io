@@ -26,8 +26,8 @@ feature_row2:
     excerpt: "Bibliothèque C++ de théorie des graphes : arbre couvrant minimal, plus court chemin, flot maximum... Utilisation de la programmation orientée objet et de templates."
     url: https://github.com/fortierq/SGL
   - image_path: assets/images/hirsch.png
-    title: "Computational approach to the diameter of polytopes"
-    excerpt: "Notebook Jupyter autour de problèmes de pavages: résolution par programmation linéaire et petits exercices."
+    title: "Conjecture de Hirsch"
+    excerpt: "Recherche d'un contre-exemple à la conjecture de Hirsch en utilisant le SMT-solver Z3 en C++."
     url: https://github.com/fortierq/Prismatoid
 ---
 
