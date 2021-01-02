@@ -36,13 +36,6 @@ img {
 //   height: 11.5cm;
 // }
 
-.archive__item{
-  &:hover {
-    box-shadow: 0 0 10px rgba(#000, 0.25);
-}
-}
-  
-
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
@@ -52,11 +45,10 @@ img {
 
 .feature__item {
   text-align: center;
-  .archive__item {
-    border: 1px solid lightgray;
-  }
+  border: 1px solid lightgray;
   background-color: $back;
   &:hover { 
+    box-shadow: 0 0 10px rgba(#000, 0.25);
     opacity: 80%;
   }
 }
