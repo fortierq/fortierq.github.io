@@ -2,6 +2,7 @@
 title: Portfolio
 permalink: /portfolio/
 classes: wide
+layout: collection
 feature_row:
   - image_path: assets/images/mtgscan.jpg
     title: "MTGScan"
