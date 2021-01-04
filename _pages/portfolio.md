@@ -28,7 +28,7 @@ feature_row2:
     url: https://github.com/fortierq/SGL
   - image_path: assets/images/hirsch.png
     title: "Conjecture de Hirsch"
-    excerpt: "Recherche d'un contre-exemple à la conjecture de Hirsch en utilisant le SMT-solver Z3 en C++."
+    excerpt: "Recherche d'un contre-exemple à la conjecture de Hirsch en utilisant le SMT-solver Z3 en C++. La conjecture de Hirsch affirme que le diamètre d'un polytope de dimension $d$ ayant $n$ faces est inférieur à $n - d$".
     url: https://github.com/fortierq/Prismatoid
 ---
 
