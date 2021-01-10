@@ -34,5 +34,7 @@ Cependant, il y a plusieurs inconvénients:
 # Prérequis
 
 - Une clé USB d'installation d'Ubuntu. Celle-ci peut être créée sous Ubuntu avec le créateur de disque (installé nativement) et une [image .iso](https://ubuntu.com/download/desktop). Sous Windows, je recommande [Rufus](https://rufus.ie). L'image d'Ubuntu 20.04 pesant 2.8 Go, il vous faudra au minimum 4 Go sur votre clé USB. Une clé USB 3.0 vous permettra une installation plus rapide, mais n'est pas obligatoire.
+{% include image.html url="/assets/images/ubuntu-install-usb/startup.png" caption="Création d'une clé USB bootable" %}
+
 - Une clé USB sur laquelle vous allez installer Ubuntu. Officiellement, la recommandation pour Ubuntu 20.04 est d'avoir au moins 25 Go d'espace libre. En pratique, j'ai constaté qu'une installation minimale prend environ 6 Go. Si vous n'avez pas besoin de beaucoup d'espace, une clé de 16 Go voire 8 Go est donc envisageable. Par contre, il est clairement préférable d'utiliser une clé **USB 3.0 ou supérieure** : tout sera très lent avec de l'USB 2.0 (j'ai testé : 15 min de démarrage, 5 min d'ouverture de session...). En revanche une clé USB 3.0 vous permettra une utilisation très fluide, comparable à une installation sur SSD.
 
