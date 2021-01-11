@@ -38,3 +38,11 @@ Cependant, il y a plusieurs inconvénients:
 
 - Une clé USB sur laquelle vous allez installer Ubuntu. Officiellement, la recommandation pour Ubuntu 20.04 est d'avoir au moins 25 Go d'espace libre. En pratique, j'ai constaté qu'une installation minimale prend environ 6 Go. Si vous n'avez pas besoin de beaucoup d'espace, une clé de 16 Go voire 8 Go est donc envisageable. Par contre, il est clairement préférable d'utiliser une clé **USB 3.0 ou supérieure** : tout sera très lent avec de l'USB 2.0 (j'ai testé : 15 min de démarrage, 5 min d'ouverture de session...). En revanche une clé USB 3.0 vous permettra une utilisation très fluide, comparable à une installation sur SSD.
 
+# Étape 0 : Déconnecter votre disque dur
+
+Il est recommandé de commencer par déconnecter le(s) disque(s) dur(s) de votre ordinateur. En effet, l'installation Ubuntu pourrait à tord écraser les fichiers de démarrage sur votre ordinateur, et non pas sur votre clé USB[^1]. Pour cela, allez dans les options du BIOS/UEFI (F12/F2/... au démarrage de l'ordinateur) et désactivez vos disques durs.
+
+{% include image.html url="/assets/images/ubuntu-install-usb/dd.jpg" %}
+
+
+[^1]: Si jamais cela arrive, vous devrez réinstaller grub en utilisant par exemple [boot-repair](https://doc.ubuntu-fr.org/boot-repair) via un live USB
