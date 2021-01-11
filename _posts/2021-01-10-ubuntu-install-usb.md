@@ -6,8 +6,8 @@ tags:
 toc: true
 toc_sticky: true
 header:
-  teaser: /assets/images/ubuntu.svg
-  og_image: /assets/images/ubuntu.svg
+  teaser: /assets/images/ubuntu-install-usb/ubuntu.png
+  og_image: /assets/images/ubuntu-install-usb/ubuntu.png
 ---
 
 Dans ce court article, je présente l'installation (*full install*) d'Ubuntu sur clé USB. Il y a de bonnes chances que le procédé ci-dessous fonctionne pour la plupart des autres distributions Linux, même si je n'ai pas testé.
@@ -20,7 +20,7 @@ L'intérêt est de pouvoir utiliser son OS et système de fichiers sur n'importe
 # Comment?
 
 Nous avons plusieurs possibilités:
-- Utiliser un [live USB](https://doc.ubuntu-fr.org/live_usb) simple, à partir d'une image .iso. C'est utilisé généralement pour installer Ubuntu, mais il est aussi possible d'essayer/utiliser Ubuntu sans rien installer. Les données sont non-persistantes : une fois l'ordinateur éteint, tous les fichiers et logiciels ajoutés sur la clé USB sont supprimées.
+- Utiliser un [live USB](https://doc.ubuntu-fr.org/live_usb) simple, à partir d'une image .iso. C'est utilisé généralement pour installer Ubuntu, mais il est aussi possible d'essayer/utiliser Ubuntu sans rien installer. Les données sont non-persistantes : une fois l'ordinateur éteint, tous les fichiers et logiciels ajoutés sur la clé USB sont supprimé s.
 - Utiliser un live USB persistant avec par exemple [mkusb](https://doc.ubuntu-fr.org/mkusb).  La clé USB est partitionné en plusieurs disques:
   - disque contenant l'image .iso Ubuntu 
   - disque `writable` où les données sont sauvegardées et conservées après un redémarrage
