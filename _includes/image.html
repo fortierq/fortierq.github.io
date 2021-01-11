@@ -1,4 +1,4 @@
 <div class="text-center center">
     <img src="{{ include.url }}"> <br>
-    <i>{{ include.caption }}</i>
+    {% if include.caption %} <i>{{ include.caption }}</i> {% endif %}
 </div>
