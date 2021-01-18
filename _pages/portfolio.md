@@ -7,11 +7,11 @@ mathjax: true
 feature_row:
   - image_path: assets/images/mtgscan.jpg
     title: "MTGScan"
-    excerpt: "MTGScan est un package Python permettant de reconnaître visuellement des cartes à l'aide d'un algorithme de reconnaissance de caractères (OCR) et de traitement de chaînes de caractères (fuzzy string matching)."
+    excerpt: "Package Python permettant de reconnaître visuellement des cartes à l'aide d'un algorithme de reconnaissance de caractères (OCR) et de traitement de chaînes de caractères (fuzzy string matching)."
     url: https://github.com/fortierq/mtgscan
   - image_path: assets/images/ocd.jpg
     title: "OC3D"
-    excerpt: "Logiciel en C++ pour la découpe optimale de volume 3D, en minimisant l'aire de section. Pour cela, on décompose le volume en tétraèdres puis un applique un algorithme min cost - max flow sur le graphe dual."
+    excerpt: "Logiciel en C++ pour la découpe optimale de volume 3D, en minimisant l'aire de section. Pour cela, on décompose le volume en tétraèdres puis on applique un algorithme min cost - max flow sur le graphe dual."
     url: https://github.com/fortierq/OC3D
   - image_path: assets/images/snt.jpg
     alt: "Sciences Numériques et Technologie"
