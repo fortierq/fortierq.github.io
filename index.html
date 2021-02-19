@@ -31,7 +31,7 @@ excerpt: "Docteur en informatique"
 {% assign entries_layout = page.entries_layout | default: 'list' %}
 <div class="entries-{{ entries_layout }}">
   {% for i in (0..1) %}
-  {% assign post = {{posts[i]}} %}
+  {% assign post = posts[i] %}
     {% include archive-single.html type=entries_layout %}
   {% endfor %}
 </div>
