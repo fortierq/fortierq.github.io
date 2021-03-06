@@ -4,7 +4,6 @@ toc_label: "Enseignement"
 toc_sticky: true
 title: "Enseignement"
 permalink: /teaching/
-date: now
 courses:
   - name: Option informatique en MP/MP*
     url: /assets/teaching/MP/
@@ -56,6 +55,8 @@ courses:
               url: td_automate.pdf
             - name: TD3
               url: td_equiv_cor.pdf
+            - name: "E3A 2019 corrigé"
+              url: e3a_2019_cor.pdf
         - name: Logique
           lectures: 
             - name: "formule, table de vérité, satisfiabilité"
