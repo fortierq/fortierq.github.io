@@ -48,7 +48,7 @@ talks:
 
 ## Articles de recherche
 
-- Rapporteur pour *Journal of Graph Theory*
+- Rapporteur pour *Journal of Graph Theory* : https://publons.com/researcher/4299989/quentin-fortier/
 {% for pub in page.publications %}
 - [{{ pub.name }}]({{ pub.url }})  
 *{{ pub.journal }}*, {{ pub.date }}
