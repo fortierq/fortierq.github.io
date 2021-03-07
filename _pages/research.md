@@ -1,7 +1,6 @@
 ---
 permalink: /research/
 title: "Recherche"
-date: now
 toc: true
 toc_label: "Recherche"
 toc_sticky: true
