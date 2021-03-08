@@ -74,11 +74,11 @@ courses:
     items:
       - name: "Cours bonus : promenade algorithmique" 
         url: promenade.pdf
-      - name: "Exercice: transformée de Fourier rapide" 
+      - name: "Exercice : transformée de Fourier rapide" 
         url: fft.pdf
-      - name: "Exercices: diviser pour régner" 
+      - name: "Exercices : diviser pour régner" 
         url: tris.pdf
-      - name: "Exercice: rendu de monnaie" 
+      - name: "Exercice : rendu de monnaie" 
         url: rendu_monnaie.pdf
 
   - name: Informatique commune en PSI
@@ -166,13 +166,13 @@ Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 {% for chapter in course.chapters %}
 - ### {{ chapter.name }}  
 {% for lecture in chapter.lectures %} 
-  - [Cours {{ forloop.index }}: {{ lecture.name }}]({{ course.url | append: lecture.url }})
+  - [Cours {{ forloop.index }} : {{ lecture.name }}]({{ course.url | append: lecture.url }})
 {% endfor %}  
-  - Exercices: {% for exo in chapter.exos %} [{{ exo.name }}]({{ course.url | append: exo.url }}) {% endfor %}
+  - Exercices : {% for exo in chapter.exos %} [{{ exo.name }}]({{ course.url | append: exo.url }}) {% endfor %}
 {% endfor %}
 {% elsif course.lectures %}
 {% for lecture in course.lectures %} 
-  - [Cours {{ forloop.index }}: {{ lecture.name }}]({{ course.url | append: lecture.url }})
+  - [Cours {{ forloop.index }} : {{ lecture.name }}]({{ course.url | append: lecture.url }})
 {% endfor %}  
 {% else %}
 {% for e in course.items %} 
