@@ -59,7 +59,9 @@ img {
 }
 
 .archive__item-teaser {
-  img, video {
+  img {
+    max-height: 5cm;
     object-fit: contain;
+    box-shadow: 0 0 0px rgba(#000, 0.25);
   }
 }
