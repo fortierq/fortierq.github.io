@@ -7,10 +7,11 @@
   {% for f in feature_row %}
     <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
     <a href="{{ f.url | relative_url }}" {% if f.title %}title="{{ f.title }}"{% endif %} style="text-decoration : none">
-      <div class="archive__item feature_sz">
+      <div class="archive__item">
         {% if f.image_path %}
-          <div class="archive__item-teaser">
-                <img src="{{ f.image_path | relative_url }}" alt="{% if f.alt %}{{ f.alt }}{% endif %}">
+          <div class="archive__item-teaser {% if page.anim %} anim {% endif %}">
+                <img src="{{ f.image_path | relative_url }}" alt="{% if f.alt %}{{ f.alt }}{% endif %}" {% if page.anim %} class="static" {% endif %}>
+                <img src="{{ f.gif_path | relative_url }}" alt="{% if f.alt %}{{ f.alt }}{% endif %}" {% if page.anim %} class="active" {% endif %}>
             {% if f.image_caption %}
               <span class="archive__item-caption">{{ f.image_caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
             {% endif %}
@@ -33,3 +34,25 @@
     </div>
   {% endfor %}
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(function() {
+        $(".anim").hover(
+            var src = $(this).attr('src');
+            function() {
+              var src = $(this).attr('src');
+              if (src.indexOf(".png") > -1) {
+                $(this).attr("src", .replace('.png','.gif'));
+              }
+            },
+            function() {
+              var src = $(this).attr('src');
+              if (src.indexOf(".png") > -1) {
+                $(this).attr("src", $(this).attr('src').replace('.gif','.png'));
+              }
+            }                         
+        );                  
+    });
+</script>

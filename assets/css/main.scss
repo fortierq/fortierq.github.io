@@ -65,3 +65,18 @@ img {
     box-shadow: 0 0 0px rgba(#000, 0.25);
   }
 }
+
+.anim {
+  img {
+    max-height: 12cm;
+  }
+}
+
+.static {
+  position:absolute;
+  background: white;
+}
+
+.static:hover {
+  opacity:0;
+}
