@@ -4,6 +4,8 @@ main:
     url: /blog/
   - title: "Enseignement"
     url: /teaching/
+  - title: "Animations"
+    url: /anim/ 
   - title: "Portfolio"
     url: /portfolio/
   - title: "Recherche"
