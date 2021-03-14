@@ -9,7 +9,9 @@ courses:
     url: /assets/teaching/ENTPE/
     items:
       - name: "Arbre couvrant de poids minimal" 
-        url: arbre_couvrant.pdf  
+        url: arbre_couvrant.pdf
+      - name: "Ordonnancement" 
+        url: ordonnancement.pdf
   - name: Option informatique en MP/MP*
     url: /assets/teaching/MP/
     chapters:
