@@ -5,6 +5,11 @@ toc_sticky: true
 title: "Enseignement"
 permalink: /teaching/
 courses:
+  - name: Recherche opérationnelle à l'ENTPE
+    url: /assets/teaching/ENTPE/
+    items:
+      - name: "Arbre couvrant de poids minimal" 
+        url: arbre_couvrant.pdf  
   - name: Option informatique en MP/MP*
     url: /assets/teaching/MP/
     chapters:
