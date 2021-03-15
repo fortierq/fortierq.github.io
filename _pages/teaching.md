@@ -12,6 +12,7 @@ courses:
         url: arbre_couvrant.pdf
       - name: "Ordonnancement" 
         url: ordonnancement.pdf
+      - raw: "Corrigé partielle de l'exercice 11 sur GeoGebra : [MPM](https://www.geogebra.org/material/edit/id/pvytdupg), [PERT à compléter](https://www.geogebra.org/geometry/u7z9jngn)"
   - name: Option informatique en MP/MP*
     url: /assets/teaching/MP/
     chapters:
@@ -183,8 +184,11 @@ Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 {% endfor %}  
 {% else %}
 {% for e in course.items %} 
-  - [{{ e.name }}]({{ course.url | append: e.url }})
+  - {% if e.raw %} {{ e.raw }}
+  {% else %}
+  [{{ e.name }}]({{ course.url | append: e.url }})
   {% if e.cor %} [{{ e.cor }}]({{ course.url | append: e.cor_url }}) {% endif %}
+  {% endif %} 
 {% endfor %}  
 {% endif %}
 {% endfor %}
