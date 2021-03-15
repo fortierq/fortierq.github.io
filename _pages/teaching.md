@@ -12,7 +12,7 @@ courses:
         url: arbre_couvrant.pdf
       - name: "Ordonnancement" 
         url: ordonnancement.pdf
-      - raw: "Corrigé partielle de l'exercice 11 sur GeoGebra : [MPM](https://www.geogebra.org/material/edit/id/pvytdupg), [PERT à compléter](https://www.geogebra.org/geometry/u7z9jngn)"
+      - raw: "[Exo 13 corrigé](/assets/teaching/ENTPE/exo_13.png). Exo 11 corrigé sur GeoGebra : [MPM](https://www.geogebra.org/material/edit/id/pvytdupg), [PERT à compléter](https://www.geogebra.org/geometry/u7z9jngn)"
   - name: Option informatique en MP/MP*
     url: /assets/teaching/MP/
     chapters:
