@@ -1,8 +1,8 @@
 ---
 toc: true
-toc_label: "Enseignement"
+toc_label: "Enseignements"
 toc_sticky: true
-title: "Enseignement"
+title: "Enseignements"
 permalink: /teaching/
 courses:
   - name: Recherche opérationnelle à l'ENTPE

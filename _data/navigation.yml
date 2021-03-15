@@ -2,7 +2,7 @@
 main:
   - title: "Blog"
     url: /blog/
-  - title: "Enseignement"
+  - title: "Enseignements"
     url: /teaching/
   - title: "Animations"
     url: /anim/ 
