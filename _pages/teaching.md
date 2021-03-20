@@ -46,6 +46,8 @@ courses:
               url: td_graphes2_cor.pdf
             - name: TD3
               url: td_graphes3_cor.pdf
+            - name: DM flots
+              url: DM_flots.pdf
             - name: DS
               url: ds_graphe.pdf
         - name: Langages et automates
