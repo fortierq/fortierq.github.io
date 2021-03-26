@@ -14,7 +14,6 @@ feature_row:
     excerpt: "Logiciel en C++ pour la découpe optimale de volume 3D, en minimisant l'aire de section. Pour cela, on décompose le volume en tétraèdres puis on applique un algorithme min cost - max flow sur le graphe dual."
     url: https://github.com/fortierq/OC3D
   - image_path: assets/images/portfolio/snt.jpg
-    alt: "Sciences Numériques et Technologie"
     title: "Sciences Numériques et Technologie"
     excerpt: "Livre de Seconde traitant de: programmation Python, internet, réseaux sociaux, géolocalisation, photographie numérique..."
     url: https://www.editions-ellipses.fr/accueil/119-sciences-numeriques-et-technologie-seconde-nouveaux-programmes-9782340033658.html
