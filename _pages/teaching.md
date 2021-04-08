@@ -5,7 +5,7 @@ toc_sticky: true
 title: "Enseignements"
 permalink: /teaching/
 courses:
-  - name: Recherche opérationnelle à l'ENTPE
+  - name: Recherche opérationnelle à l'[ENTPE](https://www.entpe.fr/)
     url: /assets/teaching/ENTPE/
     items:
       - name: "Arbre couvrant de poids minimal" 
@@ -13,7 +13,7 @@ courses:
       - name: "Ordonnancement" 
         url: ordonnancement.pdf
       - raw: "[Exo 13 corrigé](/assets/teaching/ENTPE/exo_13.png). Exo 11 corrigé sur GeoGebra : [MPM](https://www.geogebra.org/geometry/pvytdupg), [PERT à compléter](https://www.geogebra.org/geometry/u7z9jngn)"
-      - raw: "Programmation linéaire: [Résolution d'un programme linéaire simple](/assets/teaching/ENTPE/lp_ex.html)" 
+      - raw: "Programmation linéaire: [résolution d'un programme linéaire simple](/assets/teaching/ENTPE/lp_ex.html) ([représentation avec Geogebra](https://www.geogebra.org/m/jcjnzg9x))" 
   - name: Option informatique en MP/MP*
     url: /assets/teaching/MP/
     chapters:
