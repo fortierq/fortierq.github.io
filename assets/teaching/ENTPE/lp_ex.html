@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résolution d'un LP simple</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Résolution d'un LP simple</h1>
+</header>
+<h2 id="problème-linéaire">Problème linéaire</h2>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%0A%5Cleft%5C%7B%0A%20%20%20%20%5Cbegin%7Barray%7D%7Bll%7D%0A%20%20%20%20%20%20%20%20%5Cmax%20z%20%3D%204x%20%2B%205y%5C%5C%0A%20%20%20%20%20%20%20%202x%20%2B%20y%20%5Cleq%208%20%5C%5C%0A%20%20%20%20%20%20%20%20x%20%2B%202y%20%5Cleq%207%20%5C%5C%0A%20%20%20%20%20%20%20%20y%20%5Cleq%203%20%5C%5C%0A%20%20%20%20%20%20%20%20x%2C%20y%20%5Cgeq%200%0A%20%20%20%20%5Cend%7Barray%7D%0A%5Cright.%0A" alt="
+\left\{
+    \begin{array}{ll}
+        \max z = 4x + 5y\\
+        2x + y \leq 8 \\
+        x + 2y \leq 7 \\
+        y \leq 3 \\
+        x, y \geq 0
+    \end{array}
+\right.
+" title="
+\left\{
+    \begin{array}{ll}
+        \max z = 4x + 5y\\
+        2x + y \leq 8 \\
+        x + 2y \leq 7 \\
+        y \leq 3 \\
+        x, y \geq 0
+    \end{array}
+\right.
+" class="math display" /></p>
+<p>(sous forme canonique : seulement des inégalités <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cleq" alt="\leq" title="\leq" class="math inline" /> à part pour le max et les contraintes de positivité de <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x%2C%20y" alt="x, y" title="x, y" class="math inline" />)</p>
+<h2 id="cas-de-deux-variables">Cas de deux variables</h2>
+<p><a href="https://www.geogebra.org/m/jcjnzg9x">Représentation graphique des contraintes avec Geogebra</a><br />
+Avec Geogebra, en dessinant le polytope, on trouve un optimum de <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cboxed%7Bz%20%3D%2022%7D" alt="\boxed{z = 22}" title="\boxed{z = 22}" class="math inline" /> pour <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cboxed%7Bx%20%3D%203%7D" alt="\boxed{x = 3}" title="\boxed{x = 3}" class="math inline" /> et <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cboxed%7By%20%3D%202%7D" alt="\boxed{y = 2}" title="\boxed{y = 2}" class="math inline" />.<br />
+De manière générale, l’<strong>optimum d’un PL est atteint en un sommet du polytope des contraintes</strong>.</p>
+<h1 id="algorithme-du-simplexe">Algorithme du simplexe</h1>
+<h2 id="ère-étape">1ère étape</h2>
+<p>Mettre le problème sous forme standard (avec des <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%3D" alt="=" title="=" class="math inline" /> au lieu de <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cleq" alt="\leq" title="\leq" class="math inline" />).<br />
+On utilise des <strong>variables d’écarts</strong> <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" />.</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%0A%5Cleft%5C%7B%0A%20%20%20%20%5Cbegin%7Barray%7D%7Bll%7D%0A%20%20%20%20%20%20%20%20%5Cmax%20z%20%3D%204x%20%2B%205y%5C%5C%0A%20%20%20%20%20%20%20%202x%20%2B%20y%20%2B%20e_1%20%3D%208%20%5C%5C%0A%20%20%20%20%20%20%20%20x%20%2B%202y%20%2B%20e_2%20%3D%207%20%5C%5C%0A%20%20%20%20%20%20%20%20y%20%2B%20e_3%20%3D%203%20%5C%5C%0A%20%20%20%20%20%20%20%20x%2C%20y%2C%20e_1%2C%20e_2%2C%20e_3%20%5Cgeq%200%0A%20%20%20%20%5Cend%7Barray%7D%0A%5Cright.%0A" alt="
+\left\{
+    \begin{array}{ll}
+        \max z = 4x + 5y\\
+        2x + y + e_1 = 8 \\
+        x + 2y + e_2 = 7 \\
+        y + e_3 = 3 \\
+        x, y, e_1, e_2, e_3 \geq 0
+    \end{array}
+\right.
+" title="
+\left\{
+    \begin{array}{ll}
+        \max z = 4x + 5y\\
+        2x + y + e_1 = 8 \\
+        x + 2y + e_2 = 7 \\
+        y + e_3 = 3 \\
+        x, y, e_1, e_2, e_3 \geq 0
+    \end{array}
+\right.
+" class="math display" /></p>
+<h2 id="ème-étape">2ème étape</h2>
+<p>Ecriture sous forme de tableau</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20y" alt="y" title="y" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20z" alt="z" title="z" class="math inline" /></th>
+<th style="text-align: center;">=</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-4</td>
+<td style="text-align: center;">-5</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>(<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20z%20%3D%204x%20%2B%205y%20%5CLongleftrightarrow%204x%20%2B%205y%20-%20z%20%3D%200" alt="z = 4x + 5y \Longleftrightarrow 4x + 5y - z = 0" title="z = 4x + 5y \Longleftrightarrow 4x + 5y - z = 0" class="math inline" />)</p>
+<h2 id="ème-étape-1">3ème étape</h2>
+<p>À chaque instant de l’algo, on a une base (ensemble de variables parmi <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20y" alt="y" title="y" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" /> non nulles). Les variables qui ne sont pas dans la base valent 0.<br />
+Remarque : cette base correspond à un sommet du polytope.</p>
+<p>Dans la base initiale, on choisit en général les variables d’écarts, donc <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" />. Et donc <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x%20%3D%20y%20%3D%200" alt="x = y = 0" title="x = y = 0" class="math inline" />.<br />
+Il faut que cette base soit admissibles, c-a-d vérifie les conditions du PL (si ce n’est pas le cas, on applique la méthode du simplexe à 2 phases).<br />
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x%20%3D%20y%20%3D%200%20%5CLongrightarrow" alt="x = y = 0 \Longrightarrow" title="x = y = 0 \Longrightarrow" class="math inline" /> <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cleft%5C%7B%20%20%5Cbegin%7Barray%7D%7Bll%7D%20%20%5Cmax%20z%20%3D%204x%20%2B%205y%5C%5C%20%20e_1%20%3D%208%20%5Cgeq%200%5C%5C%20%20e_2%20%3D%207%20%5Cgeq%200%5C%5C%20%20e_3%20%3D%203%20%5Cgeq%200%5C%5C%20%20x%2C%20y%2C%20e_1%2C%20e_2%2C%20e_3%20%5Cgeq%200%20%20%5Cend%7Barray%7D%20%5Cright." alt="\left\{  \begin{array}{ll}  \max z = 4x + 5y\\  e_1 = 8 \geq 0\\  e_2 = 7 \geq 0\\  e_3 = 3 \geq 0\\  x, y, e_1, e_2, e_3 \geq 0  \end{array} \right." title="\left\{  \begin{array}{ll}  \max z = 4x + 5y\\  e_1 = 8 \geq 0\\  e_2 = 7 \geq 0\\  e_3 = 3 \geq 0\\  x, y, e_1, e_2, e_3 \geq 0  \end{array} \right." class="math inline" /></p>
+<p>On voit que (x, y, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" />) = (0, 0, 8, 7, 3) est une base admissible.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20y" alt="y" title="y" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20z" alt="z" title="z" class="math inline" /></th>
+<th style="text-align: center;">=</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>-4</strong></td>
+<td style="text-align: center;"><strong>-5</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>On choisit de rentrer une variable dans la base qui permette d’augmenter z (c’est à dire avec un <strong>coeff négatif</strong> sur la dernière ligne) On choisit par ex. de rentrer <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20y" alt="y" title="y" class="math inline" /> dans la base.<br />
+On utilise comme <strong>pivot la ligne telle que <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Bp%2Fp" alt="Bp/p" title="Bp/p" class="math inline" /> soit minimum</strong> :</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20y" alt="y" title="y" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20z" alt="z" title="z" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Bp%2Fp" alt="Bp/p" title="Bp/p" class="math inline" /></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">8/1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">7/2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3/1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>-4</strong></td>
+<td style="text-align: center;"><strong>-5</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>min(8, 7/2, 3) = 3 (ce qui correspond à la <strong>3ème ligne</strong> <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20E_3" alt="E_3" title="E_3" class="math inline" />) donc on va mettre des 0 sur la colonne de <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20y" alt="y" title="y" class="math inline" /> sauf un 1 sur la <strong>3ème ligne</strong> (pivot). Pour cela on fait des opérations sur des lignes, comme pour la méthode du pivot de Gauss.<br />
+(Remarque : comme auparavant c’était <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" /> qui avait un 1 sur la 3ème ligne dans la base, il va être enlevé de la base.)</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20y" alt="y" title="y" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20z" alt="z" title="z" class="math inline" /></th>
+<th style="text-align: center;">=</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">8 - <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20E_3" alt="E_3" title="E_3" class="math inline" /> = 5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">7 - <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%202E_3" alt="2E_3" title="2E_3" class="math inline" /> = 1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0 + 5 <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20E_3" alt="E_3" title="E_3" class="math inline" /> = 15</td>
+</tr>
+</tbody>
+</table>
+<p>On rentre <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /> (qui a un coeff négatif)</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20y" alt="y" title="y" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20z" alt="z" title="z" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Bp%2Fp" alt="Bp/p" title="Bp/p" class="math inline" /></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">5/2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1/1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">= 15</td>
+</tr>
+</tbody>
+</table>
+<p>min(5/2, 1/1) = 1 <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5CLongrightarrow" alt="\Longrightarrow" title="\Longrightarrow" class="math inline" /> on sort <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" /></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20y" alt="y" title="y" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20z" alt="z" title="z" class="math inline" /></th>
+<th style="text-align: center;">=</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">5 - <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%202E_2" alt="2E_2" title="2E_2" class="math inline" /> = 3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">-3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">= 15 + 4 <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20E_2" alt="E_2" title="E_2" class="math inline" /> = 19</td>
+</tr>
+</tbody>
+</table>
+<p>On entre <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" /> qui a un coeff négatif pour <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20z" alt="z" title="z" class="math inline" />.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20y" alt="y" title="y" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20z" alt="z" title="z" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Bp%2Fp" alt="Bp/p" title="Bp/p" class="math inline" /></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3/3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%3C%200" alt="&lt; 0" title="&lt; 0" class="math inline" /></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3/1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">-3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">19</td>
+</tr>
+</tbody>
+</table>
+<p>min(3/3, 3/1) = 1 donc on va utiliser la 1ère ligne comme pivot (et on sort <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" />). On commence par diviser <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20E_1" alt="E_1" title="E_1" class="math inline" /> par 3 pour avoir un 1 comme pivot puis on soustrait les lignes pour mettre des 0 :</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20y" alt="y" title="y" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1" alt="e_1" title="e_1" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_2" alt="e_2" title="e_2" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3" alt="e_3" title="e_3" class="math inline" /></th>
+<th style="text-align: center;"><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20z" alt="z" title="z" class="math inline" /></th>
+<th style="text-align: center;">=</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1/3</td>
+<td style="text-align: center;">-2/3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2/3</td>
+<td style="text-align: center;">-1/3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1 + 2<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20E_1" alt="E_1" title="E_1" class="math inline" /> = 3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-1/3</td>
+<td style="text-align: center;">2/3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3 - <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20E_1" alt="E_1" title="E_1" class="math inline" /> = 2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">19 + 3<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20E_1" alt="E_1" title="E_1" class="math inline" /> = 22</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fin-de-lalgorithme">Fin de l’algorithme</h2>
+<p>Quand tous les coeffs de la dernière ligne sont positifs, on ne peut plus augmenter la valeur de <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20z" alt="z" title="z" class="math inline" /> et donc on arrête l’algo et on en déduit l’optimum.<br />
+Ici on retrouve bien un optimum <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cboxed%7Bz%20%3D%2022%7D" alt="\boxed{z = 22}" title="\boxed{z = 22}" class="math inline" />, obtenu avec <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_1%20%3D%20e_2%20%3D%200" alt="e_1 = e_2 = 0" title="e_1 = e_2 = 0" class="math inline" /> (variables hors base) et <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cboxed%7Bx%20%3D%203%7D" alt="\boxed{x = 3}" title="\boxed{x = 3}" class="math inline" /> (ligne 2), <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cboxed%7By%20%3D%202%7D" alt="\boxed{y = 2}" title="\boxed{y = 2}" class="math inline" /> (ligne 3), <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20e_3%20%3D%201" alt="e_3 = 1" title="e_3 = 1" class="math inline" /> (ligne 1).</p>
+</body>
+</html>
