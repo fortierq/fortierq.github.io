@@ -21,7 +21,7 @@ feature_row2:
   - image_path: assets/images/portfolio/pavage.png
     title: "Pavages"
     excerpt: "Notebook Jupyter autour de problèmes de pavages : résolution par programmation linéaire et petits exercices."
-    url: https://github.com/fortierq/Pavage
+    url: assets/nb/pavage.html
   - image_path: assets/images/portfolio/graphe.png
     title: "Simple Graph Library"
     excerpt: "Bibliothèque C++ de théorie des graphes : arbre couvrant minimal, plus court chemin, flot maximum... Utilisation de la programmation orientée objet et de templates."
