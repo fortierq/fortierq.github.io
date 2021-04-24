@@ -13,7 +13,7 @@ courses:
       - name: "Ordonnancement" 
         url: ordonnancement.pdf
       - raw: "[Exo 13 corrigé](/assets/teaching/ENTPE/exo_13.png). Exo 11 corrigé sur GeoGebra : [MPM](https://www.geogebra.org/geometry/pvytdupg), [PERT à compléter](https://www.geogebra.org/geometry/u7z9jngn)"
-      - raw: "Programmation linéaire: [résolution d'un programme linéaire simple](/assets/teaching/ENTPE/lp_ex.html) ([représentation avec Geogebra](https://www.geogebra.org/m/jcjnzg9x))" 
+      - raw: "Programmation linéaire: [résolution d'un PL simple](/assets/teaching/ENTPE/lp_ex.html) ([représentation avec Geogebra](https://www.geogebra.org/m/jcjnzg9x)), [résolution avec Python (exercice Roulements à bille)](https://github.com/fortierq/ENTPE/blob/master/lp/roulement_billes.ipynb), [simplexe à 2 phases](/assets/teaching/ENTPE/simplexe_2_phases.html)"
   - name: Option informatique en MP/MP*
     url: /assets/teaching/MP/
     chapters:
