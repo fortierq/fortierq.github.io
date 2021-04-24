@@ -10,5 +10,7 @@ main:
     url: /portfolio/
   - title: "Recherche"
     url: /research/
+  - title: "Liens"
+    url: /links/
   - title: "CV"
     url: /assets/CV.pdf
