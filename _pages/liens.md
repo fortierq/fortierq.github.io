@@ -5,6 +5,16 @@ toc: true
 toc_label: "Liens"
 toc_sticky: true
 themes:
+  - name: "Python"
+    items:
+        - name: "Documentation officielle"
+          url: https://docs.python.org/3/
+        - name: "Neopythonic blog"
+          autor: Guido van Rossum
+          url: http://neopythonic.blogspot.com/ 
+        - name: "Python Developer’s Guide"
+          url: https://devguide.python.org/
+          
   - name: "Machine Learning"
     items:
         - name: "Optimisation, apprentissage statistique"
@@ -33,8 +43,11 @@ themes:
 ---
 
 {% for theme in page.themes %}
+
 ## {{theme.name}}
+
 {% for item in theme.items %}
-- [{{item.name}}]({{item.url}}) ({{item.autor}} {% if item.loc %} - {{item.loc}} {% endif %})
+
+- [{{item.name}}]({{item.url}}) ({{item.autor}}{% if item.loc %} - {{item.loc}}{% endif %})
 {% endfor %}
 {% endfor %}
