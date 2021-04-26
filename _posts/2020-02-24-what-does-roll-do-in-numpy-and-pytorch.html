@@ -12980,6 +12980,7 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
 .highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
 .highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .n { color: #008000; font-weight: bold } /* Keyword.Namespace */
 .highlight .kp { color: #008000 } /* Keyword.Pseudo */
 .highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
 .highlight .kt { color: #B00040 } /* Keyword.Type */
@@ -13131,11 +13132,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
-<span class="n">state</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span >state</span> <span class="o">=</span> <span >np</span><span class="o">.</span><span >zeros</span><span>((</span><span class="mi">6</span><span>,</span> <span class="mi">8</span><span>))</span>
+<span class="k">for</span> <span >i</span> <span class="ow">in</span> <span class="nb">range</span><span>(</span><span class="mi">6</span><span>):</span>
+    <span class="k">for</span> <span >j</span> <span class="ow">in</span> <span class="nb">range</span><span>(</span><span class="mi">8</span><span>):</span>
+        <span >state</span><span>[</span><span >i</span><span>][</span><span >j</span><span>]</span> <span class="o">=</span> <span >j</span>
+<span >state</span>
 </pre></div>
 
     </div>
@@ -13181,7 +13182,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span> <span class="n">state</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span >state</span> <span class="o">=</span> <span >np</span><span class="o">.</span><span >roll</span><span>(</span><span >state</span><span>,</span> <span class="o">-</span><span class="mi">1</span><span>,</span> <span >axis</span><span class="o">=</span><span class="mi">1</span><span>);</span> <span >state</span>
 </pre></div>
 
     </div>
@@ -13227,9 +13228,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-    <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">state</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span >i</span> <span class="ow">in</span> <span class="nb">range</span><span>(</span><span class="mi">6</span><span>):</span>
+    <span >state</span><span>[</span><span >i</span><span>][</span><span class="o">-</span><span class="mi">1</span><span>]</span> <span class="o">=</span> <span class="mi">8</span>
+<span >state</span>
 </pre></div>
 
     </div>
@@ -13292,11 +13293,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
-<span class="n">state</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span >state</span> <span class="o">=</span> <span >torch</span><span class="o">.</span><span >zeros</span><span>((</span><span class="mi">6</span><span>,</span> <span class="mi">8</span><span>))</span>
+<span class="k">for</span> <span >i</span> <span class="ow">in</span> <span class="nb">range</span><span>(</span><span class="mi">6</span><span>):</span>
+    <span class="k">for</span> <span >j</span> <span class="ow">in</span> <span class="nb">range</span><span>(</span><span class="mi">8</span><span>):</span>
+        <span >state</span><span>[</span><span >i</span><span>,</span> <span >j</span><span>]</span> <span class="o">=</span> <span >j</span>
+<span >state</span>
 </pre></div>
 
     </div>
@@ -13342,8 +13343,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dims</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">state</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span >state</span> <span class="o">=</span> <span >torch</span><span class="o">.</span><span >roll</span><span>(</span><span >state</span><span>,</span> <span class="o">-</span><span class="mi">1</span><span>,</span> <span >dims</span><span class="o">=-</span><span class="mi">1</span><span>)</span>
+<span >state</span>
 </pre></div>
 
     </div>
@@ -13389,10 +13390,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">state</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span >i</span> <span class="ow">in</span> <span class="nb">range</span><span>(</span><span class="mi">6</span><span>):</span>
+    <span class="k">for</span> <span >j</span> <span class="ow">in</span> <span class="nb">range</span><span>(</span><span class="mi">8</span><span>):</span>
+        <span >state</span><span>[</span><span >i</span><span>][</span><span class="o">-</span><span class="mi">1</span><span>]</span> <span class="o">=</span> <span class="mi">8</span>
+<span >state</span>
 </pre></div>
 
     </div>
@@ -13453,11 +13454,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
-<span class="n">state</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span >state</span> <span class="o">=</span> <span >np</span><span class="o">.</span><span >zeros</span><span>((</span><span class="mi">6</span><span>,</span> <span class="mi">8</span><span>))</span>
+<span class="k">for</span> <span >i</span> <span class="ow">in</span> <span class="nb">range</span><span>(</span><span class="mi">6</span><span>):</span>
+    <span class="k">for</span> <span >j</span> <span class="ow">in</span> <span class="nb">range</span><span>(</span><span class="mi">8</span><span>):</span>
+        <span >state</span><span>[</span><span >i</span><span>][</span><span >j</span><span>]</span> <span class="o">=</span> <span >j</span>
+<span >state</span>
 </pre></div>
 
     </div>
@@ -13503,8 +13504,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">state</span><span class="p">[:,:</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>
-<span class="n">state</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span >state</span><span>[:,:</span><span class="mi">7</span><span>]</span> <span class="o">=</span> <span >state</span><span>[:,</span><span class="mi">1</span><span>:]</span>
+<span >state</span>
 </pre></div>
 
     </div>
@@ -13550,10 +13551,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">state</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span >i</span> <span class="ow">in</span> <span class="nb">range</span><span>(</span><span class="mi">6</span><span>):</span>
+    <span class="k">for</span> <span >j</span> <span class="ow">in</span> <span class="nb">range</span><span>(</span><span class="mi">8</span><span>):</span>
+        <span >state</span><span>[</span><span >i</span><span>][</span><span class="o">-</span><span class="mi">1</span><span>]</span> <span class="o">=</span> <span class="mi">8</span>
+<span >state</span>
 </pre></div>
 
     </div>
