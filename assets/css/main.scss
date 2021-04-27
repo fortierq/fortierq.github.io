@@ -65,3 +65,11 @@ img {
     box-shadow: 0 0 0px rgba(#000, 0.25);
   }
 }
+
+iframe {
+  position:fixed;
+  border:none;
+  left:0;
+  height: 100%;
+  width: 100%;
+}
