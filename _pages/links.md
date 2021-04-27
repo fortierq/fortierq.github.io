@@ -47,6 +47,16 @@ themes:
           author: Ani Adhikari, John DeNero
           loc: NYU
           url: https://inferentialthinking.com/chapters/intro.html
+  - name: "Informatique graphique"
+    items:
+        - name: Ray Tracing in One Weekend
+          author: Peter Shirley
+          loc: Nvidia
+          url: https://raytracing.github.io/books/RayTracingInOneWeekend.html
+        - name: Accelerated Ray Tracing in One Weekend in CUDA
+          author: Roger Allen
+          loc: Nvidia
+          url: https://developer.nvidia.com/blog/accelerated-ray-tracing-cuda/
 ---
 
 {% for theme in page.themes %}
