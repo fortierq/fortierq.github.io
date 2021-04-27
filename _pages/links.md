@@ -14,7 +14,11 @@ themes:
           url: http://neopythonic.blogspot.com/ 
         - name: "Python Developer’s Guide"
           url: https://devguide.python.org/
-          
+  - name: "Git"
+    items:
+        - name: Merge vs rebase
+          author: Mislav Marohnić
+          url: https://mislav.net/2013/02/merge-vs-rebase/
   - name: "Machine Learning"
     items:
         - name: "Optimisation, apprentissage statistique"
