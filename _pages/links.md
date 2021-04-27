@@ -14,6 +14,9 @@ themes:
           url: http://neopythonic.blogspot.com/ 
         - name: "Python Developer’s Guide"
           url: https://devguide.python.org/
+        - name: "Curious Efficiency blog"
+          autor: Nick Coghlan
+          url: https://www.curiousefficiency.org/
   - name: "Git"
     items:
         - name: Merge vs rebase
