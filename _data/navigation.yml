@@ -2,12 +2,12 @@
 main:
   - title: "Blog"
     url: /blog/
-  - title: "Enseignements"
+  - title: "Cours"
     url: /teaching/
   - title: "Animations"
     url: /anim/ 
-  - title: "Portfolio"
-    url: /portfolio/
+  - title: "Projets"
+    url: /projects/
   - title: "Recherche"
     url: /research/
   - title: "Liens"

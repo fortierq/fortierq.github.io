@@ -1,6 +1,6 @@
 ---
-title: Portfolio
-permalink: /portfolio/
+title: Projets
+permalink: /projects/
 classes: wide
 layout: collection
 mathjax: true
