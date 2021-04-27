@@ -55,6 +55,6 @@ themes:
 
 {% for item in theme.items %}
 
-- [{{item.name}}]({{item.url}}) ({{item.author}}{% if item.loc %} - {{item.loc}}{% endif %})
+- [{{item.name}}]({{item.url}}){%if item.author %} ({{item.author}}{% if item.loc %} - {{item.loc}}{% endif %}){% endif %}
 {% endfor %}
 {% endfor %}
