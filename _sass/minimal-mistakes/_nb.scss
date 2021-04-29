@@ -10477,9 +10477,9 @@
   }
   .prompt {
     /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
-    min-width: 14ex;
+    min-width: 6ex;
     /* This padding is tuned to match the padding on the CodeMirror editor. */
-    padding: 0.4em;
+    padding: 0em;
     margin: 0px;
     font-family: monospace;
     text-align: right;
@@ -10993,6 +10993,7 @@
     vertical-align: baseline;
     color: black;
     background-color: transparent;
+
     border-radius: 0;
   }
   /* This class is for the output subarea inside the output_area and after
