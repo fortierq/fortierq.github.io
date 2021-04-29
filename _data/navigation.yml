@@ -4,13 +4,23 @@ main:
     url: /blog/
   - title: "Cours"
     url: /teaching/
-  - title: "Animations"
-    url: /anim/ 
   - title: "Projets"
     url: /projects/
+  - title: "Notebooks"
+    url: /nb/
+  - title: "Animations"
+    url: /anim/ 
   - title: "Recherche"
     url: /research/
   - title: "Liens"
     url: /links/
   - title: "CV"
     url: /assets/CV.pdf
+
+sidebar-nb:
+  - title: ""
+    children:
+      - title: Support Vector Machine
+        url: /nb/svm/
+      - title: "Pavages"
+        url: /nb/pavage/
