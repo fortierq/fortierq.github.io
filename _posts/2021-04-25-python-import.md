@@ -1,0 +1,346 @@
+---
+title: "How to import in Python"
+tags:
+  - python
+  - programmation
+toc: true
+toc_sticky: true
+header:
+  teaser: /assets/images/python-dev-1/xkcd_env.png
+  og_image: /assets/images/python-dev-1/xkcd_env.png
+---
+
+In this article, I sum up the different ways to import modules and packages with Python.
+
+**TL; DR**: always use `python -m` to run a Python file, in order to add the current working directory to `sys.path` and enable relative imports.
+{:  .notice--success}
+
+## Definitions
+
+Let's compare Python scripts, modules and packages:
+
+**Script**: Python file meant to be run with the command line interface
+{:  .notice}
+
+**Module**: Python file meant to be imported
+{:  .notice}
+
+**Package**: directory containing modules
+{:  .notice}
+
+## Import statement
+
+When we write `import a.b` in a Python file, the following happens:
+- 
+
+## Example
+
+Consider the following package:
+~~~
+project
+└── src
+    ├── a
+    │   └── b.py
+    ├── c
+    │   └── d.py
+    └── e.py
+~~~
+
+Let's say that in `b.py`, we want to use `d.py`. We have several possibilities.
+
+https://docs.python.org/3/reference/import.html
+https://github.com/microsoft/vscode-python/issues/5184?fbclid=IwAR20Tk7RyK-2SoL4l-shGe-puCsxTpE4vR8RlpoACP-WK54sgKhwdF6xZH0
+
+https://docs.python.org/3/library/runpy.html
+https://stackoverflow.com/questions/22241420/execution-of-python-code-with-m-option-or-not
+https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
+https://www.python.org/dev/peps/pep-0366/#id6
+https://www.python.org/dev/peps/pep-0338/
+
+## Gérer les versions Python : pyenv
+![commit](/assets/images/python-dev-1/xkcd_env.png)
+{: style="text-align: center"}
+
+Commençons par le commencement : installer Python. Bien que Python soit installé nativement sur toute distribution Linux qui se respecte, changer de version à partir des sources peut être fastidieux. [pyenv](https://github.com/pyenv/pyenv) est un utilitaire écrit en bash qui simplifie l'installation et l'utilisation de différentes versions de Python.  
+Pour installer pyenv, le plus simple est de passer par ce [script](https://github.com/pyenv/pyenv-installer) :
+
+~~~ bash
+curl https://pyenv.run | bash
+~~~
+
+Ceci télécharge puis exécute [https://pyenv.run](https://pyenv.run), qui clone le dépôt [github.com:pyenv/pyenv](https://github.com/pyenv/pyenv) dans `~/.pyenv` et ajoute pyenv dans `~/.bashrc`.  
+pyenv utilise un hook pour intercepter les commandes Python et choisir la bonne version à utiliser.  
+Pour voir les versions de Python détectées :
+~~~
+pyenv global
+system # exécutable Python apporté par le système d'exploitation
+~~~
+**Note** : Sous Ubuntu, il n'y a pas de commande `python` par défaut, ce qui empêche pyenv de le détecter. Une solution est de créer un lien symbolique vers `python3`: `ln -s /usr/bin/python3 /usr/bin/python`.
+{:  .notice--info}
+
+Installons les éventuelles dépendances manquantes de Python : 
+~~~
+sudo apt-get update; sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+~~~
+
+Ajoutons la version 3.9.1 de Python :
+~~~
+pyenv install 3.9.1
+~~~
+{:  .notice--info}
+python3.9.1 est alors installé dans `~/.pyenv/versions/3.9.1`.  
+Il est possible de spécifier une version de Python au niveau global ou local :
+~~~
+pyenv global 3.9.1 # utiliser python3.9.1 globalement
+pyenv local 3.9.1 # utiliser python3.9.1 localement (répertoire en cours)
+~~~
+
+`python`, `python3` ou `python3.9` permet alors d'utiliser notre version 3.9.1 fraîchement installée.
+
+## EDI : PyCharm vs Visual Code 
+
+![image-right](/assets/images/python-dev-1/ide_python.png){: .align-right} 
+
+PyCharm et Visual Code sont, de loin, les environnements de développement privilégiés par les développeurs Python.[^1]
+Alors que PyCharm est spécifique au langage Python, Visual Code est un EDI "tout en un" qui est très utilisé aussi en développement web, par exemple. 
+À noter que PyCharm est gratuit dans sa version *Community* mais payante et propriétaire en version *Professional*. Au contraire, Visual Code est entièrement gratuit et open source. J'ai personnellement adopté Visual Code pour sa légereté et ses nombreux plugins.
+
+Voici quelques commandes Visual Code que j'ai trouvé particulièrement utiles:
+- **Ctrl + Maj + P / F1** : ouvrir la liste des commandes  
+  Certaines commandes n'ont pas de raccourci mais sont très pratiques : "Transform to Lower Case" ou "Sort Imports", par exemple  
+- **Ctrl + P** : naviguer parmi les fichiers/fonctions
+- **Ctrl + F5** : exécuter un fichier
+- **F5** : débugger un fichier
+- **Ctrl + C / Ctrl + V / Ctrl + X** (sans sélection) : copier/coller/couper la ligne en cours
+- **Alt + Up/Down** : déplacer une ligne vers le haut/bas
+- **Alt + Clic** : selection multi-curseurs
+- **Ctrl + Maj + L** : selectionner tous les mots identiques
+- **Ctrl + Space** : complétion automatique
+
+## Dépendances : Poetry vs Pipenv vs conda
+![commit](/assets/images/python-dev-1/xkcd_dephell.png)
+{: style="text-align: center"}
+
+Il est fortement déconseillé d'installer tous ses packages Python globalement : il deviendrait difficile de partager uniquement les dépendances nécessaires pour un projet et certains projets peuvent nécessiter des versions différentes du même package...  
+Un **environnement virtuel** permet de regrouper les packages requis pour un projet particulier. Depuis Python 3.3, [venv](https://docs.python.org/fr/3/tutorial/venv.html) permet de créer nativement des environnements virtuels. De nombreux développeurs utilisent venv pour installer leurs packages et `pip freeze` pour partager la liste `requirements.txt` des versions à installer. Cette approche se heurte à de nombreux problèmes : la mise à jour des packages est délicate et pip est notoirement connu pour sa déficience dans la résolution des dépendances[^2].   
+
+[Poetry](https://python-poetry.org), [Pipenv](https://pipenv.pypa.io/en/latest) et [conda](https://docs.conda.io/en/latest) sont des surcouches plus évoluées qui offrent plus de possibilités.  
+Conda est un peu à part : alors que les autres outils sont basés sur PyPI/pip (et leurs packages wheel/source), conda a son propre dépôt (Anaconda Cloud) et système de packages. De ce fait, conda est plutôt utilisé comme outil tout-en-un (il permet aussi de mettre à jour Python, par exemple) et s'interface assez mal.
+
+Dans la suite, je détaille l'utilisation de Poetry : il est similaire à Pipenv mais, contrairement aux deux autres, il se base sur les recommandations officielles [PEP 517](https://www.python.org/dev/peps/pep-0517) et [PEP 518](https://www.python.org/dev/peps/pep-0518).
+
+Installer Poetry :
+~~~
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+~~~
+
+Créer un nouveau projet :
+~~~
+poetry new projet
+~~~
+Ceci génère la structure suivante :
+~~~
+projet/
+├── projet
+│   └── __init__.py
+├── pyproject.toml
+├── README.rst 
+└── tests
+    ├── __init__.py
+    └── test_projet.py
+~~~
+Il est aussi possible utiliser un projet déjà existant :
+~~~
+poetry init
+~~~
+
+Le fichier [.toml](https://github.com/toml-lang/toml) généré ressemble à :
+~~~ python
+[tool.poetry]
+name = "projet"
+version = "0.1.0"
+description = ""
+authors = ["Quentin Fortier <qpfortier@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api" 
+~~~
+
+Ce fichier remplace `requirements.txt` en définissant les dépendances utilisées pour le projet. Ainsi, python = "^3.9" signifie que la version de Python doit être supérieure à 3.9, mais ne doit pas être mise à jour à la prochaine major release (4.*).
+
+Ajoutons la dernière version de NumPy à notre projet :
+~~~
+poetry add numpy
+~~~
+
+Poetry ajoute alors `numpy` à `pyproject.toml`. Pour installer les packages ajoutés :
+~~~
+poetry install # ou poetry update si un install a déjà été fait
+~~~
+
+Poetry créé alors un environnement virtuel dans `~/.cache/pypoetry/virtualenvs` qui ressemble à ceci :
+~~~ bash
+projet-v_ZTu9ix-py3.9/
+├── bin
+│   ├── activate
+│   ├── pip
+│   ├── pytest
+│   ├── python -> /home/qfortier/.pyenv/versions/3.9.1/bin/python # lien symbolique
+├── lib # contient les packages installés avec poetry/pip
+└── pyvenv.cfg
+~~~
+
+On peut ensuite utiliser notre environnement virtuel en exécutant `poetry run` ou `poetry shell`.  
+Constatons par exemple que Poetry ajoute automatiquement notre projet au PYTHONPATH (plus besoin de manipuler `sys.path` à la main ni d'imports relatifs!) :
+~~~ bash
+poetry shell
+(projet-v_ZTu9ix-py3.9) python -c "import sys; print(sys.path)"
+['', '/home/qfortier/.pyenv/versions/3.9.1/lib/python3.9', '/home/qfortier/.cache/pypoetry/virtualenvs/projet-v_ZTu9ix-py3.9/lib/python3.9/site-packages', 
+'/home/qfortier/code/projet' # chemin vers notre projet
+]
+~~~
+Ainsi, un module `projet/projet/a/b.py` sera importé de la façon suivante dans un fichier Python :
+~~~ python
+import projet.a.b
+~~~
+
+Pour utiliser l'environnement virtuel de Poetry dans Visual Code, utiliser la commande "Python : Select Interpreter" puis donner le chemin correspondant (`~/.cache/pypoetry/virtualenvs/<projet>/bin/python`). Visual Code affiche l'environnement en cours d'utilisation :
+
+![Environnement virtuel](/assets/images/python-dev-1/venv.png)
+{: style="text-align: center"}
+
+**Note** : Par défaut, Visual Code cherche un environnement virtuel dans le répertoire du projet. Il est possible de chercher parmi les environnements Poetry en ajoutant la ligne suivante au fichier settings.json: `"python.venvPath": "~/.cache/pypoetry/virtualenvs/"`
+{:  .notice--info}
+
+## Packaging
+
+Après avoir rempli `pyproject.toml`, Poetry permet de construire une archive de package pour notre projet :
+~~~
+poetry build
+~~~
+Cette commande crée en fait deux archives du projet : `projet-0.1.0.tar.gz` et `projet-0.1.0-py3-none-any.whl`. Ce dernier est un format [wheel](https://www.python.org/dev/peps/pep-0427) qui peut ensuite être installé, avec ses dépendances :
+~~~
+pip install projet-0.1.0-py3-none-any.whl
+~~~
+
+Il est tout aussi simple de publier le projet sur un dépôt, par défaut [PyPI](https://pypi.org) :
+~~~
+poetry publish
+~~~
+
+Votre projet devient alors accessible à la communauté via `pip install projet`.
+
+Voici un tableau résumant les fonctionnalités de Poetry et ses alternatives :
+
+|                                          |              python             |            poetry            |         pipenv         |             conda            |
+|:----------------------------------------:|:-------------------------------:|:----------------------------:|:----------------------:|:----------------------------:|
+|           installer un package           |           pip install           |          poetry add          |     pipenv install     |         conda install        |
+|           liste des dépendances          |         requirements.txt        | pyproject.toml + poetry.lock | Pipfile + Pipfile.lock |       environment.yml        |
+|     installer toutes les dépendances     | pip install -r requirements.txt |        poetry install        |     pipenv install     |         conda install        |
+|    mettre à jour toutes les dépendances  |            pip-review           |         poetry update        |      pipenv update     |         conda update         |
+|      créer un environnement virtuel      |          python -m venv         |         (automatique)        |      (automatique)     |         conda create         |
+|     activer un environnement virtuel     |     source venv/bin/activate    |         poetry shell         |      pipenv shell      |        conda activate        |
+| lancer une commande dans l'environnement |                X                |          poetry run          |       pipenv run       |               X              |
+|     construire une archive du package    |            setuptools           |         poetry build         |            X           | conda skeleton + conda-build |
+|            publier un package            |              twine              |        poetry publish        |            X           |        anaconda upload       |
+{:.table}
+
+## Gérer les versions du code source : Git et GitHub
+![commit](/assets/images/python-dev-1/xkcd_commit.png)
+{: style="text-align: center"}
+
+[Git](https://git-scm.com) est un logiciel permettant de conserver un historique des modifications du code source, dans ce qu'on appelle un **dépôt**.  
+Après avoir installé `git` (`sudo apt install git`), on peut initialiser un dépôt dans le répertoire courant :
+~~~
+git init
+~~~
+
+Chaque modification du dépôt est appelé un **commit**. Après avoir modifié un fichier, il faut enregistrer les modifications pour le prochain commit :
+~~~
+git add fichier
+~~~
+Le fichier est alors *staged*.
+
+Après avoir rajouté les modifications souhaitées, vous pouvez vérifier le contenu du prochain commit avec `git status` puis le valider :
+~~~
+git commit
+~~~
+Git vous demande alors un message expliquant les modifications apportées par ce commit.  
+Voici quelques règles pour écrire un bon commit:
+- Un commit doit être **atomique** (une seule modification) : si votre message contient "et", il faut probablement utiliser deux commits
+- Un commit doit être **complet** : évitez de faire la moitié d'une tâche et attendez de finir votre modification pour commit
+- Un message commence en général par un verbe  et doit être concis, en sautant éventuellement une ligne pour donner des détails
+
+Il est possible de parcourir l'historique des commits avec `git log` :
+~~~ bash
+git log
+
+commit 2ce5ff0 (HEAD -> master)
+Author: Quentin Fortier <qpfortier@gmail.com>
+    Fix out of bound error
+
+commit f0a1b71
+Author: Quentin Fortier <qpfortier@gmail.com>
+    Add README
+~~~
+
+**Note** : l'historique de Git a une structure arborescente, constituée (en général) de plusieurs **branches**. Une nouvelle branche peut être créée lorsque l'on souhaite tester une nouvelle piste sans être sûr qu'elle aboutisse, par exemple. Une fois que le développement de la branche est terminé, on peut la fusionner (**merge**) avec la branche principale. Pour simplifier, nous utilisons ici une seule branche appelée master (branche principale).   
+{:  .notice--info}
+
+Chaque commit possède un hash permettant d'y faire référence. Par exemple :
+~~~ bash
+git checkout f0a1b71 # revient au commit correspondant
+git diff f0a1b71 2ce5ff0 # affiche les différences entre deux commits
+~~~
+
+À ce stade, le dépôt est stocké en local. Pour travailler à plusieurs sur le même projet, on peut utiliser un serveur distant. Le serveur le plus connu est [**GitHub**](https://github.com/). Après avoir créé un dépôt https://github.com/utilisateur/depot.git sur GitHub, on peut le rajouter en tant que dépôt distant, nommé ici `origin` :
+~~~ bash
+git remote add origin git@github.com:utilisateur/depot.git 
+~~~
+**Note** : Cette méthode de connection utilise SSH et demande de [générer une clé](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent). Il est également possible de se connecter via HTTPS.
+{:  .notice--info}
+
+Pour envoyer nos commits sur le dépôt distant :
+~~~ bash
+git push origin master # envoie la branche master sur le dépôt distant origin
+~~~
+
+Il est possible de récupérer un dépôt sur GitHub avec `git clone`. Par exemple, le [dépôt de NumPy](https://github.com/numpy/numpy) :
+~~~ bash
+git clone git@github.com:numpy/numpy.git
+~~~
+Le code source de NumPy est alors téléchargé dans le dossier `numpy`.
+
+Voici un résumé du workflow de base avec `git` :
+~~~ bash
+git pull # récupère les derniers commits sur origin
+git add fichiers # ajoute des modifications
+git commit # crée un commit
+git push # envoie un ou plusieurs commits sur origin
+~~~
+**Note** : Ceci constitue le minimum vital pour l'utilisation de `git`. Les choses se compliquent quand il y a des conflits (plusieurs modifications sur la même portion de code) ou lorsque plusieurs branches sont utilisées. Voir le site officiel pour une utilisation plus avancée.
+{:  .notice--danger}
+
+En pratique, de nombreux environnements de développement simplifient l'utilisation de `git` via une interface graphique. Par exemple, [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph) est un plugin de Visual Code permettant d'agir visuellement sur le graphe Git. Voici un extrait du graphe Git de NumPy : 
+
+![Git Graph de NumPy](/assets/images/python-dev-1/git_numpy.png)
+{: style="text-align: center"}
+
+## Références
+
+- Python et Visual Code : [https://code.visualstudio.com/docs/languages/python](https://code.visualstudio.com/docs/languages/python)
+- Dépendances : [https://modelpredict.com/python-dependency-management-tools](https://modelpredict.com/python-dependency-management-tools), [https://www.codeflow.site/fr/article/pipenv-guide](https://www.codeflow.site/fr/article/pipenv-guide)
+- Packaging : [https://packaging.python.org](https://packaging.python.org/), [https://docs.python.org/fr/3/distributing/index.html](https://docs.python.org/fr/3/distributing/index.html)
+- Git : [https://git-scm.com](https://git-scm.com) et [https://guides.github.com](https://guides.github.com)
+- [https://cjolowicz.github.io/posts/hypermodern-python-01-setup](https://cjolowicz.github.io/posts/hypermodern-python-01-setup)
+- Les dessins géniaux de [xkcd](https://xkcd.com)
+
+[^1]: [Python Developers Survey 2019](https://www.jetbrains.com/lp/python-developers-survey-2019), mené par la Python Software Foundation et Jetbrains, éditeur de PyCharm et CLions, entre autres.  
+[^2]: même s'il y a des améliorations, voir : [https://pyfound.blogspot.com/2020/11/pip-20-3-new-resolver.html](https://pyfound.blogspot.com/2020/11/pip-20-3-new-resolver.html)
