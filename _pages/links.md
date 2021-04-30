@@ -17,6 +17,11 @@ themes:
         - name: "Curious Efficiency blog"
           author: Nick Coghlan
           url: https://www.curiousefficiency.org/
+  - name: "Jupyter" 
+    items:
+        - name: Using jupyter notebooks with a virtual environment
+          author: Angelo Basile
+          url: https://anbasile.github.io/posts/2017-06-25-jupyter-venv/
   - name: "Git"
     items:
         - name: Merge vs rebase

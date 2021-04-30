@@ -22,6 +22,8 @@ sidebar-nb:
     children:
       - title: Support Vector Machine
         url: /nb/svm/
+      - title: Égalisation d'histogramme
+        url: /nb/hist/
       - title: Pavages
         url: /nb/pavage/
       - title: Régression logistique
