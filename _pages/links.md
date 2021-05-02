@@ -52,6 +52,9 @@ themes:
           author: Ani Adhikari, John DeNero
           loc: NYU
           url: https://inferentialthinking.com/chapters/intro.html
+        - name: "Blog about hardware for deep learning"
+          author: Tim Dettmers
+          url: https://timdettmers.com/
   - name: "Informatique graphique"
     items:
         - name: Ray Tracing in One Weekend
