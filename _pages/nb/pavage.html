@@ -18,7 +18,7 @@ toc_sticky: true
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Autour-des-pavages">Autour des pavages<a class="anchor-link" href="#Autour-des-pavages">&#182;</a></h1><p>On souhaite paver (sans chevauchement) une grille rectangulaire en la remplissant au maximum à l'aide de tuiles (chacune disponible en quantité infinie).</p>
+<h1 id="Autour-des-pavages">Autour des pavages<a class="anchor-link" href="#Autour-des-pavages"></a></h1><p>On souhaite paver (sans chevauchement) une grille rectangulaire en la remplissant au maximum à l'aide de tuiles (chacune disponible en quantité infinie).</p>
 <p>Voici un exemple de pavage optimal (pourquoi est-il optimal?) d'un carré 5x5 à l'aide de tuiles en L (dans n'importe quel sens):
 <img src="data:image/png;base64,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" alt="Exemple">
 <br>
@@ -29,7 +29,7 @@ Dans cet exemple, seule la case en haut à gauche n'est pas couverte.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Mod&#233;lisation-par-PLNE">Mod&#233;lisation par PLNE<a class="anchor-link" href="#Mod&#233;lisation-par-PLNE">&#182;</a></h1><p>Considérons l'ensemble $\mathcal{P}$ des positions possibles d'une tuile sur la grille (exercice: que vaut $\vert \mathcal{P} \vert$ sur l'exemple ci-dessus?). <br>
+<h1 id="Mod&#233;lisation-par-PLNE">Mod&#233;lisation par PLNE<a class="anchor-link" href="#Mod&#233;lisation-par-PLNE"></a></h1><p>Considérons l'ensemble $\mathcal{P}$ des positions possibles d'une tuile sur la grille (exercice: que vaut $\vert \mathcal{P} \vert$ sur l'exemple ci-dessus?). <br>
 Définissons une variable $x_k$ par élément $p_k$ de $\mathcal{P}$, valant 1 si la tuile correspondante est posée, 0 sinon. <br>
 Définissons $w_k$ comme le nombre de cases occupées par la tuile $p_k$. <br>
 On souhaite alors maximiser le nombre de cases couvertes, c'est-à-dire:
@@ -42,7 +42,7 @@ $$\displaystyle\sum_{p_k \in \mathcal{P},\\(i, j) \in p_k} x_k \leq 1$$</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="R&#233;solution-avec-MIP">R&#233;solution avec MIP<a class="anchor-link" href="#R&#233;solution-avec-MIP">&#182;</a></h1><p>Malheureusement, la résolution d'un PLNE est plus difficile que celle d'un programme linéaire où les variables sont réelles. <br>
+<h1 id="R&#233;solution-avec-MIP">R&#233;solution avec MIP<a class="anchor-link" href="#R&#233;solution-avec-MIP"></a></h1><p>Malheureusement, la résolution d'un PLNE est plus difficile que celle d'un programme linéaire où les variables sont réelles. <br>
 En effet, dans ce deuxième cas, la méthode de l'ellipsoïde/du simplexe donne un algorithme efficace en théorie/en pratique.</p>
 <p>Heureusement, il existe quand même des méthodes pour résoudre un PLNE comme celle de <strong>Branch &amp; Bound</strong> (et ses variations comme <strong>Branch &amp; Cut</strong>). Le package MIP en Python permet d'utiliser un solveur de PLNE s'appuyant sur ce genre de méthodes. <br>
 Par défaut, MIP utilise le solveur COIN-OR.</p>
@@ -380,12 +380,12 @@ On ajoute une contrainte en écrivant <code>m += ... &lt;= ...</code>. <br>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Exercices">Exercices<a class="anchor-link" href="#Exercices">&#182;</a></h1>
+<h1 id="Exercices">Exercices<a class="anchor-link" href="#Exercices"></a></h1>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Cas-2xn">Cas 2xn<a class="anchor-link" href="#Cas-2xn">&#182;</a></h2><p>Dans une grille 2xn, combien peut-on placer de L au maximum? <br>
+<h2 id="Cas-2xn">Cas 2xn<a class="anchor-link" href="#Cas-2xn"></a></h2><p>Dans une grille 2xn, combien peut-on placer de L au maximum? <br>
 Quelques exemples:</p>
 
 </div>
@@ -600,7 +600,7 @@ Quelques exemples:</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Cas-nxn">Cas nxn<a class="anchor-link" href="#Cas-nxn">&#182;</a></h2><p>Dans une grille nxn avec n une puissance de 2, combien peut-on placer de L au maximum? <br>
+<h2 id="Cas-nxn">Cas nxn<a class="anchor-link" href="#Cas-nxn"></a></h2><p>Dans une grille nxn avec n une puissance de 2, combien peut-on placer de L au maximum? <br>
 Donner un algorithme diviser pour régner pour y parvenir.</p>
 
 </div>
@@ -659,7 +659,7 @@ Donner un algorithme diviser pour régner pour y parvenir.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Argument-de-coloriage">Argument de coloriage<a class="anchor-link" href="#Argument-de-coloriage">&#182;</a></h2><p>À l'aide d'un argument de coloriage, montrer qu'il est impossible de recouvrir complètement une grille 10x10 avec des I.</p>
+<h2 id="Argument-de-coloriage">Argument de coloriage<a class="anchor-link" href="#Argument-de-coloriage"></a></h2><p>À l'aide d'un argument de coloriage, montrer qu'il est impossible de recouvrir complètement une grille 10x10 avec des I.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -717,7 +717,7 @@ Donner un algorithme diviser pour régner pour y parvenir.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Dual-(TODO)">Dual (TODO)<a class="anchor-link" href="#Dual-(TODO)">&#182;</a></h1><p>Interpréter le dual du PLNE ci-dessus. A-t-on dualité forte?</p>
+<h1 id="Dual-(TODO)">Dual (TODO)<a class="anchor-link" href="#Dual-(TODO)"></a></h1><p>Interpréter le dual du PLNE ci-dessus. A-t-on dualité forte?</p>
 
 </div>
 </div> 

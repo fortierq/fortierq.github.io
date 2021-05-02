@@ -18,13 +18,19 @@ main:
     url: /assets/CV.pdf
 
 sidebar-nb:
-  - title: ""
+  - title: "Machine learning"
     children:
       - title: Support Vector Machine
         url: /nb/svm/
-      - title: Égalisation d'histogramme
-        url: /nb/hist/
-      - title: Pavages
-        url: /nb/pavage/
+      - title: Régression linéaire
+        url: /nb/reglin/
       - title: Régression logistique
         url: /nb/logistic/
+  - title: "Traitement d'images"
+    children:
+      - title: Égalisation d'histogramme
+        url: /nb/hist/
+  - title: "Optimisation"
+    children:
+      - title: Pavages
+        url: /nb/pavage/
