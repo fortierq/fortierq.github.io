@@ -16,6 +16,7 @@
     {% endif %}
   {% endif %}
   {% if layout.sidebar %}
+  <h1>{{ layout.title }}</h1>
     {% for s in layout.sidebar %}
       {% if s.image %}
         <img src="{{ s.image | relative_url }}"
