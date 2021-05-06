@@ -51,6 +51,12 @@ themes:
         - name: "Blog about hardware for deep learning"
           author: Tim Dettmers
           url: https://timdettmers.com/
+  - name: Optimisation
+    items:
+        - name: Optimisation pour l'économie
+          author: Laurent Guillopé
+          loc: Université de Nantes
+          url: https://www.math.sciences.univ-nantes.fr/~guillope/l3-osc/osc.pdf
   - name: "Informatique graphique"
     items:
         - name: Ray Tracing in One Weekend
