@@ -23,13 +23,13 @@ sidebar-nb:
       - title: Support Vector Machine
         url: /nb/svm/
       - title: Régression linéaire
-        url: /nb/reglin/
+        url: /nb/regression_lineaire/
       - title: Régression logistique
         url: /nb/logistic/
   - title: "Traitement d'images"
     children:
       - title: Égalisation d'histogramme
-        url: /nb/hist/
+        url: /nb/hist_equal/
   - title: "Optimisation"
     children:
       - title: Pavages
