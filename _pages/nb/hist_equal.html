@@ -3,7 +3,7 @@ permalink: /nb/hist_equal/
 layout: nb
 author_profile: false
 toc: true
-toc_label: Égalisation d'histogramme 
+toc_label: Sommaire
 toc_sticky: true
 ---
 
@@ -15,14 +15,7 @@ toc_sticky: true
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"></a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>L'égalisation d'histogramme est une méthode pour améliorer le contraste d'une image.</p>
+<h1 id="&#201;galisation-d'histogramme">&#201;galisation d'histogramme<a class="anchor-link" href="#&#201;galisation-d'histogramme"></a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"></a></h2><p>L'égalisation d'histogramme est une méthode pour améliorer le contraste d'une image.</p>
 
 </div>
 </div>
@@ -67,7 +60,7 @@ toc_sticky: true
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f2579c9ccd0&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fb10daf5790&gt;</pre>
 </div>
 
 </div>
@@ -103,7 +96,7 @@ toc_sticky: true
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Niveau-de-gris">Niveau de gris<a class="anchor-link" href="#Niveau-de-gris"></a></h1>
+<h2 id="Niveau-de-gris">Niveau de gris<a class="anchor-link" href="#Niveau-de-gris"></a></h2>
 </div>
 </div>
 </div>
@@ -146,7 +139,7 @@ $$0.2126\times R + 0.7152\times G + 0.0722\times B$$</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f253d57eb80&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fb0d13deca0&gt;</pre>
 </div>
 
 </div>
@@ -181,7 +174,7 @@ $$0.2126\times R + 0.7152\times G + 0.0722\times B$$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Histogrammes">Histogrammes<a class="anchor-link" href="#Histogrammes"></a></h1>
+<h2 id="Histogrammes">Histogrammes<a class="anchor-link" href="#Histogrammes"></a></h2>
 </div>
 </div>
 </div>
@@ -237,7 +230,7 @@ L'histogramme d'une image informe donc sur la répartition des intensités parmi
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7f253d4baa00&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7fb0d1304a60&gt;]</pre>
 </div>
 
 </div>
@@ -272,7 +265,7 @@ L'histogramme d'une image informe donc sur la répartition des intensités parmi
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="M&#233;thode-de-la-transform&#233;e-inverse">M&#233;thode de la transform&#233;e inverse<a class="anchor-link" href="#M&#233;thode-de-la-transform&#233;e-inverse"></a></h1><p>Afin d'améliorer le contraste, nous souhaiterions modifier l'intensité $x$ de chaque pixel par une intensité $T(x)$ de façon à ce que l'histogramme soit mieux réparti, en se rapprochant de la distribution uniforme.</p>
+<h2 id="M&#233;thode-de-la-transform&#233;e-inverse">M&#233;thode de la transform&#233;e inverse<a class="anchor-link" href="#M&#233;thode-de-la-transform&#233;e-inverse"></a></h2><p>Afin d'améliorer le contraste, nous souhaiterions modifier l'intensité $x$ de chaque pixel par une intensité $T(x)$ de façon à ce que l'histogramme soit mieux réparti, en se rapprochant de la distribution uniforme.</p>
 <p>Ce problème est similaire à celui de la simulation de variables aléatoires. En effet, s'il est relativement simple (?) de simuler une loi uniforme $U$ à l'aide d'un ordinateur, il est légèrement plus délicat de simuler une autre loi $X$. La méthode de la <strong>transformée inverse</strong> consiste à appliquer une transformation $T$ sur $U$ de façon à obtenir $X$. 
 Plus précisément, soit $F$ la <strong>fonction de répartition</strong> de $X$, définie par:
 $$F(x) = \mathbb{P}(X \leq x)$$
@@ -333,7 +326,7 @@ $$F^{-1}(x) = -\frac{\ln(1 - x)}{\lambda}$$</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.23078019621906024</pre>
+<pre>0.2608529682769196</pre>
 </div>
 
 </div>
@@ -353,7 +346,7 @@ $$F^{-1}(x) = -\frac{\ln(1 - x)}{\lambda}$$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#201;galisation-d'histogramme">&#201;galisation d'histogramme<a class="anchor-link" href="#&#201;galisation-d'histogramme"></a></h1>
+<h2 id="&#201;galisation-d'histogramme">&#201;galisation d'histogramme<a class="anchor-link" href="#&#201;galisation-d'histogramme"></a></h2>
 </div>
 </div>
 </div>
@@ -415,7 +408,7 @@ Voici un exemple pour mieux comprendre cette formule: si notre image possède 10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7f253d445940&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7fb0d128f9d0&gt;]</pre>
 </div>
 
 </div>
@@ -493,7 +486,7 @@ Voici un exemple pour mieux comprendre cette formule: si notre image possède 10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f253d3e2d90&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fb0d131c3d0&gt;</pre>
 </div>
 
 </div>
@@ -558,7 +551,7 @@ Voici un exemple pour mieux comprendre cette formule: si notre image possède 10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7f2539988b50&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7fb0cd7f9b80&gt;]</pre>
 </div>
 
 </div>
@@ -614,7 +607,7 @@ Voici un exemple pour mieux comprendre cette formule: si notre image possède 10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7f2539916520&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7fb0cd75f520&gt;]</pre>
 </div>
 
 </div>
@@ -649,7 +642,7 @@ Voici un exemple pour mieux comprendre cette formule: si notre image possède 10
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Et-en-couleurs?">Et en couleurs?<a class="anchor-link" href="#Et-en-couleurs?"></a></h1>
+<h2 id="Et-en-couleurs?">Et en couleurs?<a class="anchor-link" href="#Et-en-couleurs?"></a></h2>
 </div>
 </div>
 </div>
@@ -687,7 +680,7 @@ Voici un exemple pour mieux comprendre cette formule: si notre image possède 10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f253d3efe20&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fb10db52f40&gt;</pre>
 </div>
 
 </div>
