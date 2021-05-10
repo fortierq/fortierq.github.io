@@ -22,16 +22,12 @@ themes:
         - name: Merge vs rebase
           author: Mislav Marohnić
           url: https://mislav.net/2013/02/merge-vs-rebase/
-  - name: "Machine Learning"
+  - name: "Machine learning"
     items:
         - name: "Optimisation, apprentissage statistique"
           author: Francis Bach
           loc: ENS et Paris-Sud
           url: https://www.di.ens.fr/~fbach/#courses
-        - name: "Deep Learning"
-          author: Yann LeCun, Alfredo Canziani
-          loc: NYU
-          url: https://atcold.github.io/pytorch-Deep-Learning/
         - name: "ML/DL with fastai and Pytorch"
           url: https://www.fast.ai
           author: Jeremy Howard, Sylvain Gugger
@@ -43,15 +39,25 @@ themes:
           author: Philippe Besse, Brendan Guillouet
           loc: INSA Toulouse
           url: http://wikistat.fr/
+  - name: Deep learning
+    items:
         - name: "Blog about hardware for deep learning"
           author: Tim Dettmers
           url: https://timdettmers.com/
+        - name: "Deep Learning"
+          author: Yann LeCun, Alfredo Canziani
+          loc: NYU
+          url: https://atcold.github.io/pytorch-Deep-Learning/
   - name: Optimisation
     items:
         - name: Optimisation pour l'économie
           author: Laurent Guillopé
           loc: Université de Nantes
           url: https://www.math.sciences.univ-nantes.fr/~guillope/l3-osc/osc.pdf
+        - name: Optimization for Data Science
+          author: Yaoliang Yu
+          loc: University of Waterloo
+          url: https://cs.uwaterloo.ca/~y328yu/mycourses/794-2020/lecture.html
   - name: "Informatique graphique"
     items:
         - name: Ray Tracing in One Weekend
