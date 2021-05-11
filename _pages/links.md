@@ -46,6 +46,10 @@ themes:
         - name: "Blog about hardware for deep learning"
           author: Tim Dettmers
           url: https://timdettmers.com/
+        - name: Deep Learning Do It Yourself!
+          author: Marc Lelarge, Jill-Jênn Vie, Andrei Bursuc
+          loc: ENS, X
+          url: https://dataflowr.github.io/website/
   - name: Optimisation
     items:
         - name: Optimisation pour l'économie
