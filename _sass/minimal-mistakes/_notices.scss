@@ -11,11 +11,11 @@
  */
 
 @mixin notice($notice-color) {
-  margin: 2em 0 !important;  /* override*/
-  padding: 1em;
+  margin: 1em 0 !important;  /* override*/
+  padding: .7em;
   color: $dark-gray;
   font-family: $global-font-family;
-  font-size: $type-size-6 !important;
+  font-size: 0.8 !important;
   text-indent: initial; /* override*/
   background-color: mix(#fff, $notice-color, 90%);
   border-radius: $border-radius;
