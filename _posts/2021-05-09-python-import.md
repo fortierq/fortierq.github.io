@@ -113,7 +113,7 @@ Name: src.a.b
 Package: src.a
 ~~~
 
-To go up several directories in relative imports, use additional dots: `from ..c import d` goes 2 directories up, for example.
+**Note**: to go up several directories in relative imports, use additional dots: `from ..c import d` goes 2 directories up, for example.
 {:  .notice}
 
 ## 2nd solution: run as a module
@@ -141,10 +141,10 @@ The default launch configuration in Visual Code runs Python files as scripts (wi
 
 ## 3rd solution (outdated): install in editable mode
 
-`pip install -e ...` installs a package in editable mode, which can then be imported anywhere on the computer. In practice, this is essentially a symbolic link to your package. Therefore, any modification of the package is reflected on the code importing it. It requires a `setup.py` at the root of your package.
+`pip install -e ...` installs a package in editable mode, which can then be imported anywhere on the computer. In practice, this is essentially a symbolic link to your package. Therefore, any modification of the package is reflected on the code importing it. It requires a `setup.py` at the root of your package.  
 
-According to [PEP 517](https://www.python.org/dev/peps/pep-0517), this is no longer recommended: Python packages should rely on a toml file (see [Poetry](https://python-poetry.org/) and not on `setup.py` anymore.
-{:  .notice-danger}
+**Note**: according to [PEP 517](https://www.python.org/dev/peps/pep-0517), this is no longer recommended: Python packages should rely on a toml file (see [Poetry](https://python-poetry.org/)) and not on `setup.py` anymore.  
+{:  .notice--danger}
 
 ## References
 - Topics on stackoverflow: <https://stackoverflow.com/questions/22241420/execution-of-python-code-with-m-option-or-not>, <https://stackoverflow.com/questions/16981921/relative-imports-in-python-3>
