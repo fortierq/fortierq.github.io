@@ -66,7 +66,7 @@ What happened? When Python tries to import a module, it looks at the paths in `s
 ~~~
 We see that the directory containing b.py (the script we run) is added to `sys.path`. But `d.py` is not reachable from the directory `a`, hence the above error.  
 
-## Add root to sys.path
+## 1st solution: add root to sys.path
 
 We can add the path to the root of the project:
 <script src="https://gist.github.com/fortierq/d7388895aa6531a2a3c2d2eb6f89438f.js"></script>
@@ -116,7 +116,7 @@ Package: src.a
 To go up several directories in relative imports, use additional dots: `from ..c import d` goes 2 directories up, for example.
 {:  .notice}
 
-## Run as a module
+## 2nd solution: run as a module
 
 It is unfortunate that scripts can't use relative imports. [PEP 338](https://www.python.org/dev/peps/pep-0338/) overcomes this limitation by adding the `-m` option. With this option, a script is run as if it was imported as a module.
 <script src="https://gist.github.com/fortierq/415e91b120b4fe30db8fc4140fae5139.js"></script>
@@ -139,7 +139,7 @@ The default launch configuration in Visual Code runs Python files as scripts (wi
 - set the following Python launch configuration in your settings.json:
 <script src="https://gist.github.com/fortierq/53a9e73cee609c763966839ff4ca25e0.js"></script>
 
-## Outdated: install as editable mode
+## 3rd solution (outdated): install in editable mode
 
 `pip install -e ...` installs a package in editable mode, which can then be imported anywhere on the computer. In practice, this is essentially a symbolic link to your package. Therefore, any modification of the package is reflected on the code importing it. It requires a `setup.py` at the root of your package.
 
