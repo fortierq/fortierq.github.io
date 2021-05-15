@@ -113,7 +113,7 @@ Name: src.a.b
 Package: src.a
 ~~~
 
-**Note**: to go up several directories in relative imports, use additional dots: `from ..c import d` goes 2 directories up, for example.
+**Note**: to go up several directories in relative imports, use additional dots: `from ...c import d` would go 2 directories up, for example.
 {:  .notice}
 
 ## 2nd solution: run as a module
