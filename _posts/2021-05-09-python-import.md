@@ -57,7 +57,7 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'src'
 ~~~
 
-What happened? When Python tries to import a module, it looks at the paths in `sys.path` (including PYTHONPATH):
+What happened? When Python tries to import a module, it looks at the paths in `sys.path` (including, but not limited to, PYTHONPATH):
 <script src="https://gist.github.com/fortierq/b329d5223604404b600289ddf2991f8c.js"></script>
 ~~~ shell
 ~/Documents/code/project$ python3 src/a/b.py
@@ -101,7 +101,7 @@ Traceback (most recent call last):
     from ..c import d
 ImportError: attempted relative import with no known parent package
 ~~~
-This is not working! This is because relative imports rely on the `__name__` or `__package__` variable (which is `__main__` and `None` for a script).  
+This is not working! This is because relative imports rely on the `__name__` or `__package__` variable (which is `__main__` and `None` for a script, respectively).  
 If we import b.py from another file, everything is fine:
 
 <script src="https://gist.github.com/fortierq/415e91b120b4fe30db8fc4140fae5139.js"></script>
