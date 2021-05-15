@@ -10,23 +10,23 @@ header:
   og_image: https://imgs.xkcd.com/comics/python.png
 ---
 
-I would like to explore some of the most important notions related to the import system of Python.
+Importing files for local development in Python can be cumbersome. In this article, I summarize some possibilities for the Python developer.   
 
 ![https://xkcd.com](https://imgs.xkcd.com/comics/python.png)
 {: style="text-align: center"}
 
-**TL; DR**: always use `python -m` to run a Python file, in order to add the current working directory to `sys.path` and enable relative imports.
+**TL; DR**: I recommend using `python -m` to run a Python file, in order to add the current working directory to `sys.path` and enable relative imports.
 {:  .notice--success}
 
 ## Definitions
 
-**Script**: Python file meant to be run with the command line interface. Sets the `__name__` variable to `__main__`.
+**Script**: Python file meant to be run with the command line interface.
 {:  .notice--info}
 
-**Module**: Python file meant to be imported. Sets the `__name__` variable to `__main__`.
+**Module**: Python file meant to be imported.
 {:  .notice--info}
 
-**Package**: directory containing modules
+**Package**: directory containing modules/packages.
 {:  .notice--info}
 
 
@@ -57,25 +57,25 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'src'
 ~~~
 
-What happened? When Python try to import a module, it looks at the paths in `sys.path` (including PYTHONPATH):
+What happened? When Python tries to import a module, it looks at the paths in `sys.path` (including PYTHONPATH):
 <script src="https://gist.github.com/fortierq/b329d5223604404b600289ddf2991f8c.js"></script>
 ~~~ shell
 ~/Documents/code/project$ python3 src/a/b.py
 
 ['/home/qfortier/Documents/code/project/src/a', '/usr/lib/python38.zip', '/usr/lib/python3.8',  ...]
 ~~~
-We see that the directory containing b.py (the script we run) is added to `sys.path`. But d.py is not reachable from the directory `a`.  
+We see that the directory containing b.py (the script we run) is added to `sys.path`. But `d.py` is not reachable from the directory `a`, hence the above error.  
 
-## Adding root to sys.path
+## Add root to sys.path
 
-We can add the path to the root of the project :
+We can add the path to the root of the project:
 <script src="https://gist.github.com/fortierq/d7388895aa6531a2a3c2d2eb6f89438f.js"></script>
 ~~~ shell
 ~/Documents/code/project$ python3 src/a/b.py
 
 ['/home/qfortier/Documents/code/project/src/a',  ..., '.']
 ~~~
-The added path '.' refers to the current working directory (from which Python was run) ~/Documents/code/project. Python can import `c.d` from this directory.  
+The added path '.' refers to the current working directory (from which Python was run) ~/Documents/code/project. Python can indeed import `c.d` from this directory.  
 
 This solution works regardless of the directory used to run Python:
 ~~~ shell
@@ -85,7 +85,9 @@ This solution works regardless of the directory used to run Python:
 ['/home/qfortier/Documents/code/project/src/a',  ..., 'code/project']
 ~~~
 
-It should also work on a different computer, with a different filesystem or OS, thanks to pathlib.
+It should also work on a different computer, with a different filesystem or OS, thanks to Pathlib.  
+However, modifying `sys.path` at the beginning of every file is tedious and hard to maintain. A better solution would be to use a `context.py` file modifying `sys.path`and imported by every other file, but this is still unsatisfying.  
+Another possibility is to add the root directory to PYTHONPATH (before running the script). This is done automatically by `poetry`, for example.
 
 ## Relative import
 
@@ -137,6 +139,14 @@ The default launch configuration in Visual Code runs Python files as scripts (wi
 - set the following Python launch configuration in your settings.json:
 <script src="https://gist.github.com/fortierq/53a9e73cee609c763966839ff4ca25e0.js"></script>
 
+## Outdated: install as editable mode
+
+`pip install -e ...` installs a package in editable mode, which can then be imported anywhere on the computer. In practice, this is essentially a symbolic link to your package. Therefore, any modification of the package is reflected on the code importing it. It requires a `setup.py` at the root of your package.
+
+According to [PEP 517](https://www.python.org/dev/peps/pep-0517), this is no longer recommended: Python packages should rely on a toml file (see [Poetry](https://python-poetry.org/) and not on `setup.py` anymore.
+{:  .notice-danger}
+
 ## References
 - Topics on stackoverflow: <https://stackoverflow.com/questions/22241420/execution-of-python-code-with-m-option-or-not>, <https://stackoverflow.com/questions/16981921/relative-imports-in-python-3>
 - Import system of Python: <https://docs.python.org/3/reference/import.html>, <https://docs.python.org/3/library/runpy.html>
+- pip install: <https://pip.pypa.io/en/stable/cli/pip_install/>
