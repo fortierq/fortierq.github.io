@@ -1,5 +1,5 @@
 ---
-title: "How to import local modules in Python"
+title: "How to import local modules with Python"
 tags:
   - python
   - programmation
