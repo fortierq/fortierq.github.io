@@ -41,6 +41,9 @@ themes:
           url: http://wikistat.fr/
   - name: Deep learning
     items:
+        - name: Dive into Deep Learning
+          author: Aston Zhang, Zack C. Lipton, Mu Li, Alex J. Smola
+          url: http://d2l.ai/index.html
         - name: "Blog about hardware for deep learning"
           author: Tim Dettmers
           url: https://timdettmers.com/
