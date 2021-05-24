@@ -101,7 +101,7 @@ Traceback (most recent call last):
     from ..c import d
 ImportError: attempted relative import with no known parent package
 ~~~
-This is not working! This is because relative imports rely on the `__name__` or `__package__` variable (which is `__main__` and `None` for a script, respectively).  
+This is not working! Indeed, relative imports rely on the `__name__` or `__package__` variable (which is `__main__` and `None` for a script, respectively).  
 If we import b.py from another file, everything is fine:
 
 <script src="https://gist.github.com/fortierq/415e91b120b4fe30db8fc4140fae5139.js"></script>
