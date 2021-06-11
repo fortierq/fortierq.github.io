@@ -7,3 +7,11 @@ for i in a {
 for i in a {            // doesn't work
     println!("{}", i);
 }
+
+let m = [[0u8; 4]; 6];
+println!("{:?}", m);
+for r in 0..m.len() {
+    for e in 0..m[r].len() {
+        println!("{}", m[r][e]);
+    }
+}
