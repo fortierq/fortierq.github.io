@@ -171,6 +171,9 @@ courses:
 
 Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 
+## Informatique commune en CPGE (programmes 2021)
+[Cours interactif avec Jupyter-book](http://fortierq.github.io/itc) (en construction)
+
 {% for course in page.courses %}
 ## {{ course.name }}
 {% if course.chapters %}
