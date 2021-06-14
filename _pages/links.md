@@ -41,6 +41,8 @@ themes:
           url: http://wikistat.fr/
   - name: Deep learning
     items:
+        - name: Hugging Face Course (NLP, transformers)
+          url: https://huggingface.co/course/chapter1
         - name: Dive into Deep Learning
           author: Aston Zhang, Zack C. Lipton, Mu Li, Alex J. Smola
           url: http://d2l.ai/index.html
