@@ -42,6 +42,7 @@ themes:
   - name: Deep learning
     items:
         - name: Hugging Face Course (NLP, transformers)
+          author: Carrigan, Debut, Gugger
           url: https://huggingface.co/course/chapter1
         - name: Dive into Deep Learning
           author: Aston Zhang, Zack C. Lipton, Mu Li, Alex J. Smola
