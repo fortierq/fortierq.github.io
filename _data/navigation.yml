@@ -26,6 +26,12 @@ sidebar-nb:
         url: /nb/regression_lineaire/
       - title: Régression logistique
         url: /nb/logistic/
+  - title: "Deep Learning"
+    children:
+      - title: Bases des réseaux de neurones
+        url: /nb/dnn/
+      - title: Reconnaissance d'image (projet INRIA) 
+        url: /nb/green_rover/
   - title: "Traitement d'images"
     children:
       - title: Égalisation d'histogramme
