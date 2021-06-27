@@ -17,6 +17,10 @@ themes:
         - name: "Curious Efficiency blog"
           author: Nick Coghlan
           url: https://www.curiousefficiency.org/
+  - name: "Jupyter"
+    items:
+        - name: "nbdime - diffing and merging of Jupyter Notebooks"
+          url: https://nbdime.readthedocs.io/en/latest/
   - name: "Git"
     items:
         - name: Merge vs rebase
