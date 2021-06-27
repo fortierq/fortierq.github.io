@@ -171,8 +171,11 @@ courses:
 
 Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 
+## Informatique en MP2I (programmes 2021)
+[Image Docker pour le cours de MP2I](https://github.com/fortierq/mp2i-jupyter-docker)
+
 ## Informatique commune en CPGE (programmes 2021)
-[Cours interactif avec Jupyter-book](http://fortierq.github.io/itc) (en construction)
+[Cours interactif avec Jupyter-book](http://fortierq.github.io/itc) (en construction)  
 
 {% for course in page.courses %}
 ## {{ course.name }}
