@@ -28,6 +28,9 @@ themes:
           url: https://mislav.net/2013/02/merge-vs-rebase/
   - name: "Machine learning"
     items:
+        - name: "Machine Learning for Beginners - A Curriculum"
+          author: Microsoft
+          url: https://github.com/microsoft/ML-For-Beginners
         - name: "Optimisation, apprentissage statistique"
           author: Francis Bach
           loc: ENS et Paris-Sud
