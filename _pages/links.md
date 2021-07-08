@@ -26,8 +26,12 @@ themes:
         - name: Merge vs rebase
           author: Mislav Marohnić
           url: https://mislav.net/2013/02/merge-vs-rebase/
-  - name: "Machine learning"
+  - name: "Machine learning & Data science"
     items:
+        - name: "Cours science des données"
+          author: François Husson
+          loc: Agrocampus Rennes
+          url: https://husson.github.io/teaching.html
         - name: "Machine Learning for Beginners - A Curriculum"
           author: Microsoft
           url: https://github.com/microsoft/ML-For-Beginners
