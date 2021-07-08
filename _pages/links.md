@@ -28,6 +28,10 @@ themes:
           url: https://mislav.net/2013/02/merge-vs-rebase/
   - name: "Machine learning & Data science"
     items:
+        - name: Exercices pratiques
+          author: Marie Chavent
+          loc: Bordeaux
+          url: http://www.math.u-bordeaux.fr/~mchave100p/teaching/
         - name: "Cours science des données"
           author: François Husson
           loc: Agrocampus Rennes
