@@ -35,3 +35,5 @@ excerpt: "Docteur en informatique"
     {% include archive-single.html type=entries_layout %}
   {% endfor %}
 </div>
+
+![Metrics](https://metrics.lecoq.io/fortierq?template=classic&base.header=0&base.activity=0&base.community=0&base.repositories=0&base.metadata=0&activity=1&activity.limit=5&activity.load=300&activity.days=14&activity.filter=all&activity.visibility=all&activity.timestamps=false&config.timezone=Europe%2FParis)
