@@ -26,6 +26,8 @@ sidebar-nb:
         url: /nb/regression_lineaire/
       - title: Régression logistique
         url: /nb/logistic/
+      - title: "Clustering de voitures"
+        url: /nb/voitures_clustering/
   - title: "Deep Learning"
     children:
       - title: Bases des réseaux de neurones
