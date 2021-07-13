@@ -28,6 +28,8 @@ themes:
           url: https://mislav.net/2013/02/merge-vs-rebase/
   - name: "Machine learning & Data science"
     items:
+        - name: Site de Xavier Dupré
+          url: http://www.xavierdupre.fr/
         - name: Bayesian Methods for Hackers
           author: Cameron Davidson-Pilon
           url: http://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/#contents
