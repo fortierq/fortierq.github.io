@@ -98,6 +98,14 @@ themes:
           author: Roger Allen
           loc: Nvidia
           url: https://developer.nvidia.com/blog/accelerated-ray-tracing-cuda/
+  - name: Javascript
+        - name: MDN
+          author: Mozilla
+          url: https://developer.mozilla.org/en-US/ 
+        - name: javascript.info
+          url: https://javascript.info/
+          
+          
 ---
 
 {% for theme in page.themes %}
