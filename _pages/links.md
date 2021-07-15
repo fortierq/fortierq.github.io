@@ -28,6 +28,11 @@ themes:
           url: https://mislav.net/2013/02/merge-vs-rebase/
   - name: "Machine learning & Data science"
     items:
+        - name: Site de Xavier Dupré
+          url: http://www.xavierdupre.fr/
+        - name: Bayesian Methods for Hackers
+          author: Cameron Davidson-Pilon
+          url: http://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/#contents
         - name: Exercices pratiques
           author: Marie Chavent
           loc: Bordeaux
@@ -93,6 +98,14 @@ themes:
           author: Roger Allen
           loc: Nvidia
           url: https://developer.nvidia.com/blog/accelerated-ray-tracing-cuda/
+  - name: Javascript
+        - name: MDN
+          author: Mozilla
+          url: https://developer.mozilla.org/en-US/ 
+        - name: javascript.info
+          url: https://javascript.info/
+          
+          
 ---
 
 {% for theme in page.themes %}
