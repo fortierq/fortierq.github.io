@@ -5,18 +5,6 @@ toc: true
 toc_label: "Liens"
 toc_sticky: true
 themes:
-  - name: "Python"
-    items:
-        - name: "Documentation officielle"
-          url: https://docs.python.org/3/
-        - name: "Neopythonic blog"
-          author: Guido van Rossum
-          url: http://neopythonic.blogspot.com/ 
-        - name: "Python Developer’s Guide"
-          url: https://devguide.python.org/
-        - name: "Curious Efficiency blog"
-          author: Nick Coghlan
-          url: https://www.curiousefficiency.org/
   - name: "Jupyter"
     items:
         - name: "nbdime - diffing and merging of Jupyter Notebooks"
@@ -28,6 +16,9 @@ themes:
           url: https://mislav.net/2013/02/merge-vs-rebase/
   - name: "Machine learning & Data science"
     items:
+        - name: User guide
+        - author: scikit-learn
+          url: https://scikit-learn.org/stable/user_guide.html
         - name: Site de Xavier Dupré
           url: http://www.xavierdupre.fr/
         - name: Bayesian Methods for Hackers
