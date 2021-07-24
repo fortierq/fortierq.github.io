@@ -98,7 +98,7 @@ author:
   name             : "Quentin Fortier"
   avatar           : "/assets/images/qf.png"
   bio              : "Docteur en informatique. Agrégé de mathématiques option informatique."
-  location         : "Lyon"
+  # location         : "Lyon"
   email            : "quentin.fortier@ens-lyon.org"
   links:
     - label: "Twitter"
@@ -110,6 +110,11 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/fortierq"
+    - label: "LeetCode"
+      url: "https://leetcode.com/qpfortier"
+    - label: "Kaggle"
+      icon: "fab fa-fw fa-kaggle"
+      url: "https://www.kaggle.com/quentinfortier"
 
 # Site Footer
 footer:
@@ -123,7 +128,7 @@ footer:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin fa-3x"
       url: "https://linkedin.com/in/fortierq/"
-
+    
 
 # Reading Files
 include:
