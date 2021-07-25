@@ -5,6 +5,11 @@ toc: true
 toc_label: "Liens"
 toc_sticky: true
 themes:
+  - name: "Python"
+    items:
+        - name: "Python Packaging User Guide"
+          author: "Python Packaging Authority"
+          url: https://packaging.python.org/
   - name: "Jupyter"
     items:
         - name: "nbdime - diffing and merging of Jupyter Notebooks"
