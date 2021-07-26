@@ -36,6 +36,8 @@ sidebar-nb:
         url: /nb/green_rover/
   - title: "Traitement d'images"
     children:
+      - title: Ray tracing
+        url: /nb/ray_tracing/
       - title: Égalisation d'histogramme
         url: /nb/hist_equal/
   - title: "Optimisation"
