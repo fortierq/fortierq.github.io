@@ -7,23 +7,39 @@ toc_sticky: true
 themes:
   - name: "Python"
     items:
-        - name: "Documentation officielle"
-          url: https://docs.python.org/3/
-        - name: "Neopythonic blog"
-          author: Guido van Rossum
-          url: http://neopythonic.blogspot.com/ 
-        - name: "Python Developer’s Guide"
-          url: https://devguide.python.org/
-        - name: "Curious Efficiency blog"
-          author: Nick Coghlan
-          url: https://www.curiousefficiency.org/
+        - name: "Python Packaging User Guide"
+          author: "Python Packaging Authority"
+          url: https://packaging.python.org/
+  - name: "Jupyter"
+    items:
+        - name: "nbdime - diffing and merging of Jupyter Notebooks"
+          url: https://nbdime.readthedocs.io/en/latest/
   - name: "Git"
     items:
         - name: Merge vs rebase
           author: Mislav Marohnić
           url: https://mislav.net/2013/02/merge-vs-rebase/
-  - name: "Machine learning"
+  - name: "Machine learning & Data science"
     items:
+        - name: User guide
+        - author: scikit-learn
+          url: https://scikit-learn.org/stable/user_guide.html
+        - name: Site de Xavier Dupré
+          url: http://www.xavierdupre.fr/
+        - name: Bayesian Methods for Hackers
+          author: Cameron Davidson-Pilon
+          url: http://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/#contents
+        - name: Exercices pratiques
+          author: Marie Chavent
+          loc: Bordeaux
+          url: http://www.math.u-bordeaux.fr/~mchave100p/teaching/
+        - name: "Cours science des données"
+          author: François Husson
+          loc: Agrocampus Rennes
+          url: https://husson.github.io/teaching.html
+        - name: "Machine Learning for Beginners - A Curriculum"
+          author: Microsoft
+          url: https://github.com/microsoft/ML-For-Beginners
         - name: "Optimisation, apprentissage statistique"
           author: Francis Bach
           loc: ENS et Paris-Sud
@@ -78,6 +94,13 @@ themes:
           author: Roger Allen
           loc: Nvidia
           url: https://developer.nvidia.com/blog/accelerated-ray-tracing-cuda/
+  - name: Javascript
+    items:
+        - name: MDN
+          author: Mozilla
+          url: https://developer.mozilla.org/en-US/ 
+        - name: javascript.info
+          url: https://javascript.info/
 ---
 
 {% for theme in page.themes %}
