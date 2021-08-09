@@ -176,7 +176,7 @@ Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 [Cours de MP2I](https://github.com/fortierq/MP2I_2021)
 
 ## Informatique commune en CPGE (programmes 2021)
-[Cours interactif avec Jupyter-book](http://fortierq.github.io/itc) (en construction)  
+[Cours interactif avec Jupyterlite](http://fortierq.github.io/itc) (dépôt Git : https://github.com/fortierq/itc)  
 
 {% for course in page.courses %}
 ## {{ course.name }}
