@@ -22,7 +22,7 @@ themes:
   - name: "Machine learning & Data science"
     items:
         - name: User guide
-        - author: scikit-learn
+          author: scikit-learn
           url: https://scikit-learn.org/stable/user_guide.html
         - name: Site de Xavier Dupré
           url: http://www.xavierdupre.fr/
