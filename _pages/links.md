@@ -10,15 +10,6 @@ themes:
         - name: "Python Packaging User Guide"
           author: "Python Packaging Authority"
           url: https://packaging.python.org/
-  - name: "Jupyter"
-    items:
-        - name: "nbdime - diffing and merging of Jupyter Notebooks"
-          url: https://nbdime.readthedocs.io/en/latest/
-  - name: "Git"
-    items:
-        - name: Merge vs rebase
-          author: Mislav Marohnić
-          url: https://mislav.net/2013/02/merge-vs-rebase/
   - name: "Machine learning & Data science"
     items:
         - name: User guide
@@ -57,23 +48,20 @@ themes:
           url: http://wikistat.fr/
   - name: Deep learning
     items:
-        - name: Hugging Face Course (NLP, transformers)
-          author: Carrigan, Debut, Gugger
-          url: https://huggingface.co/course/chapter1
         - name: Dive into Deep Learning
           author: Aston Zhang, Zack C. Lipton, Mu Li, Alex J. Smola
           url: http://d2l.ai/index.html
-        - name: "Blog about hardware for deep learning"
-          author: Tim Dettmers
-          url: https://timdettmers.com/
-        - name: Deep Learning Do It Yourself!
-          author: Marc Lelarge, Jill-Jênn Vie, Andrei Bursuc
-          loc: ENS, X
-          url: https://dataflowr.github.io/website/
         - name: "Deep Learning"
           author: Yann LeCun, Alfredo Canziani
           loc: NYU
           url: https://atcold.github.io/pytorch-Deep-Learning/
+        - name: Hugging Face Course (NLP, transformers)
+          author: Carrigan, Debut, Gugger
+          url: https://huggingface.co/course/chapter1
+        - name: Deep Learning Do It Yourself!
+          author: Marc Lelarge, Jill-Jênn Vie, Andrei Bursuc
+          loc: ENS, X
+          url: https://dataflowr.github.io/website/
   - name: Optimisation
     items:
         - name: Optimisation pour l'économie
