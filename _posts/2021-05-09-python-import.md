@@ -139,7 +139,15 @@ The default launch configuration in Visual Code runs Python files as scripts (wi
 - set the following Python launch configuration in your settings.json:
 <script src="https://gist.github.com/fortierq/53a9e73cee609c763966839ff4ca25e0.js"></script>
 
-## 3rd solution (outdated): install in editable mode
+## 3rd solution : modify PYTHONPATH
+
+With Visual Code, you can automatically add the root directory to your project by adding a line to the launch configuration :
+<script src="https://gist.github.com/fortierq/0eae7e8e8999cb23c0e1160f458a166f.js"></script>
+
+Alternatively, you can add a .env file in the root directory :
+<script src="https://gist.github.com/fortierq/5c86347c7dbd68660e1636666d1b76b9.js"></script>
+
+## 4rd solution (outdated): install in editable mode
 
 `pip install -e ...` installs a package in editable mode, which can then be imported anywhere on the computer. In practice, this is essentially a symbolic link to your package. Therefore, any modification of the package is reflected on the code importing it. It requires a `setup.py` at the root of your package.  
 
