@@ -176,7 +176,7 @@ Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 [Image Docker pour le cours de MP2I](https://github.com/fortierq/mp2i-jupyter-docker)  
 
 ## Informatique commune en CPGE (programmes 2021)
-[Cours d'informatique commune, 1ère année](https://fortierq.github.io/itc1-2021) ([dépôt Git] (https://github.com/fortierq/itc1-2021))  
+[Cours d'informatique commune, 1ère année](https://fortierq.github.io/itc1-2021) ([dépôt Git](https://github.com/fortierq/itc1-2021))  
 
 {% for course in page.courses %}
 ## {{ course.name }}
