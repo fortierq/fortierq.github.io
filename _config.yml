@@ -109,7 +109,7 @@ author:
       url: "https://twitter.com/FortierQuentin"
     - label: "DockerHub"
       icon: "fab fa-fw fa-docker"
-      url: "https://hub.docker.com/"
+      url: "https://hub.docker.com/r/qfortier/"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/fortierq"
