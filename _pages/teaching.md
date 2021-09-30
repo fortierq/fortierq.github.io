@@ -171,12 +171,19 @@ courses:
 
 Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 
-## Informatique en MP2I (programmes 2021)
+## Informatique en MP2I (programme 2021)
+[Cours d'informatique en MP2I](https://github.com/mp2i-fsm/mp2i-2021)  
 [Image Docker pour le cours de MP2I](https://github.com/fortierq/mp2i-jupyter-docker)  
-[Cours de MP2I](https://github.com/fortierq/MP2I_2021)
 
-## Informatique commune en CPGE (programmes 2021)
-[Cours d'informatique commune, 1ère année](https://fortierq.github.io/itc1-2021) (dépôt Git : https://github.com/fortierq/itc1-2021)  
+## Informatique commune en CPGE
+- [Cours d'informatique commune, 1ère année (programme 2021)](https://fortierq.github.io/itc1-2021)  
+[Dépôt](https://github.com/fortierq/itc1-2021)  
+- [Cours d'informatique commune, 2ème année](https://fortierq.github.io/ipt2)  
+[Dépôt](https://github.com/fortierq/ipt2)  
+
+## Optimisation en Master Intelligence Artificielle Distribuée
+[Cours d'optimisation](https://fortierq.github.io/oc-m1-2021/)  
+[Dépôt](https://github.com/fortierq/oc-m1-2021)
 
 {% for course in page.courses %}
 ## {{ course.name }}
