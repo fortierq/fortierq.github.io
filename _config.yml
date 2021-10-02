@@ -97,7 +97,7 @@ analytics:
 author:
   name             : "Quentin Fortier"
   avatar           : "/assets/images/qf.png"
-  bio              : "Professeur d'informatique en MP2I"
+  bio              : "Professeur d'informatique"
   # location         : "Lyon"
   email            : "quentin.fortier@ens-lyon.org"
   links:
