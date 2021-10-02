@@ -176,12 +176,14 @@ Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 [Image Docker pour le cours de MP2I](https://github.com/fortierq/mp2i-jupyter-docker)  
 
 ## Informatique commune en CPGE
-- [Cours d'informatique commune, 1ère année (programme 2021)](https://fortierq.github.io/itc1-2021)  
-[Dépôt](https://github.com/fortierq/itc1-2021)  
+- [Cours d'informatique commune, 1ère année (programme 2021)](https://github.com/fortierq/itc1-2021)  
+[Lien Jupyterlite](https://fortierq.github.io/itc1-2021)  
+[Résumé Python](https://github.com/fortierq/itc1-2021/raw/master/files/1_Python/cours/resume_python.pdf)
+
 - [Cours d'informatique commune, 2ème année](https://fortierq.github.io/ipt2)  
 [Dépôt](https://github.com/fortierq/ipt2)  
 
-## Optimisation en Master Intelligence Artificielle Distribuée
+## Optimisation en Master Intelligence Artificielle Distribuée (Université de Paris)
 [Cours d'optimisation](https://fortierq.github.io/oc-m1-2021/)  
 [Dépôt](https://github.com/fortierq/oc-m1-2021)
 
