@@ -172,8 +172,10 @@ courses:
 Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 
 ## Informatique en MP2I (programme 2021)
+
 [Cours d'informatique en MP2I](https://github.com/mp2i-fsm/mp2i-2021)  
-[Image Docker pour le cours de MP2I](https://github.com/fortierq/mp2i-jupyter-docker)  
+[Image Docker pour le cours de MP2I](https://github.com/fortierq/mp2i-jupyter-docker) (permet d'utiliser Jupyter avec OCaml, C et Python en ayant seulement besoin d'installer Docker)  
+[Polycopié OCaml](https://github.com/mp2i-fsm/mp2i-2021/raw/main/1_OCaml/OCaml.pdf) (généré automatiquement à partir des notebooks Jupyter du cours... il me reste des erreurs de mise en page à corriger) 
 
 ## Informatique commune en CPGE
 - [Cours d'informatique commune, 1ère année (programme 2021)](https://github.com/fortierq/itc1-2021)  
