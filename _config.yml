@@ -96,7 +96,7 @@ analytics:
 # Site Author
 author:
   name             : "Quentin Fortier"
-  avatar           : "/assets/images/qf.png"
+  avatar           : "/assets/images/photo_cv.png"
   bio              : "Professeur d'informatique"
   # location         : "Lyon"
   email            : "quentin.fortier@ens-lyon.org"
