@@ -16,7 +16,7 @@ excerpt: "Docteur en informatique"
 <script type="text/javascript" src="https://unpkg.com/github-activity-feed@latest/dist/github-activity.min.js"></script>
 
 <center>
-  <img src="/assets/images/photo_cv.png" style="max-width: 180px; border-radius: 50%;" alt="Quentin Fortier"> 
+  <img src="/assets/images/qf.png" style="max-width: 180px; border-radius: 50%;" alt="Quentin Fortier"> 
   <div class="half-line"><br></div>
 
    <p>
