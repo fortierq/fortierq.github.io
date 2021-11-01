@@ -173,7 +173,8 @@ Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 
 ## Informatique en MP2I (programme 2021)
 
-[Cours d'informatique en MP2I](https://github.com/mp2i-fsm/mp2i-2021)  
+[Cours d'informatique en MP2I : https://mp2i-fsm.github.io/mp2i-2021](https://mp2i-fsm.github.io/mp2i-2021/)  
+[Dépôt GitHub](https://github.com/mp2i-fsm/mp2i-2021)
 [Image Docker pour le cours de MP2I](https://github.com/fortierq/mp2i-jupyter-docker) (permet d'utiliser Jupyter avec OCaml, C et Python en ayant seulement besoin d'installer Docker)  
 [Polycopié OCaml](https://github.com/mp2i-fsm/mp2i-2021/raw/main/1_OCaml/OCaml.pdf) (généré automatiquement à partir des notebooks Jupyter du cours... il me reste des erreurs de mise en page à corriger) 
 
@@ -183,11 +184,11 @@ Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
 [Résumé Python](https://github.com/fortierq/itc1-2021/raw/master/files/1_Python/cours/resume_python.pdf)
 
 - [Cours d'informatique commune, 2ème année](https://fortierq.github.io/ipt2)  
-[Dépôt](https://github.com/fortierq/ipt2)  
+[Dépôt GitHub](https://github.com/fortierq/ipt2)  
 
 ## Optimisation en Master Intelligence Artificielle Distribuée (Université de Paris)
 [Cours d'optimisation](https://fortierq.github.io/oc-m1-2021/)  
-[Dépôt](https://github.com/fortierq/oc-m1-2021)
+[Dépôt GitHub](https://github.com/fortierq/oc-m1-2021)
 
 {% for course in page.courses %}
 ## {{ course.name }}
