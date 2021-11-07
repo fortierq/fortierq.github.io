@@ -169,7 +169,7 @@ courses:
   # - name: "Algorithmique et théorie des graphes en licence d'informatique"
 ---
 
-Cette page regroupe une partie des ressources que j'ai utilisé pour mes cours.
+Cette page regroupe une partie des documents que j'utilise pour mes cours.
 
 ## Informatique en MP2I (programme 2021)
 
