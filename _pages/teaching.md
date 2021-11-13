@@ -179,9 +179,8 @@ Cette page regroupe une partie des documents que j'utilise pour mes cours.
 [Polycopié OCaml](https://github.com/mp2i-fsm/mp2i-2021/raw/main/1_OCaml/OCaml.pdf) (généré automatiquement à partir des notebooks Jupyter du cours... il me reste des erreurs de mise en page à corriger) 
 
 ## Informatique commune en CPGE
-- [Cours d'informatique commune, 1ère année (programme 2021)](https://github.com/fortierq/itc1-2021)  
-[Lien Jupyterlite](https://fortierq.github.io/itc1-2021)  
-[Résumé Python](https://github.com/fortierq/itc1-2021/raw/master/files/1_Python/cours/resume_python.pdf)
+- [Cours d'informatique commune, 1ère année (programme 2021)](https://fortierq.github.io/itc1)  
+[Dépôt GitHub](https://github.com/fortierq/itc1-2021)
 
 - [Cours d'informatique commune, 2ème année](https://fortierq.github.io/ipt2)  
 [Dépôt GitHub](https://github.com/fortierq/ipt2)  
