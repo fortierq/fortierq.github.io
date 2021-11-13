@@ -18,10 +18,6 @@ ml:
 Page en construction.  
 Code source sur [GitHub](https://github.com/fortierq/animations).
 
-## Théorie des graphes
 {% include feature_row_anim id="graph" %}
 
-
----
-## Machine learning
 {% include feature_row_anim id="ml" %}
