@@ -82,6 +82,11 @@ themes:
           author: Roger Allen
           loc: Nvidia
           url: https://developer.nvidia.com/blog/accelerated-ray-tracing-cuda/
+  - name : Cryptographie
+    items:
+        - name: Site de Pascal Molin
+          loc: Paris 7
+          url: https://webusers.imj-prg.fr/~pascal.molin/index_fr.html
   - name: Javascript
     items:
         - name: MDN
