@@ -94,6 +94,8 @@ themes:
           url: https://developer.mozilla.org/en-US/ 
         - name: javascript.info
           url: https://javascript.info/
+        - name: Tutoriels D3.js
+          url: https://www.datavis.fr/index.php
 ---
 
 {% for theme in page.themes %}
