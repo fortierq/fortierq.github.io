@@ -176,7 +176,6 @@ Cette page regroupe une partie des documents que j'utilise pour mes cours.
 [Cours d'informatique en MP2I : https://mp2i-fsm.github.io/mp2i-2021](https://mp2i-fsm.github.io/mp2i-2021/)  
 [Dépôt GitHub](https://github.com/mp2i-fsm/mp2i-2021)  
 [Image Docker pour le cours de MP2I](https://github.com/fortierq/mp2i-jupyter-docker) (permet d'utiliser Jupyter avec OCaml, C et Python en ayant seulement besoin d'installer Docker)  
-[Polycopié OCaml](https://github.com/mp2i-fsm/mp2i-2021/raw/main/1_OCaml/OCaml.pdf) (généré automatiquement à partir des notebooks Jupyter du cours... il me reste des erreurs de mise en page à corriger) 
 
 ## Informatique commune en CPGE
 - [Cours d'informatique commune, 1ère année (programme 2021)](https://fortierq.github.io/itc1)  
