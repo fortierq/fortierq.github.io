@@ -89,7 +89,7 @@ themes:
           url: https://webusers.imj-prg.fr/~pascal.molin/index_fr.html
   - name: Javascript
     items:
-        - Tensorflow.js
+        - name: Tensorflow.js
           url: https://www.tensorflow.org/js/
         - name: MDN
           author: Mozilla
