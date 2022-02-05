@@ -12,6 +12,9 @@ themes:
           url: https://packaging.python.org/
   - name: "Machine learning & Data science"
     items:
+        - name: Mathematical fundations for ML
+          author: Gabriel Peyr
+          url: https://mathematical-tours.github.io/book
         - name: User guide
           author: scikit-learn
           url: https://scikit-learn.org/stable/user_guide.html
