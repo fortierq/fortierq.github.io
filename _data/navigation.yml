@@ -18,6 +18,12 @@ main:
     url: /assets/CV.pdf
 
 sidebar-nb:
+  - title: "Optimisation"
+    children:
+      - title: Pavages
+        url: /nb/pavage/
+      - title: Heuristics for TSP
+        url: /nb/tsp/
   - title: "Machine learning"
     children:
       - title: SVM
@@ -44,9 +50,3 @@ sidebar-nb:
         url: /nb/ray_tracing/
       - title: Égalisation d'histogramme
         url: /nb/hist_equal/
-  - title: "Optimisation"
-    children:
-      - title: Pavages
-        url: /nb/pavage/
-      - title: Heuristics for TSP
-        url: /nb/tsp/
