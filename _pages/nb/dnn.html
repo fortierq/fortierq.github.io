@@ -16,8 +16,9 @@ toc_sticky: true
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1><center><a href='https://mybinder.org/v2/gh/fortierq/itc-binder/main?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Ffortierq%252Fnotebooks%26urlpath%3Dlab%252Ftree%252Fnotebooks%252Fnb%252Fdeep_learning%252FDNN.ipynb%26branch%3Dmaster'>Réseau de neurones     <img src=https://mybinder.org/badge.svg></a></center></h1>
-<p>Dans ce notebook, je propose d'implémenter un réseau de neurones à partir de zéro (c'est-à-dire sans utiliser de librairie de Deep Learning comme Pytorch ou Keras).</p>
+<h1><center><a href='https://mybinder.org/v2/gh/fortierq/notebooks/master?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Ffortierq%252Fnotebooks%26urlpath%3Dlab%252Ftree%252Fnotebooks%252Fnb%252Fdeep_learning%252FDNN.ipynb%26branch%3Dmaster'>Réseau de neurones               <img src=https://mybinder.org/badge.svg></a></center></h1>
+<blockquote><p>Dans ce notebook, je propose d'implémenter un réseau de neurones à partir de zéro (c'est-à-dire sans utiliser de librairie de Deep Learning comme Pytorch ou Keras).</p>
+</blockquote>
 
 </div>
 </div>
@@ -27,17 +28,17 @@ toc_sticky: true
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Si X est un ensemble de données et Y un ensemble d'étiquettes (ou classes) associées à chaque donnée, l'apprentissage automatique a pour objectif d'approximer la fonction (inconnue) qui à une donnée associe son étiquette. Par exemple, X peut être un ensemble d'images (<code>X[i]</code> est une image, c'est à dire un rectangle de pixels), et Y peut servir à distinguer les photos de chats (<code>Y[i]</code> vaut 1 si <code>X[i]</code> représente un chat, 0 sinon). <br></p>
 <p>Un réseau de neurones est une façon possible d'approximer cette fonction inconnue, en assemblant un certain nombre de fonctions plus simples selon un réseau (ou graphe orienté). <br>
-La régression logistique (voir, par exemple: <a href="https://github.com/fortierq/ML/blob/master/logistic.ipynb">https://github.com/fortierq/ML/blob/master/logistic.ipynb</a>) est un cas particulier de réseau de neurones, avec un seul neurone.</p>
-<p>Voici un exemple plus intéressant de réseau de neurones:
+La régression logistique (voir, par exemple : <a href="https://github.com/fortierq/ML/blob/master/logistic.ipynb">https://github.com/fortierq/ML/blob/master/logistic.ipynb</a>) est un cas particulier de réseau de neurones, avec un seul neurone.</p>
+<p>Voici un exemple plus intéressant de réseau de neurones :
 <img src="data:image/png;base64,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" alt="DNN"></p>
-<p>Le réseau est décomposé en plusieurs <strong>couches</strong> (ici 3): les éléments de la couche $i$ sont indiqués par un exposant $i$. <br>
+<p>Le réseau est décomposé en plusieurs <strong>couches</strong> (ici 3) : les éléments de la couche $i$ sont indiqués par un exposant $i$. <br>
 Tous les éléments $x$, $y$, $z$, $w$ contiendront une valeur réelle. <br>
 L'entrée de ce réseau est une donnée $X$ composée de deux éléments $x_0$ et $x_1$ (les <em>features</em>). La sortie est un seul réel $y$. <br>
 Chaque arête possède un <strong>poids</strong> $w$. Chaque neurone possède de plus un <strong>biais</strong> $b$. <br>
 Chaque variable $z$ correspond à l'entrée (impulsion) d'un sommet (aussi appelé <strong>neurone</strong>). <br>
 Chaque $y$ est la sortie (réponse) d'un neurone, qui est fonction du $z$ correspondant. Ici, on utilisera $y = \sigma(z)$ où $\sigma(z) = \frac{1}{1 + e^{-z}}$ est la fonction <strong>sigmoïde</strong>. <br> 
-Remarque: $\sigma$ est très utilisé en machine learning car elle est différentiable (essentiel pour l'algorithme de backpropagation décrit plus bas) et a ses valeurs entre 0 et 1 (permettant d'interpréter $y$ comme une probabilité). Il existe cependant de nombreuses fonctions d'activations possibles, comme $\tanh$, relu...<br>
-On utilisera aussi $\sigma'$ qui vérifie, après calcul: $\sigma'(z) = \sigma(z)(1 - \sigma(z))$.</p>
+Remarque : $\sigma$ est très utilisé en machine learning car elle est différentiable (essentiel pour l'algorithme de backpropagation décrit plus bas) et a ses valeurs entre 0 et 1 (permettant d'interpréter $y$ comme une probabilité). Il existe cependant de nombreuses fonctions d'activations possibles, comme $\tanh$, relu...<br>
+On utilisera aussi $\sigma'$ qui vérifie, après calcul : $\sigma'(z) = \sigma(z)(1 - \sigma(z))$.</p>
 
 </div>
 </div>
@@ -71,7 +72,7 @@ On utilisera aussi $\sigma'$ qui vérifie, après calcul: $\sigma'(z) = \sigma(z
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>On calcule $y$ à partir de $x_0$ et $x_1$ (<em>forward propagation</em>) couche par couche:</p>
+<p>On calcule $y$ à partir de $x_0$ et $x_1$ (<em>forward propagation</em>) couche par couche :</p>
 <ul>
 <li>$z_{\bullet}^0 \longleftarrow x_0 w_{0, \bullet}^0 + x_1 w_{0, \bullet}^0 + b_{\bullet}^0 ~~~$ (pour $\bullet = 0, 1$) </li>
 <li>$y_{\bullet}^0 \longleftarrow \sigma(z_{\bullet}^0) ~~~$ (pour $\bullet = 0, 1$) </li>
@@ -80,13 +81,13 @@ On utilisera aussi $\sigma'$ qui vérifie, après calcul: $\sigma'(z) = \sigma(z
 <li>ainsi de suite...</li>
 </ul>
 <p>Implémentons cette <em>forward propagation</em>, sous forme matricielle (les calculs sous forme vectoriel sont parallélisables, donc beaucoup plus rapides). <br>
-Pour cela, notons $W^i$ la matrice des coefficients $w^i$ pour la couche $i$. Par exemple:
+Pour cela, notons $W^i$ la matrice des coefficients $w^i$ pour la couche $i$. Par exemple :
 $$W^0 = \begin{pmatrix}
 w_{0, 0}^0 &amp; w_{0, 1}^0\\
 w_{1, 0}^0 &amp; w_{1, 1}^0
 \end{pmatrix}$$
 Dans le cas général, les couches peuvent avoir des tailles différentes $n_0$, $n_1$, ..., $n_l$. $W^i$ est alors de taille $n_i \times n_{i+1}$. <br>
-Définissons les vecteurs lignes:
+Définissons les vecteurs lignes :
 $$Y^i = \begin{pmatrix}
 y_{0}^i &amp; y_{1}^i &amp; ...\\
 \end{pmatrix}$$
@@ -99,8 +100,8 @@ b_{0}^i &amp; b_{1}^i &amp; ...\\
 $$X = \begin{pmatrix}
 x_{0} &amp; x_{1} &amp; ...\\
 \end{pmatrix}$$
-Remarque: il est possible d'utiliser des vecteurs colonnes, comme c'est le cas dans le cours <a href="https://www.coursera.org/specializations/deep-learning">https://www.coursera.org/specializations/deep-learning</a>, mais l'utilisation de vecteurs lignes me semble simplifier certains passages.</p>
-<p>La <em>forward propagation</em> devient alors:
+Remarque : il est possible d'utiliser des vecteurs colonnes, comme c'est le cas dans le cours <a href="https://www.coursera.org/specializations/deep-learning">https://www.coursera.org/specializations/deep-learning</a>, mais l'utilisation de vecteurs lignes me semble simplifier certains passages.</p>
+<p>La <em>forward propagation</em> devient alors :
 $$Z^i \longleftarrow Y^{i-1} W^i + B^i$$
 $$Y^i \longleftarrow \sigma(Z^i)$$
 Pour faciliter l'induction, on pose $Y^{-1} = X$ et $Y^l = Y$. <br>
@@ -161,13 +162,13 @@ Dans l'implémentation ci-dessous, <code>L_W</code>, <code>L_B</code>, <code>L_Z
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Vectorialisation">Vectorialisation<a class="anchor-link" href="#Vectorialisation"></a></h1><p>En pratique, on va vouloir calculer la réponse d'un réseau de neurones à plusieurs données (et même: toutes les données). On pourrait appliquer <code>forward</code> plusieurs mais, encore une fois, il est plus efficace de vectorialiser: si les données sont $X_1$, $X_2$, ... (vecteurs lignes), on utilise:<br>
+<h1 id="Vectorialisation">Vectorialisation<a class="anchor-link" href="#Vectorialisation"></a></h1><p>En pratique, on va vouloir calculer la réponse d'un réseau de neurones à plusieurs données (et même : toutes les données). On pourrait appliquer <code>forward</code> plusieurs mais, encore une fois, il est plus efficace de vectorialiser : si les données sont $X_1$, $X_2$, ... (vecteurs lignes), on utilise :<br>
 $$X = \begin{pmatrix}
  X_1 \\
  X_2 \\
 ...
 \end{pmatrix}$$
-Grâce à la magie des tableaux numpy (broadcasting et opérations terme à terme), on peut appliquer la même fonction <code>forward</code> à une telle matrice $X$ et obtenir une matrice des réponses $Y_i$ à chaque $X_i$, sous la forme: 
+Grâce à la magie des tableaux numpy (broadcasting et opérations terme à terme), on peut appliquer la même fonction <code>forward</code> à une telle matrice $X$ et obtenir une matrice des réponses $Y_i$ à chaque $X_i$, sous la forme : 
 $$Y = \begin{pmatrix}
  Y_1 \\
  Y_2 \\
@@ -181,7 +182,7 @@ $$Y = \begin{pmatrix}
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Positionnement-du-probl&#232;me">Positionnement du probl&#232;me<a class="anchor-link" href="#Positionnement-du-probl&#232;me"></a></h1><p>L'objectif est maintenant de trouver des valeurs pour les coefficients $w$ et $b$ qui permettent de prédire correctement la classe d'une donnée. <br>
-Exemple: considérons quatres données $(1, 1), (-1, 1), (-1, -1), (1, -1)$ (des points) de classes 1, 0, 1, 0.</p>
+Exemple : considérons quatres données $(1, 1), (-1, 1), (-1, -1), (1, -1)$ (des points) de classes 1, 0, 1, 0.</p>
 
 </div>
 </div>
@@ -225,7 +226,7 @@ Exemple: considérons quatres données $(1, 1), (-1, 1), (-1, -1), (1, -1)$ (des
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Essayons dans un premier temps des poids aléatoires (selon une loi normale) pour $w$ et nuls pour $b$:</p>
+<p>Essayons dans un premier temps des poids aléatoires (selon une loi normale) pour $w$ et nuls pour $b$ :</p>
 
 </div>
 </div>
@@ -305,7 +306,7 @@ Exemple: considérons quatres données $(1, 1), (-1, 1), (-1, -1), (1, -1)$ (des
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>L'idée va être de modifier itérativement les valeurs de $w$ et $b$ de façon à améliorer les réponses du réseau de neurones. <br>
 Pour cela, il faut quantifier l'erreur commise par le réseau de neurones. C'est le rôle de la <strong>fonction de coût</strong> (ou <strong>loss</strong>). <br>
-Le choix de fonction de coût le plus classique pour les problèmes de classification binaire est la <em>binary cross-entropy</em>:</p>
+Le choix de fonction de coût le plus classique pour les problèmes de classification binaire est la <em>binary cross-entropy</em> :</p>
 
 </div>
 </div>

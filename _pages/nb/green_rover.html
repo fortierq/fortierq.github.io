@@ -16,7 +16,10 @@ toc_sticky: true
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1><center><a href='https://mybinder.org/v2/gh/fortierq/itc-binder/main?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Ffortierq%252Fnotebooks%26urlpath%3Dlab%252Ftree%252Fnotebooks%252Fnb%252Fdeep_learning%252Fgreen_rover%252Fgreen_rover.ipynb%26branch%3Dmaster'>Détection et classification des mauvaises herbes pour le robot Green Rover  <img src=https://mybinder.org/badge.svg></a></center></h1>
+<h1><center><a href='https://mybinder.org/v2/gh/fortierq/notebooks/master?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Ffortierq%252Fnotebooks%26urlpath%3Dlab%252Ftree%252Fnotebooks%252Fnb%252Fdeep_learning%252Fgreen_rover%252Fgreen_rover.ipynb%26branch%3Dmaster'>Détection et classification des mauvaises herbes pour le robot Green Rover            <img src=https://mybinder.org/badge.svg></a></center></h1>
+<blockquote><p>Ce travail a été réalisé dans le cadre du projet « Green Rover » qui a pour objectif la création d'un robot mobile autonome pour l'entretien des
+espaces verts, dans le cadre d'une incubation de startup deeptetch, en partenariat avec l'Inria.</p>
+</blockquote>
 
 </div>
 </div>
@@ -24,8 +27,7 @@ toc_sticky: true
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="D&#233;codage-des-images">D&#233;codage des images<a class="anchor-link" href="#D&#233;codage-des-images"></a></h2><p>En analysant pas_herbes.bin, on voit que ce fichier a été écrit en binaire.</p>
-
+<h2 id="D&#233;codage-des-images-prises-par-le-robot">D&#233;codage des images prises par le robot<a class="anchor-link" href="#D&#233;codage-des-images-prises-par-le-robot"></a></h2>
 </div>
 </div>
 </div>
@@ -535,7 +537,7 @@ L 323.2075 10.772719
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="G&#233;n&#233;ration-des-donn&#233;es">G&#233;n&#233;ration des donn&#233;es<a class="anchor-link" href="#G&#233;n&#233;ration-des-donn&#233;es"></a></h2><p>J'utilise 71raw_04062020.png pour extraire la feuille et la texture de l'herbe.
+<h2 id="G&#233;n&#233;ration-d'un-jeu-de-donn&#233;es">G&#233;n&#233;ration d'un jeu de donn&#233;es<a class="anchor-link" href="#G&#233;n&#233;ration-d'un-jeu-de-donn&#233;es"></a></h2><p>J'utilise 71raw_04062020.png pour extraire la feuille et la texture de l'herbe.
 L'extraction de la feuille peut se faire avec n'importe quel algorithme de segmentation d'image, par exemple un graph cut.
 Le code ci-dessous a été adapté depuis <a href="https://docs.opencv.org/3.4/d8/d83/tutorial_py_grabcut.html">https://docs.opencv.org/3.4/d8/d83/tutorial_py_grabcut.html</a> :</p>
 
@@ -576,7 +578,7 @@ Le code ci-dessous a été adapté depuis <a href="https://docs.opencv.org/3.4/d
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">feuille_mask</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;binary&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">feuille_mask</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;binary&quot;</span><span class="p">);</span>
 </pre></div>
 
     </div>

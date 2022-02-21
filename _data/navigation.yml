@@ -20,12 +20,14 @@ main:
 sidebar-nb:
   - title: "Machine learning"
     children:
-      - title: Support Vector Machine
+      - title: SVM
         url: /nb/svm/
       - title: Régression linéaire
         url: /nb/regression_lineaire/
       - title: Régression logistique
         url: /nb/logistic/
+      - title: KNN
+        url: /nb/mnist_knn
       - title: "House Prices (Kaggle)"
         url: /nb/house_prices/
       - title: "Clustering de voitures"
@@ -46,3 +48,5 @@ sidebar-nb:
     children:
       - title: Pavages
         url: /nb/pavage/
+      - title: Heuristics for TSP
+        url: /nb/tsp/
