@@ -38,6 +38,10 @@ sidebar-nb:
         url: /nb/house_prices/
       - title: "Clustering de voitures"
         url: /nb/voitures_clustering/
+  - title: "Statistiques"
+    children:
+      - title: Statistiques Parcoursup
+        url: /nb/parcoursup/
   - title: "Deep Learning"
     children:
       - title: Bases des réseaux de neurones
