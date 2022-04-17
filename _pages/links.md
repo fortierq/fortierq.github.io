@@ -12,6 +12,8 @@ themes:
           url: https://packaging.python.org/
   - name: "Machine learning & Data science"
     items:
+        - name: dashboards with Panel
+          url: https://panel.holoviz.org
         - name: Mathematical fundations for ML
           author: Gabriel Peyr
           url: https://mathematical-tours.github.io/book
