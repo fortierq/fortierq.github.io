@@ -23,7 +23,7 @@ In this <a href="https://www.janestreet.com/puzzles/current-puzzle">puzzle from 
 An almost magic square is, well, almost a magic square. It differs from a magic square in that the 8 sums may differ from each other by at most 1.<br>
 For this puzzle, place distinct positive integers into the empty grid above such that each of four bold-outlined 3-by-3 regions is an almost magic square. Your goal is to do so in a way that minimizes the overall sum of the integers you use.</p>
 </blockquote>
-<center><img src=https://raw.githubusercontent.com/fortierq/notebooks/master/nb/optimisation/almost_magic/almost-magic.png width=300></center><p>This problem can be solved by integer linear programming, using <a href="https://www.python-mip.com">mip-python</a>.<br>
+<center><img src=https://raw.githubusercontent.com/fortierq/notebooks/master/nb/optimisation/almost_magic/almost-magic.png width=300></center><p>This problem can be solved by integer linear programming, using, for example, <a href="https://www.python-mip.com">mip-python</a>.<br>
 For each square $k$ (numbered from top to bottom) and for each $i, j$ coordinates, we define an integer variable $x_{i, j, k}$. Since there are overlap between the squares, we equalize the variables in the same region:</p>
 
 </div>
