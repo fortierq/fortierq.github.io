@@ -14,83 +14,83 @@ courses:
         url: ordonnancement.pdf
       - raw: "[Exo 13 corrigé](/assets/teaching/ENTPE/exo_13.png). Exo 11 corrigé sur GeoGebra : [MPM](https://www.geogebra.org/geometry/pvytdupg), [PERT à compléter](https://www.geogebra.org/geometry/u7z9jngn)"
       - raw: "Programmation linéaire: [résolution d'un PL simple](/assets/teaching/ENTPE/lp_ex.html) ([représentation avec Geogebra](https://www.geogebra.org/m/jcjnzg9x)), [résolution avec Python (exercice Roulements à bille)](https://github.com/fortierq/ENTPE/blob/master/lp/roulement_billes.ipynb), [simplexe à 2 phases](/assets/teaching/ENTPE/simplexe_2_phases.html)"
-  - name: Option informatique en MP/MP*
-    url: /assets/teaching/MP/
-    chapters:
-        - name: Structures de données
-          lectures: 
-            - name: "pile, file, arbre binaire de recherche, dictionnaire" 
-              url: structures.pdf
-            - name: "file de priorité et tas"
-              url: structures2.pdf
-          exos:
-            - name: TD1
-              url: td_structures.pdf 
-            - name: TD2
-              url: td_structures2.pdf 
-            - name: DM
-              url: DM_structures.pdf
-            - name: DS
-              url: DS_structures.pdf
-        - name: Graphes
-          lectures: 
-            - name: "définitions"
-              url: graphes1.pdf
-            - name: "représentation et parcours"
-              url: graphes2.pdf
-            - name: "plus courts chemins"
-              url: graphes3.pdf
-          exos:
-            - name: TD1
-              url: td_graphes1_cor.pdf 
-            - name: TD2
-              url: td_graphes2_cor.pdf
-            - name: TD3
-              url: td_graphes3_cor.pdf
-            - name: DM flots
-              url: DM_flots.pdf
-            - name: DS
-              url: ds_graphe.pdf
-        - name: Langages et automates
-          lectures: 
-            - name: "langage rationnel"
-              url: langage.pdf
-            - name: "automate régulier"
-              url: automate.pdf
-            - name: "équivalence"
-              url: equiv.pdf
-          exos:
-            - name: TD1
-              url: td_langage_cor.pdf 
-            - name: TD2
-              url: td_automate.pdf
-            - name: TD3
-              url: td_equiv_cor.pdf
-            - name: "E3A 2019 corrigé"
-              url: e3a_2019_cor.pdf
-        - name: Logique
-          lectures: 
-            - name: "formule, table de vérité, satisfiabilité"
-              url: logique.pdf
-          exos:
-            - name: TD
-              url: td_logique.pdf 
-            - name: DS
-              url: DS_logique.pdf
-            - name: DM
-              url: DM_logique.pdf
+#   - name: Option informatique en MP/MP*
+#     url: /assets/teaching/MP/
+#     chapters:
+#         - name: Structures de données
+#           lectures: 
+#             - name: "pile, file, arbre binaire de recherche, dictionnaire" 
+#               url: structures.pdf
+#             - name: "file de priorité et tas"
+#               url: structures2.pdf
+#           exos:
+#             - name: TD1
+#               url: td_structures.pdf 
+#             - name: TD2
+#               url: td_structures2.pdf 
+#             - name: DM
+#               url: DM_structures.pdf
+#             - name: DS
+#               url: DS_structures.pdf
+#         - name: Graphes
+#           lectures: 
+#             - name: "définitions"
+#               url: graphes1.pdf
+#             - name: "représentation et parcours"
+#               url: graphes2.pdf
+#             - name: "plus courts chemins"
+#               url: graphes3.pdf
+#           exos:
+#             - name: TD1
+#               url: td_graphes1_cor.pdf 
+#             - name: TD2
+#               url: td_graphes2_cor.pdf
+#             - name: TD3
+#               url: td_graphes3_cor.pdf
+#             - name: DM flots
+#               url: DM_flots.pdf
+#             - name: DS
+#               url: ds_graphe.pdf
+#         - name: Langages et automates
+#           lectures: 
+#             - name: "langage rationnel"
+#               url: langage.pdf
+#             - name: "automate régulier"
+#               url: automate.pdf
+#             - name: "équivalence"
+#               url: equiv.pdf
+#           exos:
+#             - name: TD1
+#               url: td_langage_cor.pdf 
+#             - name: TD2
+#               url: td_automate.pdf
+#             - name: TD3
+#               url: td_equiv_cor.pdf
+#             - name: "E3A 2019 corrigé"
+#               url: e3a_2019_cor.pdf
+#         - name: Logique
+#           lectures: 
+#             - name: "formule, table de vérité, satisfiabilité"
+#               url: logique.pdf
+#           exos:
+#             - name: TD
+#               url: td_logique.pdf 
+#             - name: DS
+#               url: DS_logique.pdf
+#             - name: DM
+#               url: DM_logique.pdf
 
-  - name: Option informatique en MPSI
-    url: /assets/teaching/MPSI/
-    items:
-      - name: "Cours bonus : promenade algorithmique" 
-        url: promenade.pdf
-      - name: "Exercice : transformée de Fourier rapide" 
-        url: fft.pdf
-      - name: "Exercices : diviser pour régner" 
-        url: tris.pdf
-      - name: "Exercice : rendu de monnaie" 
-        url: rendu_monnaie.pdf
+#   - name: Option informatique en MPSI
+#     url: /assets/teaching/MPSI/
+#     items:
+#       - name: "Cours bonus : promenade algorithmique" 
+#         url: promenade.pdf
+#       - name: "Exercice : transformée de Fourier rapide" 
+#         url: fft.pdf
+#       - name: "Exercices : diviser pour régner" 
+#         url: tris.pdf
+#       - name: "Exercice : rendu de monnaie" 
+#         url: rendu_monnaie.pdf
 
 #   - name: Informatique commune en PSI
 #     url: /assets/teaching/PSI/
@@ -171,22 +171,14 @@ courses:
 
 Cette page regroupe une partie des documents que j'utilise pour mes cours.
 
-## Informatique en MP2I (programme 2021)
-
-[Cours d'informatique en MP2I : https://mp2i-fsm.github.io/mp2i-2021](https://mp2i-fsm.github.io/mp2i-2021/)  
-[Dépôt GitHub](https://github.com/mp2i-fsm/mp2i-2021)  
-[Image Docker pour le cours de MP2I](https://github.com/fortierq/mp2i-jupyter-docker) (permet d'utiliser Jupyter avec OCaml, C et Python en ayant seulement besoin d'installer Docker)  
+## [Informatique en MP2I (programme 2021)](https://mp2i-fsm.github.io/mp2i-2021)
+<!-- [<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width=30>](http://google.com.au/) -->
 
 ## Informatique commune en CPGE
 - [Cours d'informatique commune, 1ère année (programme 2021)](https://fortierq.github.io/itc1)  
-[Dépôt GitHub](https://github.com/fortierq/itc1-2021)
-
 - [Cours d'informatique commune, 2ème année](https://fortierq.github.io/ipt2)  
-[Dépôt GitHub](https://github.com/fortierq/ipt2)  
 
-## Optimisation en Master Intelligence Artificielle Distribuée (Université de Paris)
-[Cours d'optimisation](https://fortierq.github.io/oc-m1-2021/)  
-[Dépôt GitHub](https://github.com/fortierq/oc-m1-2021)
+## [Optimisation en Master Intelligence Artificielle Distribuée (Université de Paris)](https://fortierq.github.io/oc-m1-2021)
 
 {% for course in page.courses %}
 ## {{ course.name }}
