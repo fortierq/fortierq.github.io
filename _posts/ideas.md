@@ -1,3 +1,5 @@
+https://github.blog/changelog/2021-08-25-github-actions-reduce-duplication-with-action-composition/
+
 # Rust
 
 let a = [1, 2, 3];
