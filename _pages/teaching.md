@@ -174,7 +174,7 @@ Cette page regroupe une partie des documents que j'utilise pour mes cours.
 ## [Informatique en MP2I (programme 2021)](https://mp2i-fsm.github.io/mp2i-2021)
 <!-- [<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width=30>](http://google.com.au/) -->
 
-## Informatique commune en CPGE
+## Informatique commune en CPGE (MPSI, PCSI, PTSI)
 - [Cours d'informatique commune, 1ère année (programme 2021)](https://fortierq.github.io/itc1)  
 - [Cours d'informatique commune, 2ème année](https://fortierq.github.io/ipt2)  
 
