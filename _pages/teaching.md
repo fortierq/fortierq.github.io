@@ -1,5 +1,6 @@
 ---
 toc: true
+<<<<<<< HEAD
 toc_label: "Cours"
 toc_sticky: true
 title: "Cours"
@@ -79,6 +80,98 @@ courses:
 #               url: DS_logique.pdf
 #             - name: DM
 #               url: DM_logique.pdf
+=======
+toc_label: "Enseignements"
+toc_sticky: true
+title: "Enseignements"
+permalink: /teaching/
+courses:
+  - name: Recherche opérationnelle à l'ENTPE
+    url: /assets/teaching/ENTPE/
+    items:
+      - name: "Arbre couvrant de poids minimal" 
+        url: arbre_couvrant.pdf
+      - name: "Ordonnancement" 
+        url: ordonnancement.pdf
+      - raw: "[Exo 13 corrigé](/assets/teaching/ENTPE/exo_13.png). Exo 11 corrigé sur GeoGebra : [MPM](https://www.geogebra.org/geometry/pvytdupg), [PERT à compléter](https://www.geogebra.org/geometry/u7z9jngn)"
+  - name: Option informatique en MP/MP*
+    url: /assets/teaching/MP/
+    chapters:
+        - name: Structures de données
+          lectures: 
+            - name: "pile, file, arbre binaire de recherche, dictionnaire" 
+              url: structures.pdf
+            - name: "file de priorité et tas"
+              url: structures2.pdf
+          exos:
+            - name: TD1
+              url: td_structures.pdf 
+            - name: TD2
+              url: td_structures2.pdf 
+            - name: DM
+              url: DM_structures.pdf
+            - name: DS
+              url: DS_structures.pdf
+        - name: Graphes
+          lectures: 
+            - name: "définitions"
+              url: graphes1.pdf
+            - name: "représentation et parcours"
+              url: graphes2.pdf
+            - name: "plus courts chemins"
+              url: graphes3.pdf
+          exos:
+            - name: TD1
+              url: td_graphes1_cor.pdf 
+            - name: TD2
+              url: td_graphes2_cor.pdf
+            - name: TD3
+              url: td_graphes3_cor.pdf
+            - name: DM flots
+              url: DM_flots.pdf
+            - name: DS
+              url: ds_graphe.pdf
+        - name: Langages et automates
+          lectures: 
+            - name: "langage rationnel"
+              url: langage.pdf
+            - name: "automate régulier"
+              url: automate.pdf
+            - name: "équivalence"
+              url: equiv.pdf
+          exos:
+            - name: TD1
+              url: td_langage_cor.pdf 
+            - name: TD2
+              url: td_automate.pdf
+            - name: TD3
+              url: td_equiv_cor.pdf
+            - name: "E3A 2019 corrigé"
+              url: e3a_2019_cor.pdf
+        - name: Logique
+          lectures: 
+            - name: "formule, table de vérité, satisfiabilité"
+              url: logique.pdf
+          exos:
+            - name: TD
+              url: td_logique.pdf 
+            - name: DS
+              url: DS_logique.pdf
+            - name: DM
+              url: DM_logique.pdf
+
+  - name: Option informatique en MPSI
+    url: /assets/teaching/MPSI/
+    items:
+      - name: "Cours bonus : promenade algorithmique" 
+        url: promenade.pdf
+      - name: "Exercice : transformée de Fourier rapide" 
+        url: fft.pdf
+      - name: "Exercices : diviser pour régner" 
+        url: tris.pdf
+      - name: "Exercice : rendu de monnaie" 
+        url: rendu_monnaie.pdf
+>>>>>>> post-mtgscan
 
 #   - name: Option informatique en MPSI
 #     url: /assets/teaching/MPSI/
