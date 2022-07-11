@@ -2,7 +2,6 @@
 main:
   - title: "Blog"
     url: /blog/
-<<<<<<< HEAD
   - title: "Cours"
     url: /teaching/
   - title: "Projets"
@@ -11,14 +10,6 @@ main:
     url: /nb/
   - title: "Animations"
     url: /anim/ 
-=======
-  - title: "Enseignements"
-    url: /teaching/
-  - title: "Animations"
-    url: /anim/ 
-  - title: "Portfolio"
-    url: /portfolio/
->>>>>>> post-mtgscan
   - title: "Recherche"
     url: /research/
   - title: "Liens"
