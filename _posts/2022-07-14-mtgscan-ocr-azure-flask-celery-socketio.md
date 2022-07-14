@@ -16,7 +16,12 @@ header:
 ---
 
 Mtgscan is a project aiming at recognizing Magic cards from an image (a photo or a screenshot), using OCR. <br>
-<center><b><a href="http://mtgscan.net">Test the application (the URL to an image is pre filled)</a></b></center>
+<center><b><a href="http://mtgscan.net">Test the application (an URL to an image is pre filled)</a></b></center>
+
+<center>
+<div style="display: inline-block; padding:20px;"><a href="https://github.com/fortierq/mtgscan"><img src="https://gh-card.dev/repos/fortierq/mtgscan.svg" /></a></div>
+<div style="display: inline-block; padding:20px;"><a href="https://github.com/fortierq/mtgscan-app"><img src="https://gh-card.dev/repos/fortierq/mtgscan-app.svg" /></a></div>
+</center>
 
 # Introduction
 
@@ -35,13 +40,11 @@ However, those attempts do not work if the cards are stacked, as is usually the 
 
 Instead, I used an OCR to recognize the title of the cards, rather than the whole image.
 
-<center><a href="https://github.com/fortierq/mtgscan"><img src="https://gh-card.dev/repos/fortierq/mtgscan.svg" /></a></center>
-
 ## Text recognition (OCR)
 
 There are several existing OCR. I firstly tried [Tesseract](https://tesseract-ocr.github.io/) which is probably the best open-source OCR. However, the results were pretty bad.
 
-Therefore, I tried proprietary, cloud solutions: 
+Therefore, I turned to proprietary, cloud solutions: 
 - [Azure Read OCR](https://docs.microsoft.com/fr-fr/azure/cognitive-services/computer-vision/overview-ocr)
 - [Google Cloud Vision](https://cloud.google.com/vision/docs/ocr)
 - [AWS Textract](https://aws.amazon.com/textract)
@@ -112,8 +115,6 @@ We can spot 3 errors:
 [On this test set](https://github.com/fortierq/mtgscan/tree/master/tests/samples), I got a 10% error rate, which seems good to me: the decklist can be corrected by hand while still saving a lot of time.
 
 # Web application
-
-<center><a href="https://github.com/fortierq/mtgscan-app"><img src="https://gh-card.dev/repos/fortierq/mtgscan-app.svg" /></a></center>
 
 ## Web application framework: Flask
 
