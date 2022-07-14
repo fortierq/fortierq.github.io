@@ -12,8 +12,8 @@ main:
     url: /anim/ 
   - title: "Research"
     url: /research/
-  - title: "Links"
-    url: /links/
+  # - title: "Links"
+  #   url: /links/
   - title: "CV"
     url: /assets/CV.pdf
 
