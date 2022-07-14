@@ -15,7 +15,7 @@ header:
     og_image: /assets/images/mtgscan/arena_cards.jpg
 ---
 
-Mtgscan is a project aiming at recognizing Magic cards from an image (a photo or a screenshot), using OCR. <br>
+Mtgscan is a project aiming at recognizing Magic cards from an image (a photo or a screenshot), using OCR (Optical Character Recognition). <br>
 <center><b><a href="http://mtgscan.net">Test the application (an URL to an image is pre filled)</a></b></center>
 
 <center>
@@ -108,7 +108,7 @@ Here is the result on the above screenshot:
 ![](/assets/images/mtgscan/bazaar_cards.jpg)
 
 We can spot 3 errors:
-- An extra Squee, Goblin Nabob is detected.
+- An extra Squee, Goblin Nabob is detected in the rules text.  
 - [The Ur-Dragon](https://gatherer.wizards.com/pages/card/Details.aspx?multiverseid=479384) is not recognized, because of its mana cost being added to its name.
 - The second Karakas is not recognized, due to too many error from the OCR.
 
