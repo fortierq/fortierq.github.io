@@ -1,8 +1,8 @@
 ---
 permalink: /research/
-title: "Recherche"
+title: "Research"
 toc: true
-toc_label: "Recherche"
+toc_label: "Research"
 toc_sticky: true
 publications:
   - name: "On packing spanning arborescences with matroid constraint"
@@ -46,7 +46,7 @@ talks:
 [**Manuscrit**](https://tel.archives-ouvertes.fr/tel-01838231){: .btn .btn--primary}  [**Soutenance**](/assets/soutenance.pdf){: .btn .btn--primary}  
 {: style="text-align: center"}
 
-## Articles de recherche
+## Research articles
 
 - [Rapporteur pour *Journal of Graph Theory*](https://publons.com/researcher/4299989/quentin-fortier/)
 {% for pub in page.publications %}
@@ -54,7 +54,7 @@ talks:
 *{{ pub.journal }}*, {{ pub.date }}
 {% endfor %}
 
-## Présentations
+## Talks
 
 {% for talk in page.talks %}
 - [{{ talk.name }}]({{ talk.url }})  
