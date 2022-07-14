@@ -6,7 +6,7 @@ header:
   overlay_color: "#000"
   overlay_filter: "0.5"
   overlay_image: /assets/images/woods.png
-excerpt: "Docteur en informatique"  
+excerpt: "PhD and teacher in Computer Science"  
 ---
 
 <link rel="stylesheet" href="https://unpkg.com/octicons@4.4.0/build/font/octicons.css">
@@ -18,11 +18,6 @@ excerpt: "Docteur en informatique"
 <center>
   <img src="/assets/images/qf.png" style="max-width: 180px; border-radius: 50%;" alt="Quentin Fortier"> 
   <div class="half-line"><br></div>
-
-   <p>
-    Sur ce site, vous trouverez mes cours, projets, travaux de recherche et mon blog <br>
-    Centres d'intérêts: algorithmique, machine learning, Python...
-  </p>
 </center>
 
 <!-- <h3 class="archive__subtitle">Derniers articles</h3>
@@ -47,6 +42,6 @@ GitHubActivity.feed({
   username: "fortierq",
   //repository: "your-repo", // optional
   selector: "#feed",
-  limit: 5, // optional
+  limit: 5,
 });
 </script>

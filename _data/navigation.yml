@@ -2,17 +2,17 @@
 main:
   - title: "Blog"
     url: /blog/
-  - title: "Cours"
+  - title: "Teaching"
     url: /teaching/
-  - title: "Projets"
+  - title: "Projects"
     url: /projects/
   - title: "Notebooks"
     url: /nb/
   - title: "Animations"
     url: /anim/ 
-  - title: "Recherche"
+  - title: "Research"
     url: /research/
-  - title: "Liens"
+  - title: "Links"
     url: /links/
   - title: "CV"
     url: /assets/CV.pdf

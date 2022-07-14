@@ -12,16 +12,16 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-remote_theme: "mmistakes/minimal-mistakes@4.21.0"
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "fr-FR"
+locale                   : "en-EN"
 title                    : "Quentin Fortier"
 title_separator          : "-"
-subtitle                 : "Algorithmes, machine learning, optimisation"
+subtitle                 : ""
 name                     : "Quentin Fortier"
-description              : "Site personnel"
+description              : "Personal website, on computer science: algorithms, machine learning, optimization..."
 url                      : "https://fortierq.github.io"
 baseurl                  : ""
 repository               : fortierq/fortierq.github.io
@@ -97,7 +97,7 @@ analytics:
 author:
   name             : "Quentin Fortier"
   avatar           : "/assets/images/photo_cv.png"
-  bio              : "Professeur d'informatique"
+  bio              : "Teacher in computer science"
   # location         : "Lyon"
   email            : "quentin.fortier@ens-lyon.org"
   links:
@@ -113,11 +113,11 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/fortierq"
-    - label: "LeetCode"
-      url: "https://leetcode.com/qpfortier"
-    - label: "Kaggle"
-      icon: "fab fa-fw fa-kaggle"
-      url: "https://www.kaggle.com/quentinfortier"
+    # - label: "LeetCode"
+    #   url: "https://leetcode.com/qpfortier"
+    # - label: "Kaggle"
+    #   icon: "fab fa-fw fa-kaggle"
+    #   url: "https://www.kaggle.com/quentinfortier"
 
 # Site Footer
 footer:
