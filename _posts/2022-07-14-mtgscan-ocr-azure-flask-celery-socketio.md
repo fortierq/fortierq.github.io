@@ -16,7 +16,7 @@ header:
 ---
 
 Mtgscan is a project aiming at recognizing Magic cards from an image (a photo or a screenshot), using OCR (Optical Character Recognition). <br>
-<center><b><a href="http://34.132.83.57">Test the application (an URL to an image is pre filled)</a></b></center>
+<center><b><a href="http://mtgscan.net">Test the application (an URL to an image is pre filled)</a></b></center>
 
 <center>
 <div style="display: inline-block; padding:20px;"><a href="https://github.com/fortierq/mtgscan"><img src="https://gh-card.dev/repos/fortierq/mtgscan.svg" /></a></div>
