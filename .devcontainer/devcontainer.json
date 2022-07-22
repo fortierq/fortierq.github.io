@@ -20,7 +20,11 @@
 				"GitHub.copilot"
 			]
 		}
-	}
+	},
+    "mounts": [
+        "source=/home/qfortier/.ssh,target=/home/root/.ssh,type=bind,consistency=cached",
+        "source=/home/qfortier/.gitconfig,target=/home/root/.gitconfig,type=bind,consistency=cached",
+    ]
 	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
 	// "remoteUser": "vscode"
 
