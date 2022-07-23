@@ -49,7 +49,7 @@ Therefore, I considered proprietary, cloud solutions:
 - [Google Cloud Vision](https://cloud.google.com/vision/docs/ocr)
 - [AWS Textract](https://aws.amazon.com/textract)
 
-Those OCRs can be only used in the cloud and can't be used locally. They are free for a limited use, which is more than enough for me. They are much more efficient that Tesseract and, after comparing them on few images, I opted for the **Azure OCR** which was performing better.  
+Those OCRs can only be used in the cloud. They are free for a limited use, which is more than enough for me. They are much more efficient that Tesseract and, after comparing them on few images, I opted for the **Azure OCR** which was performing better.  
 
 <center>
 <table class="tg">
