@@ -42,7 +42,7 @@ Instead, **I used an OCR to recognize the title of the cards**, rather than the 
 
 ## Text recognition (OCR)
 
-There are several existing OCR. I firstly tried [Tesseract](https://tesseract-ocr.github.io/) which is probably the best open-source OCR but the results turned out to be pretty bad.
+There are several existing OCR. I firstly tried [Tesseract](https://tesseract-ocr.github.io/) which is probably the best open-source OCR but the results turned out to be pretty bad on Magic cards.
 
 Therefore, I considered proprietary, cloud solutions: 
 - [Azure Read OCR](https://docs.microsoft.com/fr-fr/azure/cognitive-services/computer-vision/overview-ocr)
