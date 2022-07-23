@@ -33,7 +33,7 @@ Most attempts to recognize Magic cards seem to rely on using image processing an
 For example, [this article](https://tmikonen.github.io/quantitatively/2020-01-01-magic-card-detector) pre-process the image, get each card by segmentation and recognize them using a perceptual hash together with a database of card hashs.  
 [This other project](https://github.com/hj3yoo/mtg_card_detector) tried to use a neural network combined with perceptual hashing, but without improving much.
 
-However, those attempts do not work if the cards are stacked, as is usually the case when listing a deck or collection.
+However, these attempts do not work if the cards are stacked, as is usually the case when listing a deck or collection.
 
 <center><img src="/assets/images/mtgscan/arena_cards.jpg" width="100%">
 <b>Example of stacked cards recognized by mtgscan: each card is only partially visible</b></center><br>
@@ -49,7 +49,7 @@ Therefore, I considered proprietary, cloud solutions:
 - [Google Cloud Vision](https://cloud.google.com/vision/docs/ocr)
 - [AWS Textract](https://aws.amazon.com/textract)
 
-Those OCRs can only be used in the cloud. They are free for a limited use, which is more than enough for me. They are much more efficient that Tesseract and, after comparing them on few images, I opted for the **Azure OCR** which was performing better.  
+these OCRs can only be used in the cloud. They are free for a limited use, which is more than enough for me. They are much more efficient that Tesseract and, after comparing them on few images, I opted for the **Azure OCR** which was performing better.  
 
 <center>
 <table class="tg">
@@ -97,7 +97,7 @@ There are several problems with the OCR result on the above image:
 - [The Ur-Dragon](https://gatherer.wizards.com/pages/card/Details.aspx?multiverseid=479384) and [Hogaak, Arisen Necropolis](https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=464151) have truncated names.
 - The [Karakas](https://gatherer.wizards.com/pages/card/details.aspx?name=Karakas) in sideboard is totally wrong.  
 
-To fix those problems, I used **fuzzy search (approximate string matching)** with [SymSpell](https://github.com/wolfgarbe/SymSpell), which find the closest word in a dictionary by [edit distance](https://en.wikipedia.org/wiki/Edit_distance). See [this article](https://seekstorm.com/blog/1000x-spelling-correction) for more details.   
+To fix these problems, I used **fuzzy search (approximate string matching)** with [SymSpell](https://github.com/wolfgarbe/SymSpell), which find the closest word in a dictionary by [edit distance](https://en.wikipedia.org/wiki/Edit_distance). See [this article](https://seekstorm.com/blog/1000x-spelling-correction) for more details.   
 To be efficient, SymSpell expects a bound on the distance. By experience, a maximum edit distance of 6 gave good results. I also reject a text if its ratio distance/length (percentage of errors per character) is too high.
 
 Other post-processing that I found useful:
