@@ -15,7 +15,7 @@ header:
     og_image: /assets/images/mtgscan/arena_cards.jpg
 ---
 
-Mtgscan is a project aiming at recognizing Magic cards from an image (a photo or a screenshot), using OCR (Optical Character Recognition). <br>
+Mtgscan is a project aiming at recognizing Magic cards from an image (photo or screenshot), using OCR (Optical Character Recognition). <br>
 <center><b><a href="http://mtgscan.net">Test the application (an URL to an image is pre filled)</a></b></center>
 
 <center>
@@ -49,7 +49,7 @@ Therefore, I considered proprietary, cloud solutions:
 - [Google Cloud Vision](https://cloud.google.com/vision/docs/ocr)
 - [AWS Textract](https://aws.amazon.com/textract)
 
-these OCRs can only be used in the cloud. They are free for a limited use, which is more than enough for me. They are much more efficient that Tesseract and, after comparing them on few images, I opted for the **Azure OCR** which was performing better.  
+These OCRs can only be used in the cloud. They are free for a limited use, which is more than enough for me. They are much more efficient that Tesseract and, after comparing them on few images, I opted for the **Azure OCR** which was performing better.  
 
 <center>
 <table class="tg">
