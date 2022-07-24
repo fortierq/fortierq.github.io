@@ -98,7 +98,8 @@ There are several problems with the OCR result on the above image:
 - The [Karakas](https://gatherer.wizards.com/pages/card/details.aspx?name=Karakas) in sideboard is totally wrong.  
 
 To fix these problems, I used **fuzzy search (approximate string matching)** with [SymSpell](https://github.com/wolfgarbe/SymSpell), which find the closest word in a dictionary by [edit distance](https://en.wikipedia.org/wiki/Edit_distance). See [this article](https://seekstorm.com/blog/1000x-spelling-correction) for more details.   
-To be efficient, SymSpell expects a bound on the distance. By experience, a maximum edit distance of 6 gave good results. I also reject a text if its ratio distance/length (percentage of errors per character) is too high.
+To be efficient, SymSpell expects a bound on the distance. By experience, a maximum edit distance of 6 gave good results. I also reject a text if its ratio distance/length (percentage of errors per character) is too high.  
+Alternatively, I could have used [Lucene](https://lucene.apache.org) or [Elastic search](https://www.elastic.co).
 
 Other post-processing that I found useful:
 - Reject texts that are too short (< 3 characters) or too long (> 30).
