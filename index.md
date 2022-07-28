@@ -10,10 +10,10 @@ excerpt: "PhD and teacher in Computer Science"
 ---
 
 <link rel="stylesheet" href="https://unpkg.com/octicons@4.4.0/build/font/octicons.css">
-<link rel="stylesheet" href="https://unpkg.com/github-activity-feed@latest/dist/github-activity.min.css">
+<!-- <link rel="stylesheet" href="https://unpkg.com/github-activity-feed@latest/dist/github-activity.min.css"> -->
 
-<script type="text/javascript" src="https://unpkg.com/mustache@4.2.0/mustache.min.js"></script>
-<script type="text/javascript" src="https://unpkg.com/github-activity-feed@latest/dist/github-activity.min.js"></script>
+<!-- <script type="text/javascript" src="https://unpkg.com/mustache@4.2.0/mustache.min.js"></script> -->
+<!-- <script type="text/javascript" src="https://unpkg.com/github-activity-feed@latest/dist/github-activity.min.js"></script> -->
 
 <!-- <center>
   <img src="/assets/images/qf.png" style="max-width: 180px; border-radius: 50%;" alt="Quentin Fortier"> 
