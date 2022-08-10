@@ -56,8 +56,10 @@ Let $E = (E[T_{i, j}])_{0\leq i\leq 19, ~0\leq j\leq 19}$ be the <a href="https:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+    <hr>
 <p><strong>Theorem</strong>:
 $$E[T_{i, i}] = \frac{1}{\pi_i}$$</p>
+<hr>
 <p><strong>Proof</strong>:<br>
 A path from $i$ to $j$ can be split into a step to a neighbor $k$ of $i$ and a path from $k$ to $j$. Therefore:
 $$E[T_{i, j}] = 1 + \displaystyle\sum_{k \neq j} p_{i, k} E[T_{k, j}] \quad (*)$$
@@ -71,6 +73,7 @@ Therefore:
 $$\pi^T \Delta = \pi^T U = \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix}$$
 $$\pi_i E[T_{i, i}] = 1$$
 $$\boxed{E[T_{i, i}] = \frac{1}{\pi_i}}$$</p>
+<hr>
 <p><strong>Remark</strong>: This theorem holds for any irreducible (strongly connected) Markov chain.</p>
 <p>Applied to our problem, this theorem shows that Andy's mean return time is $20$.</p>
 
@@ -80,9 +83,9 @@ $$\boxed{E[T_{i, i}] = \frac{1}{\pi_i}}$$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Random-walk-on-the-kitchen">Random walk on the kitchen<a class="anchor-link" href="#Random-walk-on-the-kitchen"></a></h1><p>It looks more difficult to mathematically find the mean return time. Instead, we will compute it using dynamic programming on induction formula similar to $(*)$.<br>
+<h1 id="Random-walk-on-the-kitchen">Random walk on the kitchen<a class="anchor-link" href="#Random-walk-on-the-kitchen"></a></h1><p>It looks more difficult to mathematically find the mean return time in the second case. Instead, we will compute it using dynamic programming on induction formula similar to $(*)$.<br>
 We use the following coordinates to identify each vertex:</p>
-<center><img src=https://raw.githubusercontent.com/fortierq/notebooks/c9dbc5a18739ac8a94ef9dfa1916f69c5f63527c/nb/optimisation/janestreet/andy_morning_stroll/andys-morning-stroll.png width=70%></center>
+<center><img src=https://raw.githubusercontent.com/fortierq/notebooks/master/nb/optimisation/janestreet/andy_morning_stroll/andys-morning-stroll.png width=70%></center>
 </div>
 </div>
 </div>
