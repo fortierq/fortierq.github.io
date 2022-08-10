@@ -1,0 +1,144 @@
+---
+title: "Jane Street Puzzle, June 2022: Andy's Morning Stroll"
+tags:
+    - janestreet
+    - optimization
+    - math
+    - graph
+toc: true
+toc_sticky: true
+header:
+  teaser: https://www.janestreet.com/puzzles/andys-morning-stroll.png
+  og_image: https://www.janestreet.com/puzzles/andys-morning-stroll.png
+---
+
+<p>In <a href="https://www.janestreet.com/puzzles/andys-morning-stroll-index">this problem</a>, we shall compare the return times of random walks on two different graphs:</p>
+
+{% raw %}
+<body>
+  <div class="nb">
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center><img src=https://www.janestreet.com/puzzles/andys-morning-stroll.png width=70%></center><blockquote><p>Andy the ant has spent most of his days living on a strange land consisting of white hexagons that are surrounded by alternating black pentagons and white hexagons (three of each), and black pentagons surrounded by five white hexagons. To us this land is familiar as the classic soccer ball we see above on the left. Due to Andy’s tiny size and terrible eyesight, he doesn’t notice the curvature of the land and avoids the black pentagons because he suspects they may be bottomless pits.<br>
+Every morning he wakes up on a white hexagon, leaves some pheromones to mark it as his special home space, and starts his random morning stroll. Every step on this stroll takes him to one of the three neighboring white hexagons with equal probability. He ends his stroll as soon as he first returns to his home space. As an example, on exactly 1/3 of mornings Andy’s stroll is 2 steps long, as he randomly visits one of the three neighbors, and then has a 1/3 probability of returning immediately to the home hexagon.<br>
+This morning, his soccer ball bounced through a kitchen with an infinite (at least practically speaking…) regular hexagonal floor tiling consisting of black and white hexagons, a small part of which is shown above on the right. In this tiling every white hexagon is surrounded by alternating black and white hexagons, and black hexagons are surrounded by six white hexagons. Andy fell off the ball and woke up on a white hexagon. He didn’t notice any change in his surroundings, and goes about his normal morning routine.<br>
+Let p be the probability that his morning stroll on this new land is strictly more steps than the expected number of steps his strolls on the soccer ball took. Find p, rounded to seven significant digits.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Random-walk-on-the-soccer-ball-(truncated-icosahedron)">Random walk on the soccer ball (truncated icosahedron)<a class="anchor-link" href="#Random-walk-on-the-soccer-ball-(truncated-icosahedron)"></a></h1><p>We firstly compute the mean return time of a random walk on the soccer ball.</p>
+<h2 id="Stationary-distribution">Stationary distribution<a class="anchor-link" href="#Stationary-distribution"></a></h2><p>Let $0, ..., 19$ be the vertices of the underlying soccer ball graph and $\pi_i$ be its <a href="https://en.wikipedia.org/wiki/Stationary_distribution">stationary distribution</a> ($\pi_i$ is the asymptotic probability to be in vertex $i$ in a random walk).</p>
+<p>The soccer ball being totally symmetric (it is a <a href="https://en.wikipedia.org/wiki/Vertex-transitive_graph">vertex-transitive graph</a>), its stationary distribution is uniform:
+$$\pi := \begin{pmatrix}
+\pi_0\\
+\vdots\\
+\pi_{19}
+\end{pmatrix} = \frac{1}{20}\begin{pmatrix}
+1\\
+\vdots\\
+1
+\end{pmatrix}$$</p>
+<h2 id="Mean-return-time">Mean return time<a class="anchor-link" href="#Mean-return-time"></a></h2><p>Let $P = (p_{i, j})_{0\leq i\leq 19, ~0\leq j\leq 19}$ be the <a href="https://en.wikipedia.org/wiki/Transition_matrix">transition matrix</a> of the soccer ball graph. Here, $p_{i, j} = 1/3$ if $i$ and $j$ are adjacent vertices ($p_{i, j} = 0$ otherwise).<br>
+Let $E = (E[T_{i, j}])_{0\leq i\leq 19, ~0\leq j\leq 19}$ be the <a href="https://en.wikipedia.org/wiki/Hitting_time">hitting time</a> matrix. Hence, $E[T_{i, j}]$ is the expected number of steps to reach vertex $j$ from vertex $i$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Theorem</strong>:
+$$E[T_{i, i}] = \frac{1}{\pi_i}$$</p>
+<p><strong>Proof</strong>:<br>
+A path from $i$ to $j$ can be split into a step to a neighbor $k$ of $i$ and a path from $k$ to $j$. Therefore:
+$$E[T_{i, j}] = 1 + \displaystyle\sum_{k \neq j} p_{i, k} E[T_{k, j}] \quad (*)$$
+In a matrix form:
+$$E = U + PE - P\Delta$$
+where $U$ is filled with $1$ and $\Delta = \text{diag}(E[T_{0, 0}], ..., E[T_{19, 19}])$.</p>
+<p>Let's multiply by $\pi$ on the left:
+$$\pi^T E = \pi^T U + \pi^T PE - \pi^T P\Delta$$</p>
+<p>Since $\pi$ is stationary, $\pi^T P = \pi^T$.<br>
+Therefore:
+$$\pi^T \Delta = \pi^T U = \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix}$$
+$$\pi_i E[T_{i, i}] = 1$$
+$$\boxed{E[T_{i, i}] = \frac{1}{\pi_i}}$$</p>
+<p><strong>Remark</strong>: This theorem holds for any irreducible (strongly connected) Markov chain.</p>
+<p>Applied to our problem, this theorem shows that Andy's mean return time is $20$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Random-walk-on-the-kitchen">Random walk on the kitchen<a class="anchor-link" href="#Random-walk-on-the-kitchen"></a></h1><p>It looks more difficult to mathematically find the mean return time. Instead, we will compute it using dynamic programming on induction formula similar to $(*)$.<br>
+We use the following coordinates to identify each vertex:</p>
+<center><img src=https://raw.githubusercontent.com/fortierq/notebooks/c9dbc5a18739ac8a94ef9dfa1916f69c5f63527c/nb/optimisation/janestreet/andy_morning_stroll/andys-morning-stroll.png width=70%></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cache</span>
+
+<span class="nd">@cache</span>
+<span class="k">def</span> <span class="nf">proba</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Probability of not reaching (i, j) from (0, 0) in 20 - n steps &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">==</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">proba</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># left cell</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">proba</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># right cell</span>
+    <span class="n">p3</span> <span class="o">=</span> <span class="n">proba</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># up or bottom cell</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">p1</span> <span class="o">+</span> <span class="n">p2</span> <span class="o">+</span> <span class="n">p3</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+
+<span class="nb">float</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">proba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">.7f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.4480326</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+  </div>
+</body>
+
+ 
+
+{% endraw %}
