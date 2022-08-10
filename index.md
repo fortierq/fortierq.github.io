@@ -20,7 +20,7 @@ excerpt: "PhD and teacher in Computer Science"
   <div class="half-line"><br></div>
 </center> -->
 
-<h3 class="archive__subtitle">Last posts</h3>
+<h3 class="archive__subtitle">Recent posts</h3>
 {% if paginator %}
   {% assign posts = paginator.posts %}
 {% else %}
@@ -29,8 +29,7 @@ excerpt: "PhD and teacher in Computer Science"
 
 {% assign entries_layout = page.entries_layout | default: 'list' %}
 <div class="entries-{{ entries_layout }}">
-  {% for i in (0..4) %}
-  {% assign post = posts[i] %}
+  {% for post in posts %}
     {% include archive-single.html type=entries_layout %}
   {% endfor %}
 </div>
