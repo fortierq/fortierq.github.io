@@ -75,7 +75,7 @@ $$\pi_i E[T_{i, i}] = 1$$
 $$\boxed{E[T_{i, i}] = \frac{1}{\pi_i}}$$</p>
 <hr>
 <p><strong>Remark</strong>: This theorem holds for any irreducible (strongly connected) Markov chain.</p>
-<p>Applied to our problem, this theorem shows that Andy's mean return time is $20$.</p>
+<p>Applied to our problem, this theorem shows that Andy's mean return time is $20$ on the soccer ball.</p>
 
 </div>
 </div>
@@ -98,7 +98,7 @@ We use the following coordinates to identify each vertex:</p>
 
 <span class="nd">@cache</span>
 <span class="k">def</span> <span class="nf">proba</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Probability of not reaching (i, j) from (0, 0) in 20 - n steps &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot; Probability of not reaching (0, 0) from (i, j) in 20 - n steps &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">==</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
