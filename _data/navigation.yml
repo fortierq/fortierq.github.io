@@ -4,8 +4,8 @@ main:
     url: /blog/
   - title: "Teaching"
     url: /teaching/
-  - title: "Projects"
-    url: /projects/
+  # - title: "Projects"
+  #   url: /projects/
   - title: "Notebooks"
     url: /nb/
   - title: "Animations"
