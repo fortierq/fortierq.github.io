@@ -8,9 +8,9 @@ courses:
   - name: Recherche opérationnelle à l'[ENTPE](https://www.entpe.fr/)
     url: /assets/teaching/ENTPE/
     items:
-      - name: "Arbre couvrant de poids minimal" 
+      - name: "Arbre couvrant de poids minimal"
         url: arbre_couvrant.pdf
-      - name: "Ordonnancement" 
+      - name: "Ordonnancement"
         url: ordonnancement.pdf
       - raw: "[Exo 13 corrigé](/assets/teaching/ENTPE/exo_13.png). Exo 11 corrigé sur GeoGebra : [MPM](https://www.geogebra.org/geometry/pvytdupg), [PERT à compléter](https://www.geogebra.org/geometry/u7z9jngn)"
       - raw: "Programmation linéaire: [résolution d'un PL simple](/assets/teaching/ENTPE/lp_ex.html) ([représentation avec Geogebra](https://www.geogebra.org/m/jcjnzg9x)), [résolution avec Python (exercice Roulements à bille)](https://github.com/fortierq/ENTPE/blob/master/lp/roulement_billes.ipynb), [simplexe à 2 phases](/assets/teaching/ENTPE/simplexe_2_phases.html)"
@@ -18,38 +18,45 @@ courses:
 
 Cette page regroupe une partie des documents que j'utilise pour mes cours.
 
-## [Informatique en MP2I (programme 2021)](https://mp2i-info.github.io)
-<!-- [<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width=30>](http://google.com.au/) -->
+## [Option informatique en MP](https://mp-info.github.io)
+
+## [Informatique en MP2I ](https://mp2i-info.github.io)
 
 ## Informatique commune en CPGE (MPSI, PCSI, PTSI)
-- [Cours d'informatique commune, 1ère année (programme 2021)](https://github.com/cpge-itc/itc1)  
-- [Cours d'informatique commune, 2ème année](https://github.com/cpge-itc/itc2)  
 
-## [Option informatique en MP](https://mp-info.github.io)
+- [Cours d'informatique commune, 1ère année](https://cpge-itc.github.io/itc1)
+- [Cours d'informatique commune, 2ème année](https://cpge-itc.github.io/itc2)
+
+## Informatique en BCPST
+
+- [Cours d'informatique en BCPST, 2ème année](https://cpge-itc.github.io/bcpst2)
 
 ## [Optimisation en Master Intelligence Artificielle Distribuée (Université de Paris)](https://fortierq.github.io/oc-m1-2021)
 
 {% for course in page.courses %}
+
 ## {{ course.name }}
+
 {% if course.chapters %}
 {% for chapter in course.chapters %}
-- ### {{ chapter.name }}  
-{% for lecture in chapter.lectures %} 
+
+- ### {{ chapter.name }}
+  {% for lecture in chapter.lectures %}
   - [Cours {{ forloop.index }} : {{ lecture.name }}]({{ course.url | append: lecture.url }})
-{% endfor %}  
+    {% endfor %}
   - Exercices : {% for exo in chapter.exos %} [{{ exo.name }}]({{ course.url | append: exo.url }}) {% endfor %}
-{% endfor %}
-{% elsif course.lectures %}
-{% for lecture in course.lectures %} 
+    {% endfor %}
+    {% elsif course.lectures %}
+    {% for lecture in course.lectures %}
   - [Cours {{ forloop.index }} : {{ lecture.name }}]({{ course.url | append: lecture.url }})
-{% endfor %}  
-{% else %}
-{% for e in course.items %} 
+    {% endfor %}  
+    {% else %}
+    {% for e in course.items %}
   - {% if e.raw %} {{ e.raw }}
-  {% else %}
-  [{{ e.name }}]({{ course.url | append: e.url }})
-  {% if e.cor %} [{{ e.cor }}]({{ course.url | append: e.cor_url }}) {% endif %}
-  {% endif %} 
-{% endfor %}  
-{% endif %}
-{% endfor %}
+    {% else %}
+    [{{ e.name }}]({{ course.url | append: e.url }})
+    {% if e.cor %} [{{ e.cor }}]({{ course.url | append: e.cor_url }}) {% endif %}
+    {% endif %}
+    {% endfor %}  
+    {% endif %}
+    {% endfor %}
