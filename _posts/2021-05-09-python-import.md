@@ -2,7 +2,7 @@
 title: "How to import local modules with Python"
 tags:
   - python
-  - programmation
+  - programming
 toc: true
 toc_sticky: true
 header:
