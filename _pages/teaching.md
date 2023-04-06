@@ -16,7 +16,7 @@ courses:
       - raw: "Programmation linéaire: [résolution d'un PL simple](/assets/teaching/ENTPE/lp_ex.html) ([représentation avec Geogebra](https://www.geogebra.org/m/jcjnzg9x)), [résolution avec Python (exercice Roulements à bille)](https://github.com/fortierq/ENTPE/blob/master/lp/roulement_billes.ipynb), [simplexe à 2 phases](/assets/teaching/ENTPE/simplexe_2_phases.html)"
 ---
 
-Cette page regroupe une partie des documents que j'utilise pour mes cours.
+## [Cours et exercices interactifs en SQL](https://cours-sql.github.io)
 
 ## [Option informatique en MP](https://mp-info.github.io)
 
