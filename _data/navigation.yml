@@ -8,8 +8,10 @@ main:
   #   url: /projects/
   - title: "Notebooks"
     url: /nb/
-  - title: "Animations"
-    url: /anim/ 
+  - title: "Vente de livres"
+    url: https://www.leboncoin.fr/profil/27498658-6b9a-412a-beab-4365d48febeb
+  # - title: "Animations"
+  #   url: /anim/ 
   - title: "Research"
     url: /research/
   # - title: "Links"
