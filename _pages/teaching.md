@@ -23,11 +23,9 @@ courses:
 - [Cours d'informatique commune, 1ère année](https://cpge-itc.github.io/itc1)
 - [Cours d'informatique commune, 2ème année](https://cpge-itc.github.io/itc2)
 
-## Informatique en BCPST
+## [Informatique en BCPST, 2ème année](https://cpge-itc.github.io/bcpst2)
 
-- [Cours d'informatique en BCPST, 2ème année](https://cpge-itc.github.io/bcpst2)
-
-## [Informatique en MP2I ](https://mp2i-info.github.io)
+## [Informatique en MP2I](https://mp2i-info.github.io)
 
 ## [Cours et exercices interactifs en SQL](https://sql-exercices.github.io)
 
