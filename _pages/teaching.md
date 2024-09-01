@@ -16,6 +16,8 @@ courses:
       - raw: "Programmation linéaire: [résolution d'un PL simple](/assets/teaching/ENTPE/lp_ex.html) ([représentation avec Geogebra](https://www.geogebra.org/m/jcjnzg9x)), [résolution avec Python (exercice Roulements à bille)](https://github.com/fortierq/ENTPE/blob/master/lp/roulement_billes.ipynb), [simplexe à 2 phases](/assets/teaching/ENTPE/simplexe_2_phases.html)"
 ---
 
+## [Informatique en MPI](https://mpi-lamartin.github.io/mpi-info)
+
 ## [Option informatique en MP](https://mp-info.github.io)
 
 ## Informatique commune en CPGE (MPSI, PCSI, PTSI)
