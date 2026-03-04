@@ -1,0 +1,754 @@
+User: Je veux que mes fichiers .tex soient automatiquement corrigés (orthographe, syntaxe, cohérence...) par l'IA. Quelle est la meilleure façon (Git hook, github action?)? L'implémenter. 
+
+GitHub Copilot: Je vais mettre en place une solution hybride: correction IA en local via hook Git (retour immédiat) + vérification automatique en GitHub Action (garantie côté dépôt). Je commence par analyser le dépôt exos-src pour voir l’outillage existant (`Makefile`, scripts, CI) puis j’implémente la version la plus robuste avec configuration simple.
+
+Read [](file:///workspaces/exos-src)
+
+Read [](file:///workspaces/exos-src/pyproject.toml)
+
+Searched for files matching `**//workspaces/exos-src/.github/workflows/*`, no matches
+
+J’ai confirmé que exos-src n’a pas encore de workflow CI dédié à la correction `.tex`. Je vais maintenant inspecter le `Makefile` et ajouter un script de correction IA réutilisable par hook + GitHub Action.
+
+Read [](file:///workspaces/exos-src/.github)
+
+Read [](file:///workspaces/exos-src/.github/workflows)
+
+Read [](file:///workspaces/exos-src/Makefile)
+
+Read [](file:///workspaces/exos-src/to_db)
+
+Read [](file:///workspaces/exos-src/.github/workflows/push.yml)
+
+Created 6 todos
+
+J’ai le contexte nécessaire; je pars sur une implémentation concrète en 4 briques: 1) script Python de correction IA des `.tex`, 2) hook `pre-commit` qui corrige automatiquement les fichiers `.tex` stagés, 3) workflow GitHub qui vérifie qu’aucune correction IA n’est manquante, 4) courte doc d’installation (`OPENAI_API_KEY`, activation des hooks).  
+Je vais maintenant créer ces fichiers et brancher des cibles `make` pour que l’activation soit simple côté local.
+
+Generating patch (16 lines) in [](file:///workspaces/exos-src/Makefile)
+
+
+```
+
+```
+
+
+Generating patch (196 lines) in [](file:///workspaces/exos-src/scripts/ai_tex_correct.py)
+
+
+```
+
+```
+
+
+Generating patch (22 lines) in [](file:///workspaces/exos-src/.githooks/pre-commit)
+
+
+```
+
+```
+Les fichiers principaux sont créés (script + hook). Je vais maintenant ajouter la GitHub Action de contrôle, puis une doc courte d’usage pour l’activer proprement sur votre machine et en CI.
+
+Generating patch (67 lines) in [](file:///workspaces/exos-src/.github/workflows/ai-tex-check.yml)
+
+
+```
+
+```
+
+
+Generating patch (44 lines) in [](file:///workspaces/exos-src/AI_TEX_CORRECTION.md)
+
+
+```
+
+```
+
+
+Starting: *Valider fonctionnement local* (6/6)
+
+Je passe à la validation: je vérifie la syntaxe du script Python, les erreurs éventuelles dans les nouveaux fichiers, puis j’active les permissions d’exécution du hook/script pour que ce soit immédiatement utilisable.
+
+Ran terminal command:  cd /workspaces/exos-src && python3 -m py_compile scripts/ai_tex_correct.py
+
+Checked [](file:///workspaces/exos-src/scripts/ai_tex_correct.py), [](file:///workspaces/exos-src/.github/workflows/ai-tex-check.yml), [](file:///workspaces/exos-src/Makefile), [](file:///workspaces/exos-src/.githooks/pre-commit), no problems found
+
+Ran terminal command:  cd /workspaces/exos-src && chmod +x .githooks/pre-commit scripts/ai_tex_correct.py
+
+Read changed files in [](file:///workspaces/exos-src)
+
+Read [](file:///workspaces/exos-src/.gitignore)
+
+J’ai repéré deux ajustements importants avant de finaliser: corriger la regex du hook (elle était trop échappée) et nettoyer le fichier `pyc` généré pendant la validation. J’applique aussi une petite amélioration du calcul du commit de base dans la GitHub Action.
+
+Generating patch (6 lines) in [](file:///workspaces/exos-src/.githooks/pre-commit)
+
+
+```
+
+```
+
+
+Generating patch (10 lines) in [](file:///workspaces/exos-src/.gitignore)
+
+
+```
+
+```
+
+
+Generating patch (21 lines) in [](file:///workspaces/exos-src/.github/workflows/ai-tex-check.yml)
+
+
+```
+
+```
+
+
+Generating patch (3 lines) in [](file:///workspaces/exos-src/scripts/__pycache__/ai_tex_correct.cpython-311.pyc)
+
+Read [](file:///workspaces/exos-src/scripts)
+
+Read [](file:///workspaces/exos-src/scripts/__pycache__)
+
+Je supprime maintenant le cache Python généré localement pour garder le diff propre et éviter qu’un binaire parasite soit pris en compte.
+
+Ran terminal command:  cd /workspaces/exos-src && rm -rf scripts/__pycache__
+
+Ran terminal command:  cd /workspaces/exos-src && python3 scripts/ai_tex_correct.py --help | head -n 20
+
+Checked [](file:///workspaces/exos-src/scripts/ai_tex_correct.py), [](file:///workspaces/exos-src/.githooks/pre-commit), [](file:///workspaces/exos-src/.github/workflows/ai-tex-check.yml), [](file:///workspaces/exos-src/.gitignore), [](file:///workspaces/exos-src/Makefile), no problems found
+
+Read changed files in [](file:///workspaces/exos-src)
+
+Completed: *Valider fonctionnement local* (6/6)
+
+**Implémentation faite (approche recommandée : hybride)**  
+- Local rapide: hook Git `pre-commit` qui corrige automatiquement les `.tex` stagés.  
+- CI robuste: GitHub Action qui vérifie qu’aucun `.tex` modifié n’a de correction IA manquante.
+
+**Fichiers ajoutés/modifiés**  
+- Script IA: scripts/ai_tex_correct.py  
+- Hook: .githooks/pre-commit  
+- Workflow CI: .github/workflows/ai-tex-check.yml  
+- Cibles Make: Makefile  
+- Doc d’usage: AI_TEX_CORRECTION.md  
+- Ignore cache Python: .gitignore
+
+**Activation**  
+- En local: `export OPENAI_API_KEY="..." && make install-hooks`  
+- Sur GitHub: ajouter le secret `OPENAI_API_KEY` (et optionnellement la variable `OPENAI_MODEL`).
+
+**Validation**  
+- Syntaxe Python + vérif erreurs OK.  
+- Le workflow échoue volontairement si des `.tex` changés nécessitent encore des corrections IA.
+
+Si vous voulez, je peux aussi ajouter un mode “limiter les corrections aux seuls blocs de texte” (pour minimiser tout risque de retouche des formules).
+
+Made changes.
+
+User: Je veux que mes fichiers .tex soient automatiquement corrigés (orthographe, syntaxe, cohérence...) pour cours-src, en utilisant Github Models. Quelle est la meilleure façon (Git hook, et/ou github action?)? L'implémenter. 
+
+GitHub Copilot: Je vais l’implémenter directement dans cours-src avec une stratégie hybride (hook local + GitHub Action) mais en passant par **GitHub Models** plutôt que l’API OpenAI. Je commence par lire l’existant (Makefile, workflows, scripts, .gitignore) pour intégrer proprement sans casser votre setup actuel.
+
+Read [](file:///workspaces/cours-src)
+
+Read [](file:///workspaces/cours-src/.github)
+
+Read [](file:///workspaces/cours-src/.github/workflows)
+
+Read [](file:///workspaces/cours-src/Makefile)
+
+Read [](file:///workspaces/cours-src/.github/workflows/main.yml)
+
+Read [](file:///workspaces/cours-src/.gitignore)
+
+Read [](file:///workspaces/cours-src/scripts)
+
+Created 6 todos
+
+J’ai la structure: il n’y a aujourd’hui qu’un workflow `push` générique et aucun mécanisme de correction `.tex`. Je vais maintenant ajouter un script Python basé sur l’API GitHub Models, puis le brancher en hook Git local et en GitHub Action de contrôle.
+
+Generating patch (21 lines) in [](file:///workspaces/cours-src/Makefile)
+
+
+```
+
+```
+
+
+Generating patch (197 lines) in [](file:///workspaces/cours-src/scripts/ai_tex_correct_github_models.py)
+
+
+```
+
+```
+
+
+Generating patch (27 lines) in [](file:///workspaces/cours-src/.githooks/pre-commit)
+
+
+```
+
+```
+
+
+Generating patch (64 lines) in [](file:///workspaces/cours-src/.github/workflows/ai-tex-check.yml)
+
+
+```
+
+```
+Le cœur est en place (script + hook + workflow CI). Je termine en ajoutant une doc d’usage, puis je valide la syntaxe et les erreurs pour vous laisser une implémentation prête à utiliser.
+
+Generating patch (49 lines) in [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md)
+
+
+```
+
+```
+
+
+Generating patch (10 lines) in [](file:///workspaces/cours-src/.gitignore)
+
+
+```
+
+```
+
+
+Starting: *Valider syntaxe et intégration* (6/6)
+
+Ran terminal command:  cd /workspaces/cours-src && python3 -m py_compile scripts/ai_tex_correct_github_models.py
+
+Ran terminal command:  cd /workspaces/cours-src && python3 scripts/ai_tex_correct_github_models.py --help | head -n 30
+
+Checked [](file:///workspaces/cours-src/scripts/ai_tex_correct_github_models.py), [](file:///workspaces/cours-src/.githooks/pre-commit), [](file:///workspaces/cours-src/.github/workflows/ai-tex-check.yml), [](file:///workspaces/cours-src/Makefile), [](file:///workspaces/cours-src/.gitignore), no problems found
+
+Read changed files in [](file:///workspaces/cours-src)
+
+Ran terminal command:  cd /workspaces/cours-src && chmod +x .githooks/pre-commit scripts/ai_tex_correct_github_models.py
+
+Completed: *Valider syntaxe et intégration* (6/6)
+
+**Choix recommandé**
+- Le mieux pour cours-src est bien une approche hybride : hook local + GitHub Action.
+- Hook local = correction immédiate avant commit ; Action = garde-fou serveur sur chaque push.
+
+**Implémenté**
+- Script GitHub Models : scripts/ai_tex_correct_github_models.py
+- Hook pre-commit : .githooks/pre-commit
+- Workflow CI : .github/workflows/ai-tex-check.yml
+- Cibles Make : Makefile
+- Doc d’usage : AI_TEX_CORRECTION.md
+- Ignore cache Python : .gitignore
+
+**Activation**
+- Local : make install-hooks
+- Auth locale GitHub Models : GITHUB_MODELS_TOKEN, ou GITHUB_TOKEN, ou gh auth login
+- CI : le workflow utilise secrets.GITHUB_TOKEN avec permission models: read
+
+Note: votre dépôt avait déjà des changements non liés (ex. logique/deduction/td/td_deduction.tex); je ne les ai pas modifiés dans cette implémentation. Je peux aussi ajouter un mode plus conservateur qui ne corrige que le texte hors maths/environnements sensibles.
+
+Made changes.
+
+User: Utiliser fichier séparé pour les prompt files. L'action github doit effectuer une pull request.
+
+GitHub Copilot: Je vais transformer le workflow en mode **auto-correction + création de PR**, et externaliser les prompts dans des fichiers dédiés lus par le script. Je lis d’abord l’état actuel du script et du workflow pour patcher exactement ce qui a été modifié.
+
+Read [](file:///workspaces/cours-src/scripts/ai_tex_correct_github_models.py)
+
+Read [](file:///workspaces/cours-src/.github/workflows/ai-tex-check.yml)
+
+Read [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md)
+
+Read [](file:///workspaces/cours-src)
+
+Je vais maintenant appliquer trois changements ciblés : prompts externalisés dans des fichiers dédiés, script adapté pour les charger, et workflow transformé en “autofix + PR” (au lieu d’un simple check). Ensuite je valide la syntaxe.
+
+Generating patch (136 lines) in [](file:///workspaces/cours-src/scripts/ai_tex_correct_github_models.py)
+
+
+```
+
+```
+
+
+Read [](file:///workspaces/cours-src/scripts/ai_tex_correct_github_models.py)
+
+Generating patch (16 lines) in [](file:///workspaces/cours-src/scripts/ai_tex_correct_github_models.py)
+
+
+```
+
+```
+
+
+Created [](file:///workspaces/cours-src/prompts)
+
+Created [](file:///workspaces/cours-src/prompts/tex_system.prompt.txt)
+
+Created [](file:///workspaces/cours-src/prompts/tex_user.prompt.txt)
+
+Je viens d’externaliser les prompts et de corriger le script pour les charger proprement. J’attaque maintenant la conversion du workflow en mode auto-fix qui ouvre une Pull Request avec les corrections générées.
+
+Generating patch (63 lines) in [](file:///workspaces/cours-src/.github/workflows/ai-tex-check.yml)
+
+
+```
+
+```
+
+
+Generating patch (34 lines) in [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md)
+
+
+```
+
+```
+
+
+Ran terminal command:  cd /workspaces/cours-src && python3 -m py_compile scripts/ai_tex_correct_github_models.py
+
+Checked [](file:///workspaces/cours-src/scripts/ai_tex_correct_github_models.py), [](file:///workspaces/cours-src/.github/workflows/ai-tex-check.yml), [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md), [](file:///workspaces/cours-src/prompts/tex_system.prompt.txt), [](file:///workspaces/cours-src/prompts/tex_user.prompt.txt), no problems found
+
+Read changed files in [](file:///workspaces/cours-src)
+
+Ran terminal command:  cd /workspaces/cours-src && python3 scripts/ai_tex_correct_github_models.py --help | head -n 40
+
+**Fait**
+- Prompts externalisés dans prompts/tex_system.prompt.txt et prompts/tex_user.prompt.txt.
+- Script mis à jour pour charger ces fichiers (avec options `--system-prompt-file` / `--user-prompt-file`) : scripts/ai_tex_correct_github_models.py.
+- Workflow converti en **autofix + création de PR** (plus seulement check) : .github/workflows/ai-tex-check.yml.
+
+**Comportement du workflow**
+- Sur push sur `main` avec des `.tex` modifiés, il applique la correction IA puis crée/met à jour une PR via `peter-evans/create-pull-request` (branche `bot/ai-tex-autofix`).
+
+**Doc mise à jour**
+- J’ai documenté prompts séparés + PR automatique dans AI_TEX_CORRECTION.md.
+
+**Validation**
+- Script compilé OK et CLI vérifiée (les options prompt-file apparaissent).
+- Le `make tex-check` qui échoue en `2` reste normal si token GitHub Models absent localement.
+
+Si vous voulez, je peux aussi renommer le workflow/fichier en ai-tex-autofix-pr.yml pour que le nom reflète exactement son nouveau rôle.
+
+Made changes.
+
+User: Enlever le hook. Ajouter la possibilité d'exécuter le workflow en local. Modifier le devcontainer accordingly
+
+GitHub Copilot: Je vais retirer complètement l’intégration hook, puis ajouter une exécution locale du workflow (même logique que GitHub Actions) et mettre à jour le devcontainer pour inclure les outils nécessaires. Je commence par lire les fichiers Makefile, `.githooks`, `.devcontainer` et la doc pour patcher proprement.
+
+Read [](file:///workspaces/cours-src/Makefile)
+
+Read [](file:///workspaces/cours-src/.githooks)
+
+Read [](file:///workspaces/cours-src/.devcontainer)
+
+Read [](file:///workspaces/cours-src/.github/workflows/ai-tex-check.yml)
+
+Read [](file:///workspaces/cours-src/.devcontainer/devcontainer.json)
+
+Read [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md)
+
+Read [](file:///workspaces/cours-src/scripts)
+
+J’applique maintenant les changements fonctionnels : suppression du hook, ajout d’un script qui exécute le workflow localement (avec option de création de PR), puis ajustement du devcontainer pour supporter cette exécution locale.
+
+Generating patch (23 lines) in [](file:///workspaces/cours-src/Makefile)
+
+
+```
+
+```
+
+
+Generating patch (83 lines) in [](file:///workspaces/cours-src/scripts/run_ai_tex_workflow_local.sh)
+
+
+```
+
+```
+
+
+Generating patch (3 lines) in [](file:///workspaces/cours-src/.githooks/pre-commit)
+
+Generating patch (42 lines) in [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md)
+
+
+```
+
+```
+Je termine en ajustant le devcontainer pour que l’exécution locale soit prête (installation de `gh` + `act`, et scripts exécutables), puis je valide rapidement les erreurs/syntaxe.
+
+Generating patch (18 lines) in [](file:///workspaces/cours-src/.devcontainer/devcontainer.json)
+
+
+```
+
+```
+
+
+Made changes.
+
+User: utiliser plutôt gh cli pour local
+
+GitHub Copilot: Je bascule l’exécution locale vers `gh` CLI (au lieu de `act`), puis j’ajuste le script/Makefile/devcontainer et la doc pour que ce soit cohérent de bout en bout. Je vérifie d’abord l’état exact des fichiers avant patch.
+
+Read [](file:///workspaces/cours-src/scripts/run_ai_tex_workflow_local.sh)
+
+Read [](file:///workspaces/cours-src/Makefile)
+
+Read [](file:///workspaces/cours-src/.devcontainer/devcontainer.json)
+
+Read [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md)
+
+Je vais simplifier pour que l’exécution “locale” passe **uniquement par `gh` CLI (dispatch du workflow GitHub + suivi)**, et retirer toute dépendance implicite à `act`/Docker dans le devcontainer. J’applique ça sur le script local, le Makefile, la doc et le devcontainer.
+
+Generating patch (107 lines) in [](file:///workspaces/cours-src/scripts/run_ai_tex_workflow_local.sh)
+
+
+```
+
+```
+
+
+Generating patch (10 lines) in [](file:///workspaces/cours-src/Makefile)
+
+
+```
+
+```
+
+
+Generating patch (25 lines) in [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md)
+
+
+```
+
+```
+
+
+Generating patch (14 lines) in [](file:///workspaces/cours-src/.devcontainer/devcontainer.json)
+
+
+```
+
+```
+Je vérifie rapidement que tout est cohérent (shell script, erreurs, diff) après le passage à `gh` CLI uniquement.
+
+Ran terminal command:  cd /workspaces/cours-src && bash -n scripts/run_ai_tex_workflow_local.sh
+
+Checked [](file:///workspaces/cours-src/scripts/run_ai_tex_workflow_local.sh), [](file:///workspaces/cours-src/.devcontainer/devcontainer.json), [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md), [](file:///workspaces/cours-src/Makefile), no problems found
+
+Read changed files in [](file:///workspaces/cours-src)
+
+C’est fait, passage en mode gh CLI pour le “local”.
+
+**Changements appliqués**
+- Exécution locale via gh workflow dispatch (plus de logique de correction/PR dans le script local) :
+  - scripts/run_ai_tex_workflow_local.sh
+- Cibles Make ajustées pour utiliser ce script :
+  - Makefile
+- Devcontainer aligné gh CLI (suppression de la dépendance act/docker feature ajoutée précédemment) :
+  - .devcontainer/devcontainer.json
+- Documentation mise à jour :
+  - AI_TEX_CORRECTION.md
+
+**Comportement local maintenant**
+- make workflow-local  
+  → lance gh workflow run sur .github/workflows/ai-tex-check.yml puis suit l’exécution.
+- make workflow-local-pr  
+  → alias (même comportement, la PR est créée par le workflow GitHub).
+
+**Pré-requis**
+- gh installé dans le devcontainer et authentifié (gh auth login).
+
+Si tu veux, je peux aussi renommer la cible workflow-local-pr en workflow-dispatch pour éviter l’ambiguïté.
+
+Made changes.
+
+User: install gh cli
+
+GitHub Copilot: Je vais installer `gh` directement dans ce container, puis vérifier la version pour confirmer que c’est opérationnel.
+
+Ran terminal command:  whoami && id -u && command -v gh || true
+
+Je vais tenter une installation via `apt` avec `sudo` (méthode standard Debian) puis je contrôle immédiatement avec `gh --version`.
+
+Ran terminal command:  sudo apt-get update && sudo apt-get install -y gh && gh --version
+Completed with input:  sudo apt-get update && sudo apt-get install -y gh && gh --version
+
+`apt` est cassé dans ce container (sources Debian non synchronisées/clefs manquantes), donc je passe à une installation fiable sans root: binaire officiel `gh` dans `~/.local/bin`.
+
+Ran terminal command:  set -e
+LATEST_URL=$(curl -fsSLI -o /dev/null -w '%{url_effective}' https://github.com/cli/cli/releases/latest)
+VERSION=${LATEST_URL##*/}
+VERSION=${VERSION#v}
+ARCHIVE="gh_${VERSION}_linux_amd64.tar.gz"
+TMPDIR=$(mktemp -d)
+cd "$TMPDIR"
+curl -fsSLO "https://github.com/cli/cli/releases/download/v${VERSION}/${ARCHIVE}"
+tar -xzf "$ARCHIVE"
+mkdir -p "$HOME/.local/bin"
+install "gh_${VERSION}_linux_amd64/bin/gh" "$HOME/.local/bin/gh"
+"$HOME/.local/bin/gh" --version
+
+Ran terminal command:  ls -l "$HOME/.local/bin/gh" && "$HOME/.local/bin/gh" --version && echo "$PATH" && command -v gh || true
+
+`gh` est bien installé, mais `~/.local/bin` n’est pas dans le `PATH` actuel. J’ajoute le `PATH` à votre configuration shell pour que `gh` soit disponible directement dans les prochains terminaux.
+
+Ran terminal command:  grep -q 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.bashrc" || echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+export PATH="$HOME/.local/bin:$PATH"
+command -v gh
+gh --version | head -n 1
+
+Ran terminal command:  command -v gh && gh --version | head -n 1
+
+`gh` est installé et fonctionnel.
+
+- Installation faite via le binaire officiel (car `apt` est cassé dans ce container avec erreurs de clés/référentiel).
+- Version installée: `gh version 2.87.3 (2026-02-23)`.
+- Binaire: gh.
+- J’ai ajouté `~/.local/bin` au `PATH` utilisateur pour les prochaines sessions shell.
+
+Vérification OK avec `command -v gh` et `gh --version`.  
+Prochaine étape si besoin: `gh auth login`.
+
+User: use act instead of gh, modify devcontainer accordingly
+
+GitHub Copilot: Je bascule l’exécution locale vers `act` (et non `gh`), puis j’aligne le Makefile, le script local, la doc et le devcontainer pour installer/configurer `act` correctement. Je lis d’abord l’état actuel des fichiers pour patcher sans régression.
+
+Read [](file:///workspaces/cours-src/Makefile)
+
+Read [](file:///workspaces/cours-src/scripts/run_ai_tex_workflow_local.sh)
+
+Read [](file:///workspaces/cours-src/.devcontainer/devcontainer.json)
+
+Read [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md)
+
+Je vais implémenter un vrai runner local `act` avec deux modes (sans PR / avec PR), et ajuster le workflow pour pouvoir désactiver la création de PR en local par défaut. Ensuite j’aligne le devcontainer pour installer `act` + support Docker, et je mets la doc à jour.
+
+Using "Apply Patch"
+
+User: utiliser taskfile
+
+GitHub Copilot: Je vais remplacer les commandes Make par un `Taskfile.yml` (Task) pour piloter `tex-check`, `tex-fix` et l’exécution locale via `act`, puis je documente l’usage et je garde la compatibilité minimale si besoin. Je vérifie d’abord s’il y a déjà un `Taskfile` et les scripts actuels avant d’éditer.
+
+Searched for files matching `**/Taskfile.yml`, no matches
+
+Searched for files matching `**/Taskfile.yaml`, no matches
+
+Read [](file:///workspaces/cours-src/scripts/run_ai_tex_workflow_local.sh)
+
+Read [](file:///workspaces/cours-src/Makefile)
+
+Je vais faire le basculement complet vers `Taskfile` : création de `Taskfile.yml`, script local passé à `act`, et devcontainer mis à jour pour installer `task` + `act` automatiquement. Ensuite je mets à jour la doc avec les nouvelles commandes.
+
+Generating patch (70 lines) in [](file:///workspaces/cours-src/scripts/run_ai_tex_workflow_local.sh)
+
+
+```
+
+```
+
+
+Created [](file:///workspaces/cours-src/Taskfile.yml)
+
+Generating patch (17 lines) in [](file:///workspaces/cours-src/.devcontainer/devcontainer.json)
+
+
+```
+
+```
+Je mets maintenant la doc à jour pour refléter `task` + `act`, puis je fais une validation syntaxique rapide (`bash -n`, `task --list` si dispo) et je te laisse les commandes exactes.
+
+Generating patch (50 lines) in [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md)
+
+
+```
+
+```
+
+
+Ran terminal command:  cd /workspaces/cours-src && bash -n scripts/run_ai_tex_workflow_local.sh
+
+Ran terminal command:  cd /workspaces/cours-src && (task --list >/tmp/task_list.txt 2>/tmp/task_err.txt || true) && (cat /tmp/task_list.txt || true) && (cat /tmp/task_err.txt || true)
+
+Checked [](file:///workspaces/cours-src/Taskfile.yml), [](file:///workspaces/cours-src/scripts/run_ai_tex_workflow_local.sh), [](file:///workspaces/cours-src/.devcontainer/devcontainer.json), [](file:///workspaces/cours-src/AI_TEX_CORRECTION.md), no problems found
+
+Read changed files in [](file:///workspaces/cours-src)
+
+Je vais finaliser en installant `task` (et `act` si manquant) dans la session actuelle pour que `task workflow:local` fonctionne tout de suite, sans attendre une reconstruction du devcontainer.
+
+Ran terminal command:  set -e
+mkdir -p "$HOME/.local/bin"
+grep -q 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.bashrc" || echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+export PATH="$HOME/.local/bin:$PATH"
+if ! command -v task >/dev/null 2>&1; then
+  sh -c "$(curl -sSL https://taskfile.dev/install.sh)" -- -d -b "$HOME/.local/bin"
+fi
+if ! command -v act >/dev/null 2>&1; then
+  curl -s https://raw.githubusercontent.com/nektos/act/master/install.sh | bash -s -- -b "$HOME/.local/bin"
+fi
+command -v task && task --version
+command -v act && act --version | head -n 1
+
+Ran terminal command:  export PATH="$HOME/.local/bin:$PATH" && command -v task && task --version && command -v act && act --version | head -n 1
+
+Ran terminal command:  cd /workspaces/cours-src && export PATH="$HOME/.local/bin:$PATH" && task --list
+
+Fait, c’est basculé sur Taskfile + act.
+
+- Ajout de Taskfile.yml avec les tâches `tex:fix`, `tex:check`, `workflow:local`, `workflow:local:push`.
+- Runner local changé pour utiliser `act` (plus `gh`) : scripts/run_ai_tex_workflow_local.sh.
+- Devcontainer aligné pour `act` + `task` : .devcontainer/devcontainer.json.
+- Doc mise à jour pour l’usage Taskfile : AI_TEX_CORRECTION.md.
+
+J’ai aussi installé les binaires dans la session courante et validé:
+- `task 3.48.0`
+- `act 0.2.84`
+- `task --list` affiche bien les tâches.
+
+Pour lancer: `export GITHUB_TOKEN=... && task workflow:local` (Docker doit être disponible dans le container).
+
+Made changes.
+
+User: Error: "Request body too large for gpt-5-mini model. Max size: 4000 tokens" Maybe the code be split before prompt?
+
+GitHub Copilot: Oui, c’est exactement la bonne piste: il faut découper les `.tex` avant l’appel modèle. Je vais modifier le script pour corriger par chunks (avec estimation de tokens), puis valider avec un test local sur un gros fichier.
+
+Read [](file:///workspaces/cours-src/scripts/ai_tex_correct_github_models.py)
+
+J’ai identifié la cause dans le script: il envoie le fichier complet en une seule requête. Je vais ajouter un découpage automatique en chunks (basé sur taille estimée en tokens) avant appel au modèle, avec option de réglage.
+
+Generating patch (135 lines) in [](file:///workspaces/cours-src/scripts/ai_tex_correct_github_models.py)
+
+
+```
+
+```
+
+
+Ran terminal command:  cd /workspaces/cours-src && python3 -m py_compile scripts/ai_tex_correct_github_models.py && python3 scripts/ai_tex_correct_github_models.py --help | head -n 40
+
+Checked [](file:///workspaces/cours-src/scripts/ai_tex_correct_github_models.py), no problems found
+
+Le découpage est en place et validé (syntaxe + nouvelle option CLI). Je fais un dernier check du diff pour te donner la commande exacte à relancer avec un chunk plus petit si besoin.
+
+Read changed files in [](file:///workspaces/cours-src)
+
+Oui, exactement: il fallait découper avant l’appel modèle, et c’est maintenant implémenté.
+
+**Ce que j’ai changé**
+- Ajout d’un découpage automatique par chunks dans scripts/ai_tex_correct_github_models.py.
+- Le script estime la taille (tokens approximatifs), split le contenu TeX, puis corrige chunk par chunk.
+- Nouvelle option CLI --max-chunk-tokens (défaut 1800), plus variable d’env GITHUB_MODELS_MAX_CHUNK_TOKENS.
+- Le flux de correction de fichier utilise maintenant ce mode chunké (plus d’envoi du fichier complet).
+
+**Utilisation**
+- Test manuel: python3 ai_tex_correct_github_models.py --mode check --max-chunk-tokens 1200 chemin/vers/fichier.tex
+- Via Task (staged): task tex:check ou task tex:fix
+- Si tu vois encore une erreur limite, baisse à 1000 puis 800.
+
+**Note**
+- J’ai aussi validé la syntaxe du script après patch (compilation Python OK).
+
+Made changes.
+
+User: install docker in docker
+
+GitHub Copilot: Je vais vérifier d’abord l’état réel (droits, présence de Docker, config devcontainer), puis soit l’installer immédiatement si possible, soit finaliser une config `docker-in-docker` qui s’active au rebuild du container.
+
+Ran terminal command:  whoami && id -u && command -v docker || true && docker --version || true
+
+Read [](file:///workspaces/cours-src/.devcontainer/devcontainer.json)
+
+La config contient déjà une feature Docker, mais c’est `docker-outside-of-docker`; je la bascule en vrai `docker-in-docker` pour correspondre exactement à ta demande, puis je te donne l’action finale à faire (rebuild).
+
+Generating patch (9 lines) in [](file:///workspaces/cours-src/.devcontainer/devcontainer.json)
+
+
+```
+
+```
+
+
+Checked [](file:///workspaces/cours-src/.devcontainer/devcontainer.json), 1 problem found
+
+Generating patch (8 lines) in [](file:///workspaces/cours-src/.devcontainer/devcontainer.json)
+
+
+```
+
+```
+
+
+Checked [](file:///workspaces/cours-src/.devcontainer/devcontainer.json), no problems found
+
+Ran terminal command:  command -v docker || true
+
+C’est configuré en **docker-in-docker**.
+
+- J’ai remplacé la feature dans [ devcontainer.json ](.devcontainer/devcontainer.json) :
+  - `ghcr.io/devcontainers/features/docker-outside-of-docker:1`
+  - → `ghcr.io/devcontainers/features/docker-in-docker:2`
+- J’ai aussi corrigé la syntaxe JSON du fichier (virgule finale).
+
+État actuel:
+- `docker` n’est pas encore présent dans la session en cours, ce qui est normal tant que le container n’est pas reconstruit.
+
+Étape à faire maintenant:
+- **Rebuild/Reopen in Container** dans VS Code.
+- Puis vérifier avec `docker --version` et `docker ps`.
+
+Si tu veux, je peux ensuite adapter scripts/run_ai_tex_workflow_local.sh pour afficher un diagnostic Docker plus détaillé quand `task workflow:local` échoue.
+
+Made changes.
+
+User: fix
+
+GitHub Copilot: Je vais corriger ce qui bloque réellement l’exécution locale (`task workflow:local`) : je récupère d’abord l’erreur exacte et l’état des scripts/configs, puis j’applique un patch ciblé pour que ça marche sans ambiguïté.
+
+Read [](file:///workspaces/cours-src/scripts/run_ai_tex_workflow_local.sh)
+
+Read [](file:///workspaces/cours-src/Taskfile.yml)
+
+Read [](file:///workspaces/cours-src/.devcontainer/devcontainer.json)
+
+Ran terminal command:  cd /workspaces/cours-src && export PATH="$HOME/.local/bin:$PATH" && task workflow:local
+
+J’ai déjà repéré une incohérence dans le devcontainer (`postStartCommand` fait `cd /workspaces/scripts` sans clone correspondant), et je vais confirmer l’erreur runtime de `task workflow:local` pour corriger proprement les deux points.
+
+Ran terminal command:  cd /workspaces/cours-src && export PATH="$HOME/.local/bin:$PATH" && task workflow:local
+Completed with input:  cd /workspaces/cours-src && export PATH="$HOME/.local/bin:$PATH" && task workflow:local
+
+Generating patch (16 lines) in [](file:///workspaces/cours-src/scripts/run_ai_tex_workflow_local.sh)
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+Made changes.
+
+User: fix errors and coherency 
+
+GitHub Copilot: Je vais corriger directement la section sélectionnée de `td_deduction.tex` (erreurs de forme, notations incohérentes et étapes de preuve ambiguës), puis je ferai une passe de vérification rapide pour m’assurer que tout est homogène.
+
+Read [](file:///workspaces/cours-src/logique/deduction/td/td_deduction.tex)
+
+Je corrige maintenant la zone de solution pour rendre les notations homogènes (même valuation, mêmes lettres de formules) et réparer les formules logiques mal formées dans la partie complétude.
+
+Generating patch (103 lines) in [](file:///workspaces/cours-src/logique/deduction/td/td_deduction.tex)
+
+
+```
+
+```
+
+
+Made changes.
