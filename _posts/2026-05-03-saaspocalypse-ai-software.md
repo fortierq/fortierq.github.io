@@ -1,8 +1,9 @@
 ---
-title: "SaaSpocalypse : is AI killing software companies and developers ?"
+title: "SaaSpocalypse: is AI killing software companies and developers ?"
 tags:
     - ai
     - stock
+    - software
     - programming
 toc: true
 toc_sticky: true
