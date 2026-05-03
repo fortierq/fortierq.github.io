@@ -31,7 +31,7 @@ header:
 
 <center><img src="/assets/images/2026-05-03-software-companies/harvard-junior-senior.png" width="80%"/></center>
 
-## [Stack Overflow: Developer Survey 2026](https://stackoverflow.blog/2026/02/09/why-demand-for-code-is-infinite-how-ai-creates-more-developer-jobs/)
+## [Stack Overflow: Why demand for code is infinite: How AI creates more developer jobs](https://stackoverflow.blog/2026/02/09/why-demand-for-code-is-infinite-how-ai-creates-more-developer-jobs/)
 
 > Not only is there a future for software development, but we’re on the cusp of enormous demand for code developed by humans.
 
