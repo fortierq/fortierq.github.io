@@ -1,5 +1,5 @@
 ---
-title: "SaaSpocalypse: is AI killing software companies and developers ?"
+title: "SaaSpocalypse: Is AI Killing Software Companies and Developers?"
 tags:
     - ai
     - stock
@@ -59,10 +59,10 @@ header:
 ## [Bloomberg: Private Credit Has an AI Software Problem](https://www.bloomberg.com/opinion/articles/2026-03-26/private-credit-has-an-ai-default-recovery-problem)
 <center><img src="/assets/images/2026-05-03-software-companies/bloomberg-pe2.png" width="80%"/></center>
 
-## Bloomberg: Software make up nearly Half of Private Equity Deals
+## Bloomberg: Software Make Up Nearly Half of Private Equity Deals
 
 <center><img src="/assets/images/2026-05-03-software-companies/bloomberg-pe.jpeg" width="80%"/></center>
 
-## [S&P Global: Software debt sell-off signals cyclical turn for private equity and credit](https://www.spglobal.com/market-intelligence/en/news-insights/articles/2026/3/software-debt-sell-off-signals-cyclical-turn-for-private-equity-and-credit-99811235)
+## [S&P Global: Software Debt Sell-Off Signals Cyclical Turn for Private Equity and Credit](https://www.spglobal.com/market-intelligence/en/news-insights/articles/2026/3/software-debt-sell-off-signals-cyclical-turn-for-private-equity-and-credit-99811235)
 
 <center><img src="/assets/images/2026-05-03-software-companies/spgi-debt.png" width="80%"/></center>
