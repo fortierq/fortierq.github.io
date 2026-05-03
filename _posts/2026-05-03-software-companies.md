@@ -1,0 +1,67 @@
+---
+title: "SaaSpocalypse : is AI killing software companies and developers ?"
+tags:
+    - ai
+    - stock
+    - programming
+toc: true
+toc_sticky: true
+header:
+  teaser: /assets/images/2026-05-03-software-companies/yardeni-indeed.png
+  og_image: /assets/images/2026-05-03-software-companies/yardeni-indeed.png
+---
+
+- AI is creating more software jobs, not less.
+- However, jobs are shifting from junior to senior positions.
+- Stock market fears software companies are going to be disrupted by AI, giving them lower valuations.
+- However, software companies are still growing and profitable for now.
+
+# Job
+
+## [Citadel: Job Postings For Software Engineers Are Rapidly Rising](https://www.citadelsecurities.com/news-and-insights/2026-global-intelligence-crisis)
+
+<center><img src="/assets/images/2026-05-03-software-companies/citadel-job-posting.png" width="80%"/></center>
+
+## [Yardeni: Information Technology: Creative Destruction on Speed](https://www.yardeniquicktakes.com/information-technology-creative-destruction-on-speed)
+
+<center><img src="/assets/images/2026-05-03-software-companies/yardeni-indeed.png" width="80%"/></center>
+
+## [Harvard: Résumé and Job Posting Data](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555)
+
+<center><img src="/assets/images/2026-05-03-software-companies/harvard-junior-senior.png" width="80%"/></center>
+
+## [Stack Overflow: Developer Survey 2026](https://stackoverflow.blog/2026/02/09/why-demand-for-code-is-infinite-how-ai-creates-more-developer-jobs/)
+
+> Not only is there a future for software development, but we’re on the cusp of enormous demand for code developed by humans.
+
+# Valorisation
+
+## [Yardeni: Information Technology: Creative Destruction on Speed](https://www.yardeniquicktakes.com/information-technology-creative-destruction-on-speed)
+
+<center><img src="/assets/images/2026-05-03-software-companies/yardeni-tech-sectors.png" width="80%"/></center>
+
+<center><img src="/assets/images/2026-05-03-software-companies/yardeni-software-fwd-pe.png" width="80%"/></center>
+
+<center><img src="/assets/images/2026-05-03-software-companies/yardeni-investment.png" width="80%"/></center>
+
+## [IGV (software ETF)](https://www.ishares.com/us/products/239771/ishares-north-american-techsoftware-etf) vs S&P500 vs [SOXX (semiconductor ETF)](https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf)
+
+<center><img src="/assets/images/2026-05-03-software-companies/igv-soxx.png" width="80%"/></center>
+
+## Example: ServiceNow
+
+<center><img src="/assets/images/2026-05-03-software-companies/now.jpeg" width="80%"/></center>
+<br>
+
+# Private Credit & Equity
+
+## [Bloomberg: Private Credit Has an AI Software Problem](https://www.bloomberg.com/opinion/articles/2026-03-26/private-credit-has-an-ai-default-recovery-problem)
+<center><img src="/assets/images/2026-05-03-software-companies/bloomberg-pe2.png" width="80%"/></center>
+
+## Bloomberg: Software make up nearly Half of Private Equity Deals
+
+<center><img src="/assets/images/2026-05-03-software-companies/bloomberg-pe.jpeg" width="80%"/></center>
+
+## [S&P Global: Software debt sell-off signals cyclical turn for private equity and credit](https://www.spglobal.com/market-intelligence/en/news-insights/articles/2026/3/software-debt-sell-off-signals-cyclical-turn-for-private-equity-and-credit-99811235)
+
+<center><img src="/assets/images/2026-05-03-software-companies/spgi-debt.png" width="80%"/></center>
