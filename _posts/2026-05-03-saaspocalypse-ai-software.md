@@ -12,10 +12,11 @@ header:
   og_image: /assets/images/2026-05-03-software-companies/yardeni-indeed.png
 ---
 
-- AI is creating more software jobs, not less.
-- However, jobs are shifting from junior to senior positions.
-- Stock market fears software companies are going to be disrupted by AI, giving them lower valuations.
-- However, software companies are still growing and profitable for now.
+SaaSpocalypse: is AI killing software companies and developers?
+- Job postings have increased, but shifting from junior to senior positions.
+- Job numbers are overall decreasing since 2023, after big layoffs from companies such as Cloudflare (20%), Meta (10%)...
+- Stock market fears software companies may be disrupted by AI, giving them lower valuations.
+- However, software companies are still growing and profitable.
 
 # Job
 
