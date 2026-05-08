@@ -27,6 +27,10 @@ header:
 
 <center><img src="/assets/images/2026-05-03-software-companies/yardeni-indeed.png" width="80%"/></center>
 
+## [ZeroHedge: US Jobs Jump 115K, Smashing Estimates; Unemployment Rate Unchanged At 4.3%](https://www.zerohedge.com/markets/us-jobs-jump-115k-smashing-estimates-umemployment-rate-unchanged-43)
+
+<center><img src="/assets/images/2026-05-03-software-companies/job-nfp.png" width="80%"/></center>
+
 ## [Harvard: Résumé and Job Posting Data](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555)
 
 <center><img src="/assets/images/2026-05-03-software-companies/harvard-junior-senior.png" width="80%"/></center>
