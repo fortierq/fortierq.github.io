@@ -17,7 +17,7 @@ main:
   # - title: "Links"
   #   url: /links/
   - title: "CV"
-    url: /assets/CV.pdf
+    url: /assets/cv.pdf
 
 sidebar-nb:
   - title: "Optimisation"
