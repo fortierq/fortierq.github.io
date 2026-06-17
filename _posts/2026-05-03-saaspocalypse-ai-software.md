@@ -36,6 +36,8 @@ SaaSpocalypse: is AI killing software companies and developers?
 
 <center><img src="/assets/images/2026-05-03-software-companies/harvard-junior-senior.png" width="80%"/></center>
 
+## [AI vs Gen Z: How AI has changed the career pathway for junior developers](https://stackoverflow.blog/2025/12/26/ai-vs-gen-z)
+
 ## [Stack Overflow: Why demand for code is infinite: How AI creates more developer jobs](https://stackoverflow.blog/2026/02/09/why-demand-for-code-is-infinite-how-ai-creates-more-developer-jobs/)
 
 > Not only is there a future for software development, but we’re on the cusp of enormous demand for code developed by humans.
